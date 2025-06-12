@@ -71,12 +71,14 @@
     <Content Include="AltaPaciente.aspx" />
     <Content Include="BMLMedico.aspx" />
     <Content Include="BMLPaciente.aspx" />
+    <Content Include="Imagenes\UTN-logo.svg" />
     <Content Include="InformesAdministrador.aspx" />
     <Content Include="InicioSesion.aspx" />
     <Content Include="SesionIniciadaAdministrador.aspx" />
     <Content Include="SesionIniciadaMedico.aspx" />
     <Content Include="TurnosAdministrador.aspx" />
     <Content Include="Web.config" />
+    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AltaMedico.aspx.cs">
@@ -88,30 +90,35 @@
     </Compile>
     <Compile Include="AltaPaciente.aspx.cs">
       <DependentUpon>AltaPaciente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AltaPaciente.aspx.designer.cs">
       <DependentUpon>AltaPaciente.aspx</DependentUpon>
     </Compile>
     <Compile Include="BMLMedico.aspx.cs">
       <DependentUpon>BMLMedico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="BMLMedico.aspx.designer.cs">
       <DependentUpon>BMLMedico.aspx</DependentUpon>
     </Compile>
     <Compile Include="BMLPaciente.aspx.cs">
       <DependentUpon>BMLPaciente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="BMLPaciente.aspx.designer.cs">
       <DependentUpon>BMLPaciente.aspx</DependentUpon>
     </Compile>
     <Compile Include="InformesAdministrador.aspx.cs">
       <DependentUpon>InformesAdministrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="InformesAdministrador.aspx.designer.cs">
       <DependentUpon>InformesAdministrador.aspx</DependentUpon>
     </Compile>
     <Compile Include="InicioSesion.aspx.cs">
       <DependentUpon>InicioSesion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="InicioSesion.aspx.designer.cs">
       <DependentUpon>InicioSesion.aspx</DependentUpon>
@@ -119,26 +126,44 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SesionIniciadaAdministrador.aspx.cs">
       <DependentUpon>SesionIniciadaAdministrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SesionIniciadaAdministrador.aspx.designer.cs">
       <DependentUpon>SesionIniciadaAdministrador.aspx</DependentUpon>
     </Compile>
     <Compile Include="SesionIniciadaMedico.aspx.cs">
       <DependentUpon>SesionIniciadaMedico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SesionIniciadaMedico.aspx.designer.cs">
       <DependentUpon>SesionIniciadaMedico.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
     <Compile Include="TurnosAdministrador.aspx.cs">
       <DependentUpon>TurnosAdministrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="TurnosAdministrador.aspx.designer.cs">
       <DependentUpon>TurnosAdministrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="packages.config" />
+    <Content Include="Site.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -10,6 +10,7 @@
 <body>
     <form id="formularioBMLPaciente" runat="server">
         <div>
+            hola
         </div>
     </form>
 </body>

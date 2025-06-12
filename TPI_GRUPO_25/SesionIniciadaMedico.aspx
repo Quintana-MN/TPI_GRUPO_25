@@ -10,6 +10,7 @@
 <body>
     <form id="formularioSesionIniciadaMedico" runat="server">
         <div>
+            hola
         </div>
     </form>
 </body>

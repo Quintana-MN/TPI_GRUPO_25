@@ -67,12 +67,77 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AltaMedico.aspx" />
+    <Content Include="AltaPaciente.aspx" />
+    <Content Include="BMLMedico.aspx" />
+    <Content Include="BMLPaciente.aspx" />
+    <Content Include="InformesAdministrador.aspx" />
+    <Content Include="InicioSesion.aspx" />
+    <Content Include="SesionIniciadaAdministrador.aspx" />
+    <Content Include="SesionIniciadaMedico.aspx" />
+    <Content Include="TurnosAdministrador.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AltaMedico.aspx.cs">
+      <DependentUpon>AltaMedico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AltaMedico.aspx.designer.cs">
+      <DependentUpon>AltaMedico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AltaPaciente.aspx.cs">
+      <DependentUpon>AltaPaciente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AltaPaciente.aspx.designer.cs">
+      <DependentUpon>AltaPaciente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BMLMedico.aspx.cs">
+      <DependentUpon>BMLMedico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BMLMedico.aspx.designer.cs">
+      <DependentUpon>BMLMedico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BMLPaciente.aspx.cs">
+      <DependentUpon>BMLPaciente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BMLPaciente.aspx.designer.cs">
+      <DependentUpon>BMLPaciente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InformesAdministrador.aspx.cs">
+      <DependentUpon>InformesAdministrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InformesAdministrador.aspx.designer.cs">
+      <DependentUpon>InformesAdministrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InicioSesion.aspx.cs">
+      <DependentUpon>InicioSesion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InicioSesion.aspx.designer.cs">
+      <DependentUpon>InicioSesion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SesionIniciadaAdministrador.aspx.cs">
+      <DependentUpon>SesionIniciadaAdministrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SesionIniciadaAdministrador.aspx.designer.cs">
+      <DependentUpon>SesionIniciadaAdministrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SesionIniciadaMedico.aspx.cs">
+      <DependentUpon>SesionIniciadaMedico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SesionIniciadaMedico.aspx.designer.cs">
+      <DependentUpon>SesionIniciadaMedico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TurnosAdministrador.aspx.cs">
+      <DependentUpon>TurnosAdministrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TurnosAdministrador.aspx.designer.cs">
+      <DependentUpon>TurnosAdministrador.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -90,6 +155,10 @@
       <Project>{77abf36c-83ae-4cc0-b297-3af78695f6a4}</Project>
       <Name>NEGOCIO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

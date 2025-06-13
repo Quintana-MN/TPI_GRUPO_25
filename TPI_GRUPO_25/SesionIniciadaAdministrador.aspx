@@ -35,9 +35,16 @@
             font-weight: bold;
         }
 
-         .HyperLink{
-             text-align:center;
-         }
+         .btn-personalizado {
+    background-color: #ebd2a9;
+    color: black;
+    border: 1px solid #653208; /* opcional: un borde marrón oscuro */
+}
+
+.btn-personalizado:hover {
+    background-color: #e6d3b0; /* color más oscuro al pasar el mouse */
+    color: black;
+}
 
     </style>
 
@@ -80,15 +87,15 @@
         <asp:Label runat="server" ID="lbl" Text="Cantidad de médicos registrados:" CssClass="h3 text-dark"></asp:Label>
          <asp:Label runat="server" ID="Label1" Text="Cantidad de pacientes registrados:" CssClass="h3 text-dark"></asp:Label>
     </div>
-         <div class="container mt-5 pt-5 d-flex justify-content-around text-center">
+        <div class="container mt-5 pt-5 d-flex justify-content-around text-center">
 
     <div>
         <div class="badge text-wrap badge-personalizada p-3 mb-2" style="width: 12rem;">
             Médico
         </div>
         <div>
-            <asp:HyperLink runat="server" NavigateUrl="AltaMedico.aspx">Alta</asp:HyperLink><br />
-            <asp:HyperLink runat="server" NavigateUrl="ABMLMedico.aspx">Baja, Modificación, Leer</asp:HyperLink>
+            <asp:HyperLink runat="server" NavigateUrl="AltaMedico.aspx" CssClass="btn btn-personalizado btn-sm mb-1">Alta</asp:HyperLink><br />
+            <asp:HyperLink runat="server" NavigateUrl="ABMLMedico.aspx" CssClass="btn btn-personalizado btn-sm">Baja, Modificación, Leer</asp:HyperLink>
         </div>
     </div>
 
@@ -97,8 +104,8 @@
             Paciente
         </div>
         <div>
-            <asp:HyperLink runat="server" NavigateUrl="AltaPaciente.aspx">Alta</asp:HyperLink><br />
-            <asp:HyperLink runat="server" NavigateUrl="ABMLPaciente.aspx">Baja, Modificación, Leer</asp:HyperLink>
+            <asp:HyperLink runat="server" NavigateUrl="AltaPaciente.aspx" CssClass="btn btn-personalizado btn-sm mb-1">Alta</asp:HyperLink><br />
+            <asp:HyperLink runat="server" NavigateUrl="ABMLPaciente.aspx" CssClass="btn btn-personalizado btn-sm">Baja, Modificación, Leer</asp:HyperLink>
         </div>
     </div>
 
@@ -107,8 +114,8 @@
             Turno
         </div>
         <div>
-            <asp:HyperLink runat="server" NavigateUrl="AltaTurno.aspx">Alta</asp:HyperLink><br />
-            <asp:HyperLink runat="server" NavigateUrl="ABMLTurno.aspx">Baja, Modificación, Leer</asp:HyperLink>
+            <asp:HyperLink runat="server" NavigateUrl="AltaTurno.aspx" CssClass="btn btn-personalizado btn-sm mb-1">Alta</asp:HyperLink><br />
+            <asp:HyperLink runat="server" NavigateUrl="ABMLTurno.aspx" CssClass="btn btn-personalizado btn-sm">Baja, Modificación, Leer</asp:HyperLink>
         </div>
     </div>
 
@@ -117,8 +124,8 @@
             Informes
         </div>
         <div>
-            <asp:HyperLink runat="server" NavigateUrl="AltaInforme.aspx">Alta</asp:HyperLink><br />
-            <asp:HyperLink runat="server" NavigateUrl="ABMLInforme.aspx">Baja, Modificación, Leer</asp:HyperLink>
+            <asp:HyperLink runat="server" NavigateUrl="AltaInforme.aspx" CssClass="btn btn-personalizado btn-sm mb-1">Alta</asp:HyperLink><br />
+            <asp:HyperLink runat="server" NavigateUrl="ABMLInforme.aspx" CssClass="btn btn-personalizado btn-sm">Baja, Modificación, Leer</asp:HyperLink>
         </div>
     </div>
 

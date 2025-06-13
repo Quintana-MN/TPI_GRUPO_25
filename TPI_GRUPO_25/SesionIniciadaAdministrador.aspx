@@ -21,13 +21,18 @@
         }
 
         .navbar .nav-link,
-        .navbar .navbar-brand {
+        .navbar .navbar-brand  {
             color: #fce7c6;
             font-weight: 400;
         }
 
         .bg-naranja-suave {
             margin-top: 0;
+        }
+         .badge-personalizada {
+            background-color: #653208;
+           
+            font-weight: bold;
         }
     </style>
 
@@ -62,7 +67,28 @@
     </div>
   </div>
 </nav>
-        
-        </div>
+              <div class="container mt-5 pt-5  d-flex justify-content-around ">
+        <asp:Label runat="server" ID="lbl" Text="Cantidad de médicos registrados:" CssClass="h3 text-dark"></asp:Label>
+         <asp:Label runat="server" ID="Label1" Text="Cantidad de pacientes registrados:" CssClass="h3 text-dark"></asp:Label>
+    </div>
+         <div class="container mt-5 pt-5 d-flex justify-content-around">
+    <div class="badge text-wrap badge-personalizada" style="width: 12rem;">
+        Médico
+    </div>
+    <div class="badge text-wrap badge-personalizada" style="width: 12rem;">
+        Paciente
+    </div>
+    <div class="badge text-wrap badge-personalizada" style="width: 12rem;">
+        Turno
+    </div>
+    <div class="badge text-wrap badge-personalizada" style="width: 12rem;">
+        Informes
+    </div>
+</div>
+
+    </div>
+
     
+
 </asp:Content>
+

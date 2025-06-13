@@ -30,10 +30,15 @@
             margin-top: 0;
         }
          .badge-personalizada {
-            background-color: #653208;
-           
+            background-color: #9E5439;
+            padding:30px;
             font-weight: bold;
         }
+
+         .HyperLink{
+             text-align:center;
+         }
+
     </style>
 
 </asp:Content>
@@ -67,28 +72,58 @@
     </div>
   </div>
 </nav>
+
+<asp:Label runat="server" ID="lblBienvenida" Text="Bienvenido Administrador" CssClass="h2 text-center d-block mt-5 mb-3 text-dark"></asp:Label>
+
+
               <div class="container mt-5 pt-5  d-flex justify-content-around ">
         <asp:Label runat="server" ID="lbl" Text="Cantidad de médicos registrados:" CssClass="h3 text-dark"></asp:Label>
          <asp:Label runat="server" ID="Label1" Text="Cantidad de pacientes registrados:" CssClass="h3 text-dark"></asp:Label>
     </div>
-         <div class="container mt-5 pt-5 d-flex justify-content-around">
-    <div class="badge text-wrap badge-personalizada" style="width: 12rem;">
-        Médico
+         <div class="container mt-5 pt-5 d-flex justify-content-around text-center">
+
+    <div>
+        <div class="badge text-wrap badge-personalizada p-3 mb-2" style="width: 12rem;">
+            Médico
+        </div>
+        <div>
+            <asp:HyperLink runat="server" NavigateUrl="AltaMedico.aspx">Alta</asp:HyperLink><br />
+            <asp:HyperLink runat="server" NavigateUrl="ABMLMedico.aspx">Baja, Modificación, Leer</asp:HyperLink>
+        </div>
     </div>
-    <div class="badge text-wrap badge-personalizada" style="width: 12rem;">
-        Paciente
+
+    <div>
+        <div class="badge text-wrap badge-personalizada p-3 mb-2" style="width: 12rem;">
+            Paciente
+        </div>
+        <div>
+            <asp:HyperLink runat="server" NavigateUrl="AltaPaciente.aspx">Alta</asp:HyperLink><br />
+            <asp:HyperLink runat="server" NavigateUrl="ABMLPaciente.aspx">Baja, Modificación, Leer</asp:HyperLink>
+        </div>
     </div>
-    <div class="badge text-wrap badge-personalizada" style="width: 12rem;">
-        Turno
+
+    <div>
+        <div class="badge text-wrap badge-personalizada p-3 mb-2" style="width: 12rem;">
+            Turno
+        </div>
+        <div>
+            <asp:HyperLink runat="server" NavigateUrl="AltaTurno.aspx">Alta</asp:HyperLink><br />
+            <asp:HyperLink runat="server" NavigateUrl="ABMLTurno.aspx">Baja, Modificación, Leer</asp:HyperLink>
+        </div>
     </div>
-    <div class="badge text-wrap badge-personalizada" style="width: 12rem;">
-        Informes
+
+    <div>
+        <div class="badge text-wrap badge-personalizada p-3 mb-2" style="width: 12rem;">
+            Informes
+        </div>
+        <div>
+            <asp:HyperLink runat="server" NavigateUrl="AltaInforme.aspx">Alta</asp:HyperLink><br />
+            <asp:HyperLink runat="server" NavigateUrl="ABMLInforme.aspx">Baja, Modificación, Leer</asp:HyperLink>
+        </div>
     </div>
+
 </div>
 
     </div>
-
-    
-
 </asp:Content>
 

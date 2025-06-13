@@ -73,7 +73,8 @@
    <div class="container mt-5 pt-5">
        
 <asp:GridView ID="gvPacientes" runat="server" AutoGenerateColumns="False" AllowPaging="True"
-    CssClass="grid-style" Width="80%" HorizontalAlign="Center" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4">
+    CssClass="grid-style" Width="94%" HorizontalAlign="Center" CellPadding="4" ForeColor="#333333" GridLines="None">
+    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
     <Columns>
         <asp:BoundField HeaderText="DNI" DataField="DNI" />
         <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
@@ -83,16 +84,17 @@
         <asp:BoundField HeaderText="Localidad" DataField="Localidad" />
         <asp:BoundField HeaderText="Correo Electrónico" DataField="CorreoElectronico" />
     </Columns>
-    <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
-    <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
+    <EditRowStyle BackColor="#999999" />
+    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
 
-<PagerStyle HorizontalAlign="Center" CssClass="gv-pager" BackColor="#FFFFCC" ForeColor="#330099"></PagerStyle>
-    <RowStyle BackColor="White" ForeColor="#330099" />
-    <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="#663399" />
-    <SortedAscendingCellStyle BackColor="#FEFCEB" />
-    <SortedAscendingHeaderStyle BackColor="#AF0101" />
-    <SortedDescendingCellStyle BackColor="#F6F0C0" />
-    <SortedDescendingHeaderStyle BackColor="#7E0000" />
+<PagerStyle HorizontalAlign="Center" CssClass="gv-pager" BackColor="#284775" ForeColor="White"></PagerStyle>
+    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
 </asp:GridView>
 
 

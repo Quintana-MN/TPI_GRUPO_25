@@ -13,5 +13,10 @@ namespace TPI_GRUPO_25
         {
 
         }
+
+        protected void btnVer_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

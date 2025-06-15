@@ -96,7 +96,7 @@
  </div>
 
 
-<asp:Label runat="server" ID="lblBienvenida" Text="!Bienvenido Administrador!. ¡Estos son los informes!." CssClass="h2 text-center d-block mt-5 mb-3 text-dark"></asp:Label>
+<asp:Label runat="server" ID="lblBienvenida" Text="!Bienvenido Administrador!.Estos son los informes!." CssClass="h2 text-center d-block mt-5 mb-3 text-dark"></asp:Label>
 
 <div style="margin-top: 100px; text-align: center; padding: 20px; width: fit-content;  margin-right: auto;">
      <div class ="filtros-fecha">

@@ -3,18 +3,13 @@
     <style>
         body {
             background-color: #ffe5b4;
-            min-height: 100vh;
             margin: 0;
             padding: 0;
         }
 
         .navbar {
             background-color: #653208 !important;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
+
         }
 
         .navbar .nav-link,
@@ -39,13 +34,13 @@
 .boton-personalizado {
     background-color: #BF7D56;
     color: black;            
-    border: 2px solid black; 
+    border: 1px solid black; 
 }
 
 .boton-personalizado:hover {
     background-color: #4d2606;
     color: white;           
-    border: 2px solid black; 
+    border: 1px solid black; 
 }
     </style>
 </asp:Content>
@@ -54,21 +49,26 @@
     <div class="bg-naranja-suave w-100">
         <nav class="navbar navbar-expand-xl">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDark"
                     aria-controls="navbarDark" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse show" id="navbarDark">
                     <ul class="navbar-nav me-auto mb-2 mb-xl-0 d-flex w-100">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Home</a>
+                        <li class="nav-item h5">
+                            <a class="nav-link" aria-current="page">Clínica TUP</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
+                            <a class="nav-link" href="#">Médicos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Disabled</a>
+                            <a class="nav-link" href="#">Pacientes</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">Turnos</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">Informes</a>
                         </li>
                         <li class="nav-item ms-auto">
                             <asp:Label CssClass="nav-link mb-15" ID="usuarioAd" runat="server" Text="Usuario: Admin"></asp:Label>
@@ -82,38 +82,36 @@
         </nav>
     </div>
 
-    <div class="main-content text-center">
-        <asp:Label runat="server" ID="lblBienvenida" 
-                   Text="Bienvenido Administrador: Estos son los turnos" 
-                   CssClass="h2 text-center d-block mb-3 text-dark"></asp:Label>
- <div class="container mt-4 w-75">
+ <div class="d-flex flex-column align-items-center mt-4">
+
+    <h2 class="text-center">Bienvenido Administrador: Estos son los turnos</h2>
    
-    <div class="d-flex align-items-center mb-4">
+    <div class="d-flex align-items-center w-50 my-4">
         <asp:Label runat="server" ID="lblPaciente" Text="Paciente:" CssClass="me-3 fw-bold label-fijo" />
-        <asp:DropDownList runat="server" ID="ddlPaciente" CssClass="form-select w-50" />
+        <asp:DropDownList runat="server" ID="ddlPaciente" CssClass="form-select w-100" />
     </div>
 
  
-    <div class="d-flex align-items-center mb-4">
+    <div class="d-flex align-items-center w-50 mb-4">
         <asp:Label runat="server" ID="lblDia" Text="Día:" CssClass="me-3 fw-bold label-fijo" />
-        <asp:TextBox runat="server" ID="txtDia" CssClass="form-control w-50" />
+        <asp:TextBox runat="server" ID="txtDia" CssClass="form-control w-100" />
     </div>
 
 
-    <div class="d-flex align-items-center mb-4">
+    <div class="d-flex align-items-center w-50 mb-4">
         <asp:Label runat="server" ID="lblHora" Text="Hora:" CssClass="me-3 fw-bold label-fijo" />
-        <asp:TextBox runat="server" ID="txtHora" CssClass="form-control w-50" />
+        <asp:TextBox runat="server" ID="txtHora" CssClass="form-control w-100" />
     </div>
 
 
-    <div class="d-flex align-items-center mb-4">
+    <div class="d-flex align-items-center w-50 mb-4">
         <asp:Label runat="server" ID="lblEspecialidad" Text="Especialidad:" CssClass="me-3 fw-bold label-fijo" />
-        <asp:DropDownList runat="server" ID="ddlEspecialidad" CssClass="form-select w-50" />
+        <asp:DropDownList runat="server" ID="ddlEspecialidad" CssClass="form-select w-100" />
     </div>
 
-    <div class="d-flex align-items-center mb-5">
+    <div class="d-flex align-items-center w-50 mb-5">
         <asp:Label runat="server" ID="Label1" Text="Médico:" CssClass="me-3 fw-bold label-fijo" />
-        <asp:DropDownList runat="server" ID="DropDownList1" CssClass="form-select w-50" />
+        <asp:DropDownList runat="server" ID="DropDownList1" CssClass="form-select w-100" />
     </div>
 
 

@@ -38,8 +38,5 @@ namespace TPI_GRUPO_25
             gvPacientes.DataSource = tabla;
             gvPacientes.DataBind();
         }
-
-
-
     }
 }

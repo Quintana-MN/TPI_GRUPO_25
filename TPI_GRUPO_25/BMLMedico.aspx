@@ -69,7 +69,7 @@
     </div>
     <asp:Label runat="server" ID="lblBienvenida" Text="Bienvenido Administrador: Aquí se hace la baja, modificación y lectura de médicos" CssClass="h2 text-center d-block mt-5 mb-3 text-dark"></asp:Label>
   <div class="container mt-5 pt-5">
-    <asp:ListView ID="lvMedicos" runat="server" >
-    </asp:ListView>
+    <asp:GridView ID="gvMedicos" runat="server" >
+    </asp:GridView>
 </div>
 </asp:Content>

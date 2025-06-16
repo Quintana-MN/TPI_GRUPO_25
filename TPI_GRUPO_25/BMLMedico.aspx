@@ -4,28 +4,18 @@
     <style>
         body {
             background-color: #ffe5b4;
-            min-height: 100vh;
             margin: 0;
             padding: 0;
         }
 
         .navbar {
             background-color: #653208 !important;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
         }
 
         .navbar .nav-link,
         .navbar .navbar-brand {
             color: #fce7c6;
             font-weight: 400;
-        }
-
-        .bg-naranja-suave {
-            margin-top: 0;
         }
 
         .badge-personalizada {

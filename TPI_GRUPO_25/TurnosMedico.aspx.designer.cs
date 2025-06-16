@@ -15,12 +15,12 @@ namespace TPI_GRUPO_25
     {
 
         /// <summary>
-        /// Control formularioTurnosMedico.
+        /// Control usuarioAd.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formularioTurnosMedico;
+        protected global::System.Web.UI.WebControls.Label usuarioAd;
     }
 }

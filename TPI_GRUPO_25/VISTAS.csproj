@@ -77,6 +77,7 @@
     <Content Include="SesionIniciadaAdministrador.aspx" />
     <Content Include="SesionIniciadaMedico.aspx" />
     <Content Include="TurnosAdministrador.aspx" />
+    <Content Include="TurnosMedico.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
@@ -151,6 +152,13 @@
     </Compile>
     <Compile Include="TurnosAdministrador.aspx.designer.cs">
       <DependentUpon>TurnosAdministrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TurnosMedico.aspx.cs">
+      <DependentUpon>TurnosMedico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TurnosMedico.aspx.designer.cs">
+      <DependentUpon>TurnosMedico.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>

@@ -115,7 +115,6 @@
         </div>
         <div>
             <asp:HyperLink runat="server" NavigateUrl="AltaTurno.aspx" CssClass="btn btn-personalizado btn-sm mb-1">Alta</asp:HyperLink><br />
-            <asp:HyperLink runat="server" NavigateUrl="ABMLTurno.aspx" CssClass="btn btn-personalizado btn-sm">Baja, Modificación, Leer</asp:HyperLink>
         </div>
     </div>
 
@@ -124,8 +123,8 @@
             Informes
         </div>
         <div>
-            <asp:HyperLink runat="server" NavigateUrl="AltaInforme.aspx" CssClass="btn btn-personalizado btn-sm mb-1">Alta</asp:HyperLink><br />
-            <asp:HyperLink runat="server" NavigateUrl="ABMLInforme.aspx" CssClass="btn btn-personalizado btn-sm">Baja, Modificación, Leer</asp:HyperLink>
+            <asp:HyperLink runat="server" NavigateUrl="AltaInforme.aspx" CssClass="btn btn-personalizado btn-sm mb-1">Ver</asp:HyperLink><br />
+      
         </div>
     </div>
 

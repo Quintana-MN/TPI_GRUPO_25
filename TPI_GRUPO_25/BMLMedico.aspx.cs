@@ -20,7 +20,7 @@ namespace TPI_GRUPO_25
         private void CargarTabla()
         {
             DataTable tabla = new DataTable();
-            tabla.Columns.Add("DNI");
+            tabla.Columns.Add("Legajo");
             tabla.Columns.Add("Nombre");
             tabla.Columns.Add("Apellido");
             tabla.Columns.Add("FechaNacimiento");

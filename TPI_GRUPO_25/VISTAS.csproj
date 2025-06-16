@@ -74,6 +74,8 @@
     <Content Include="Imagenes\UTN-logo.svg" />
     <Content Include="InformesAdministrador.aspx" />
     <Content Include="InicioSesion.aspx" />
+    <Content Include="NuevoMedico.aspx" />
+    <Content Include="NuevoPaciente.aspx" />
     <Content Include="SesionIniciadaAdministrador.aspx" />
     <Content Include="SesionIniciadaMedico.aspx" />
     <Content Include="TurnosAdministrador.aspx" />
@@ -123,6 +125,20 @@
     </Compile>
     <Compile Include="InicioSesion.aspx.designer.cs">
       <DependentUpon>InicioSesion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NuevoMedico.aspx.cs">
+      <DependentUpon>NuevoMedico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NuevoMedico.aspx.designer.cs">
+      <DependentUpon>NuevoMedico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NuevoPaciente.aspx.cs">
+      <DependentUpon>NuevoPaciente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NuevoPaciente.aspx.designer.cs">
+      <DependentUpon>NuevoPaciente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SesionIniciadaAdministrador.aspx.cs">

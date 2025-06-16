@@ -31,8 +31,8 @@ namespace TPI_GRUPO_25
             {
                 tabla.Rows.Add("", "", "");
             }
-            gvTurnos.DataSource = tabla;
-            gvTurnos.DataBind();
+            //gvTurnos.DataSource = tabla;
+            //gvTurnos.DataBind();
         }
     }
 }

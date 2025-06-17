@@ -345,7 +345,7 @@
                     </div>
                     <br />
                     <br />
-                    <asp:Button ID="Button1" runat="server" Text="Button" CssClass="form-control" ValidationGroup="grupo1"/>
+                    <asp:Button ID="Button1" runat="server" Text="Enviar" style="background-color: #653208; width:100px;" CssClass="form-control"  ValidationGroup="grupo1"/>
                 </div>
             </div>
         </div>

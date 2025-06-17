@@ -50,7 +50,7 @@
                             <asp:Label CssClass="nav-link mb-15" ID="usuarioAd" runat="server" Text="Usuario: Admin"></asp:Label>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Cerrar sesión</a>
+                            <a class="nav-link" href="InicioSesion.aspx">Cerrar sesión</a>
                         </li>
                     </ul>
                 </div>

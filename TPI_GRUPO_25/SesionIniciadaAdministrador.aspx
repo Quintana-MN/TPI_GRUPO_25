@@ -45,20 +45,29 @@
     <div class="bg-naranja-suave w-100" >
         <nav class="navbar navbar-expand-xl" CssClass="navbar" style="background-color: #653208;">
   <div class="container-fluid" >
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand">Clínica TUP</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDark" aria-controls="navbarDark" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse show" id="navbarDark">
       <ul class="navbar-nav me-auto mb-2 mb-xl-0 d-flex w-100">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#">Home</a>
+          <a class="nav-link" aria-current="page" href="AltaMedico.aspx">Alta Médico</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
+          <a class="nav-link" href="BMLMedico.aspx">BML Médico</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" >Disabled</a>
+          <a class="nav-link" href="AltaPaciente.aspx">Alta Paciente</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="BMLPaciente.aspx">BML Paciente</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="InformesAdministrador.aspx">Informes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="TurnosAdministrador.aspx">Turnos</a>
         </li>
             <li class="nav-item ms-auto">
               <asp:Label class="nav-link mb-15" ID="usuarioAd" runat="server" Text="Usuario: Admin"></asp:Label>

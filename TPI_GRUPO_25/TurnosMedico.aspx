@@ -48,17 +48,15 @@
     </button>
     <div class="collapse navbar-collapse show" id="navbarDark">
       <ul class="navbar-nav me-auto mb-2 mb-xl-0 d-flex w-100">
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#">Turnos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pacientes</a>
-        </li>
             <li class="nav-item ms-auto">
               <asp:Label class="nav-link mb-15" ID="usuarioAd" runat="server" Text="Usuario: Médico"></asp:Label>
             </li>
         <li class="nav-item">
+<<<<<<< Updated upstream
          <a class="nav-link"  href="InicioSesion.aspx">Cerrar sesion</a>
+=======
+         <a class="nav-link" href="InicioSesion.aspx">Cerrar sesion</a>
+>>>>>>> Stashed changes
         </li>
       </ul>
     </div>

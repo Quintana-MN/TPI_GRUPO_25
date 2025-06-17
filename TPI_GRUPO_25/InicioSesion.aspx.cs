@@ -33,7 +33,7 @@ namespace TPI_GRUPO_25
                 }
                 else
                 {
-                    Response.Redirect("SesionIniciadaMedico.aspx");
+                    Response.Redirect("TurnosMedico.aspx");
                 }
             }
             else

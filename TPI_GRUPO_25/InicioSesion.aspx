@@ -55,8 +55,9 @@
                     <br />
                     <asp:RequiredFieldValidator CssClass="fw-bold" runat="server" ControlToValidate="txtClave" ErrorMessage="No ingresó una Contraseña."></asp:RequiredFieldValidator>
                 </div>
+                <asp:Label runat="server" Text="" ID="lblError"></asp:Label>
 
-                <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" CssClass="btn btn-marron w-100" />
+                <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" CssClass="btn btn-marron w-100" OnClick="btnIngresar_Click" />
             </div>
         </div>
     </div>

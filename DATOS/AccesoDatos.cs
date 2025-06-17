@@ -78,5 +78,20 @@ namespace DATOS
             }
             return estado;
         }
+        public DataTable ObtenerUsuario(string usuario, string contrasenia)
+        {
+            string consulta = $"SELECT * FROM USUARIO WHERE usuario_U = @usuario_U AND contrasenia_U = @contrasenia_U";
+            SqlConnection Conexion = ObtenerConexion();
+            SqlCommand cmd = new SqlCommand(consulta, Conexion);
+            cmd.Parameters.AddWithValue("@usuario_U", usuario);
+            cmd.Parameters.AddWithValue("@contrasenia_U", contrasenia);
+
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            Conexion.Close();
+            return dt;
+        }
+
     }
 }

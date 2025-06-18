@@ -12,30 +12,16 @@ namespace TPI_GRUPO_25
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            CargarTabla();
-        }
-
-
-
-        private void CargarTabla()
-        {
-            DataTable tabla = new DataTable();
-            tabla.Columns.Add("Legajo");
-            tabla.Columns.Add("Nombre");
-            tabla.Columns.Add("Apellido");
-            tabla.Columns.Add("FechaNacimiento");
-            tabla.Columns.Add("Direccion");
-            tabla.Columns.Add("Localidad");
-            tabla.Columns.Add("CorreoElectronico");
-
-
-            for (int i = 0; i < 10; i++)
+            if (!IsPostBack)
             {
-                tabla.Rows.Add("", "", "", "", "", "", "");
+                NegocioUsuario negocioUsuario = new NegocioUsuario();
+                DataTable dt = negocioUsuario.getMedicos();
+                if (dt.Rows.Count > 0)
+                {
+                    gvMedicos.DataSource = dt;
+                    gvMedicos.DataBind();
+                }
             }
-
-            gvMedicos.DataSource = tabla;
-            gvMedicos.DataBind();
         }
     }
 }

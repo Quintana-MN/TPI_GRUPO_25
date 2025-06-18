@@ -2,6 +2,7 @@
 using ENTIDADES;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,4 +14,11 @@ public class NegocioUsuario
         DaoUsuario dao = new DaoUsuario();
         return dao.validarUsuario(nombreUsuario, contrasena);
     }
+
+    public DataTable getMedicos()
+    {
+        DATOS.DaoUsuario dao = new DATOS.DaoUsuario();
+        return dao.getTablaMedicos();
+    }
 }
+

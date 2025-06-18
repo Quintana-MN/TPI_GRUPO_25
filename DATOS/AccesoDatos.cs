@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ENTIDADES;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -92,6 +93,5 @@ namespace DATOS
             Conexion.Close();
             return dt;
         }
-
     }
 }

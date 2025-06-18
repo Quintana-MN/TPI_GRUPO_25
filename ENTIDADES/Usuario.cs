@@ -11,6 +11,11 @@ namespace ENTIDADES
         private String contraseniaUsuario;
         private string nombreUsuario;
         private bool tipoUsuario;
+        public int legajo_M;
+
+        public int getLegajo_M() { return legajo_M; }
+
+        public void setLegajo_M(int legajo) { legajo_M = legajo; }
         public void setContraseniaUsuario(string contrasenia) { contraseniaUsuario = contrasenia; }
         public string getContraseniaUsuario() { return contraseniaUsuario; }
 

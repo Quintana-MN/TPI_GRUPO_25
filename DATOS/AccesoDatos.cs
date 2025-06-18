@@ -93,5 +93,15 @@ namespace DATOS
             Conexion.Close();
             return dt;
         }
+        public void BajaLogicaMedico(int legajo)
+        {
+            using (SqlConnection conexion = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SP_BajaMedico", conexion);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@legajo_M", legajo);
+                comando.ExecuteNonQuery();
+            }
+        }
     }
 }

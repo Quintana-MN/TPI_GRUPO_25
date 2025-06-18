@@ -18,9 +18,34 @@ namespace TPI_GRUPO_25
                 DataTable dt = negocioUsuario.getMedicos();
                 if (dt.Rows.Count > 0)
                 {
-                    gvMedicos.DataSource = dt;
-                    gvMedicos.DataBind();
+                   gvMedicos.DataSource = dt;
+                   gvMedicos.DataBind();
                 }
+            }
+        }
+
+        private void CargarGrid()
+        {
+            NegocioUsuario negocio = new NegocioUsuario();
+            DataTable dt = negocio.getMedicos();
+            gvMedicos.DataSource = dt;
+            gvMedicos.DataBind();
+        }
+        protected void gvMedicos_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < gvMedicos.DataKeys.Count)
+            {
+                int legajo = Convert.ToInt32(gvMedicos.DataKeys[e.RowIndex].Value);
+
+                NegocioUsuario negocio = new NegocioUsuario();
+                negocio.BajaMedico(legajo);
+
+                CargarGrid(); // recarga solo médicos activos
+            }
+            else
+            {
+                // Log o mensaje de error útil para depuración
+                throw new Exception("Índice de fila fuera del rango de DataKeys.");
             }
         }
     }

@@ -20,5 +20,10 @@ public class NegocioUsuario
         DATOS.DaoUsuario dao = new DATOS.DaoUsuario();
         return dao.getTablaMedicos();
     }
+    public void BajaMedico(int legajo)
+    {
+        AccesoDatos datos = new AccesoDatos();
+        datos.BajaLogicaMedico(legajo);
+    }
 }
 

@@ -52,11 +52,7 @@
               <asp:Label class="nav-link mb-15" ID="usuarioAd" runat="server" Text="Usuario: Médico"></asp:Label>
             </li>
         <li class="nav-item">
-<<<<<<< Updated upstream
          <a class="nav-link"  href="InicioSesion.aspx">Cerrar sesion</a>
-=======
-         <a class="nav-link" href="InicioSesion.aspx">Cerrar sesion</a>
->>>>>>> Stashed changes
         </li>
       </ul>
     </div>
@@ -64,7 +60,7 @@
 </nav>
         </div>
         <div class="px-4">
-            <h2 class="my-4 text-center">¡Bienvenido a la Clínica TUP {Médico}, Estos son los Turnos!</h2>
+            <asp:Label runat="server" ID="lblBienvenida" class="my-4 text-center">¡Bienvenido a la Clínica TUP {Médico}, Estos son los Turnos!</asp:Label>
             <div class="d-flex justify-content-center">
             <asp:Label CssClass="d-flex align-items-center h5" runat="server" Text="Buscar:"></asp:Label>
             <asp:TextBox runat="server" ID="txtBuscar" CssClass="form-control w-25 mx-2" />

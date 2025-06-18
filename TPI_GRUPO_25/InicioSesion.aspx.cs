@@ -1,6 +1,7 @@
 ﻿using ENTIDADES;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -16,31 +17,27 @@ namespace TPI_GRUPO_25
 
         }
 
-        protected void btnIngresar_Click(object sender, EventArgs e)
+        protected void btnLogin_Click(object sender, EventArgs e)
         {
             string usuario = txtUsuario.Text;
-            string contrasena = txtClave.Text;
+            string contrasenia = txtClave.Text;
 
             NegocioUsuario negocio = new NegocioUsuario();
-            Usuario user = negocio.login(usuario, contrasena);
+            DataTable dt = negocio.ValidarLogin(usuario, contrasenia);
 
-            if (user != null)
+            if (dt.Rows.Count > 0)
             {
-                Session["usuario_U"] = user;
-                if (user.getTipoUsuario() == true)
-                {
-                    Response.Redirect("SesionIniciadaAdministrador.aspx");
-                }
-                else
-                {
-                    Response.Redirect("TurnosMedico.aspx");
-                }
+                Session["usuario"] = usuario;
+                Session["nombre"] = dt.Rows[0]["usuario_U"].ToString();
+
+                Response.Redirect("SesionIniciadaAdministrador.aspx");
             }
             else
             {
-                lblError.Text = "Usuario o contraseña incorrectos.";
+                lblError.Text = "Usuario o contraseña incorrectos";
             }
         }
+
 
     }
 }

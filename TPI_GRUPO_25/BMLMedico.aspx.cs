@@ -14,13 +14,9 @@ namespace TPI_GRUPO_25
         {
             if (!IsPostBack)
             {
-                NegocioUsuario negocioUsuario = new NegocioUsuario();
-                DataTable dt = negocioUsuario.getMedicos();
-                if (dt.Rows.Count > 0)
-                {
-                   gvMedicos.DataSource = dt;
-                   gvMedicos.DataBind();
-                }
+                string nombre = Session["usuario_M"]?.ToString() ?? "Invitado";
+                lblBienvenida.Text = $"Bienvenido, {nombre}";
+                CargarGrid();
             }
         }
 
@@ -40,12 +36,7 @@ namespace TPI_GRUPO_25
                 NegocioUsuario negocio = new NegocioUsuario();
                 negocio.BajaMedico(legajo);
 
-                CargarGrid(); // recarga solo médicos activos
-            }
-            else
-            {
-                // Log o mensaje de error útil para depuración
-                throw new Exception("Índice de fila fuera del rango de DataKeys.");
+                CargarGrid();
             }
         }
     }

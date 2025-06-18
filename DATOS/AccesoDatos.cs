@@ -103,5 +103,17 @@ namespace DATOS
                 comando.ExecuteNonQuery();
             }
         }
+
+        public DataTable ValidarLogin(string usuario, string contrasenia)
+        {
+            string consulta = @"SELECT * FROM USUARIO 
+                        WHERE usuario_U = @usuario AND contrasenia_U = @contrasenia";
+
+            SqlCommand cmd = new SqlCommand(consulta);
+            cmd.Parameters.AddWithValue("@usuario", usuario);
+            cmd.Parameters.AddWithValue("@contrasenia", contrasenia);
+
+            return ObtenerUsuario(usuario, contrasenia);
+        }
     }
 }

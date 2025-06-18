@@ -25,39 +25,6 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="bg-naranja-suave w-100">
-<<<<<<< Updated upstream
-        <nav class="navbar navbar-expand-xl" style="background-color: #653208;">
-            <div class="container-fluid gap-4">
-                <a class="navbar-brand">Clínica TUP</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDark"
-                    aria-controls="navbarDark" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse show" id="navbarDark">
-                    <ul class="navbar-nav me-auto mb-2 mb-xl-0 d-flex w-100 gap-4">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Médicos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pacientes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Turnos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Informes</a>
-                        </li>
-                        <li class="nav-item ms-auto">
-                            <asp:Label CssClass="nav-link mb-15" ID="usuarioAd" runat="server" Text="Usuario: Admin"></asp:Label>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link"  href="InicioSesion.aspx">Cerrar sesión</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-=======
                <nav class="navbar navbar-expand-xl" CssClass="navbar" style="background-color: #653208;">
   <div class="container-fluid" >
     <a class="navbar-brand">Clínica TUP</a>
@@ -92,7 +59,6 @@
     </div>
   </div>
 </nav>
->>>>>>> Stashed changes
     </div>
      <asp:Label runat="server" ID="lblBienvenida" Text="¡Bienvenido Administrador! Estos son los pacientes de la clínica TUP." CssClass="h2 text-center d-block mt-5 mb-3 text-dark"></asp:Label>
         <br />

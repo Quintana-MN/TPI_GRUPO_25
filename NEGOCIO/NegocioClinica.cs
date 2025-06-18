@@ -3,6 +3,7 @@ using ENTIDADES;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,11 @@ public class NegocioUsuario
     {
         AccesoDatos datos = new AccesoDatos();
         datos.BajaLogicaMedico(legajo);
+    }
+    public DataTable ValidarLogin(string usuario, string contrasenia)
+    {
+        AccesoDatos datos = new AccesoDatos();
+        return datos.ObtenerUsuario(usuario, contrasenia);
     }
 }
 

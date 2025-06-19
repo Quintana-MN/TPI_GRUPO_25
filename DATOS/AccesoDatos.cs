@@ -103,22 +103,36 @@ namespace DATOS
                 comando.ExecuteNonQuery();
             }
         }
-        public void EdicionMedico(Medico medico, string usuarioAntiguo)
+        public bool EdicionMedico(Medico medico, string usuarioAntiguo)
         {
             using (SqlConnection conexion = ObtenerConexion())
             using (SqlCommand comando = new SqlCommand("SP_EditarMedicoUsuario", conexion))
             {
                 comando.CommandType = CommandType.StoredProcedure;
-                comando.Parameters.AddWithValue("@legajo_M", medico.legajo_M);
-                comando.Parameters.AddWithValue("@usuarioAntiguo", usuarioAntiguo);
-                comando.Parameters.AddWithValue("@nuevoUsuario", medico.usuario_M);
-                comando.Parameters.AddWithValue("@nuevaContrasenia", medico.contrasenia_M);
-                comando.Parameters.AddWithValue("@dni_M", medico.dni_M);
-                comando.Parameters.AddWithValue("@codEspecialidad_M", medico.especialidad_M);
 
-                comando.ExecuteNonQuery();
+                SqlParameter parametro;
+
+                parametro = comando.Parameters.Add("@usuarioAntiguo", SqlDbType.Char, 30);
+                parametro.Value = usuarioAntiguo;
+
+                parametro = comando.Parameters.Add("@nuevoUsuario", SqlDbType.Char, 30);
+                parametro.Value = medico.usuario_M;
+
+                parametro = comando.Parameters.Add("@nuevaContrasenia", SqlDbType.VarChar, 100);
+                parametro.Value = medico.contrasenia_M;
+
+                parametro = comando.Parameters.Add("@dni_M", SqlDbType.NChar, 9);
+                parametro.Value = medico.dni_M;
+
+                parametro = comando.Parameters.Add("@codEspecialidad_M", SqlDbType.Int);
+                parametro.Value = medico.especialidad_M;
+
+                int filasAfectadas = comando.ExecuteNonQuery();
+
+                return filasAfectadas > 0;
             }
         }
+
 
         private void ArmarParametrosLibros(ref SqlCommand Comando, Medico medico)
         {

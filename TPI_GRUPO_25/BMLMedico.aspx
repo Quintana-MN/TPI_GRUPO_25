@@ -85,7 +85,7 @@
         </asp:TemplateField>
         <asp:TemplateField HeaderText="Especialidad">
             <EditItemTemplate>
-                <asp:DropDownList ID="ddlEditEspecialidad" runat="server" DataSourceID="SqlDataSource1" DataTextField="nombre_E" DataValueField="codEspecialidad_E">
+                <asp:DropDownList AutoPostBack="true" ID="ddlEditEspecialidad" runat="server" DataSourceID="SqlDataSource1" DataTextField="nombre_E" DataValueField="codEspecialidad_E">
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:clinicaTUPConnectionString %>" SelectCommand="SELECT [codEspecialidad_E], [nombre_E] FROM [ESPECIALIDADES]"></asp:SqlDataSource>
             </EditItemTemplate>

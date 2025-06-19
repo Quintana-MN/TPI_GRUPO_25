@@ -12,16 +12,14 @@ namespace ENTIDADES
         public String usuario_M;
         public int especialidad_M;
         public String dni_M;
-        public String usuarioAntiguo;
         public String contrasenia_M;
 
-        public Medico(int legajo_m, string usuario_m, string contrasenia_m, int especialidad_m, string dni_m, string usuarioantiguo)
+        public Medico(int legajo_m, string usuario_m, string contrasenia_m, int especialidad_m, string dni_m)
         {
             legajo_M = legajo_m;
             usuario_M = usuario_m;
             especialidad_M = especialidad_m;
             dni_M = dni_m;
-            usuarioAntiguo = usuarioantiguo;
             contrasenia_M = contrasenia_m;
         }
 

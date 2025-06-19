@@ -47,18 +47,6 @@ namespace TPI_GRUPO_25
             }
         }
 
-        protected void gvMedicos_RowEditing(object sender, GridViewEditEventArgs e)
-        {
-            gvMedicos.EditIndex = e.NewEditIndex;
-            CargarGrid();
-        }
-
-        protected void gvMedicos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-        {
-            gvMedicos.EditIndex = -1;
-            CargarGrid();
-        }
-
         protected void gvMedicos_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             int legajo = Convert.ToInt32(gvMedicos.DataKeys[e.RowIndex].Value);
@@ -72,11 +60,23 @@ namespace TPI_GRUPO_25
 
             string dni = ((TextBox)gvMedicos.Rows[e.RowIndex].FindControl("txtEditDNI")).Text;
 
-            Medico medico = new Medico(legajo, nuevoUsuario, nuevaContrasenia, especialidad, dni, usuarioAntiguo);
+            Medico medico = new Medico(legajo, nuevoUsuario, nuevaContrasenia, especialidad, dni);
 
             NegocioUsuario negocio = new NegocioUsuario();
             negocio.EditarMedico(medico, usuarioAntiguo);
 
+            gvMedicos.EditIndex = -1;
+            CargarGrid();
+        }
+
+        protected void gvMedicos_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            gvMedicos.EditIndex = e.NewEditIndex;
+            CargarGrid();
+        }
+
+        protected void gvMedicos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
             gvMedicos.EditIndex = -1;
             CargarGrid();
         }

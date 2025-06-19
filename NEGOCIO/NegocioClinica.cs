@@ -26,6 +26,11 @@ public class NegocioUsuario
         AccesoDatos datos = new AccesoDatos();
         datos.BajaLogicaMedico(legajo);
     }
+    public void EditarMedico(Medico medico, string usuarioAntiguo)
+    {
+        AccesoDatos datos = new AccesoDatos();
+        datos.EdicionMedico(medico, usuarioAntiguo);
+    }
     public DataTable ValidarLogin(string usuario, string contrasenia)
     {
         AccesoDatos datos = new AccesoDatos();

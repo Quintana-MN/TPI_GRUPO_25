@@ -24,6 +24,15 @@ namespace TPI_GRUPO_25
         protected global::System.Web.UI.WebControls.Label usuarioAd;
 
         /// <summary>
+        /// Control lblBienvenida.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBienvenida;
+
+        /// <summary>
         /// Control lblDNI.
         /// </summary>
         /// <remarks>
@@ -310,15 +319,6 @@ namespace TPI_GRUPO_25
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator10;
-
-        /// <summary>
-        /// Control Label1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
         /// Control lblLegajo.

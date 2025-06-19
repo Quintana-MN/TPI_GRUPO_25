@@ -103,6 +103,50 @@ namespace DATOS
                 comando.ExecuteNonQuery();
             }
         }
+        public void EdicionMedico(Medico medico, string usuarioAntiguo)
+        {
+            using (SqlConnection conexion = ObtenerConexion())
+            using (SqlCommand comando = new SqlCommand("SP_EditarMedicoUsuario", conexion))
+            {
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@legajo_M", medico.legajo_M);
+                comando.Parameters.AddWithValue("@usuarioAntiguo", usuarioAntiguo);
+                comando.Parameters.AddWithValue("@nuevoUsuario", medico.usuario_M);
+                comando.Parameters.AddWithValue("@nuevaContrasenia", medico.contrasenia_M);
+                comando.Parameters.AddWithValue("@dni_M", medico.dni_M);
+                comando.Parameters.AddWithValue("@codEspecialidad_M", medico.especialidad_M);
+
+                comando.ExecuteNonQuery();
+            }
+        }
+
+        private void ArmarParametrosLibros(ref SqlCommand Comando, Medico medico)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+            SqlParametros = Comando.Parameters.Add("@legajo_M", SqlDbType.Int);
+            SqlParametros.Value = medico.legajo_M;
+            SqlParametros = Comando.Parameters.Add("@usuario_M", SqlDbType.Char, 30);
+            SqlParametros.Value = medico.usuario_M;
+            SqlParametros = Comando.Parameters.Add("@especialidad_M", SqlDbType.VarChar, 50);
+            SqlParametros.Value = medico.especialidad_M;
+            SqlParametros = Comando.Parameters.Add("@dni_M", SqlDbType.NChar, 9);
+            SqlParametros.Value = medico.dni_M;
+        }
+        public bool ActualizarMedico(Medico medico)
+        {
+            SqlCommand sqlCommand = new SqlCommand();
+            ArmarParametrosLibros(ref sqlCommand, medico);
+            AccesoDatos accesoDatos = new AccesoDatos();
+            int FilasInsertadas = accesoDatos.EjecutarProcedimientoAlmacenado(sqlCommand, "SP_EditarMedico");
+            if (FilasInsertadas == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         public DataTable ValidarLogin(string usuario, string contrasenia)
         {

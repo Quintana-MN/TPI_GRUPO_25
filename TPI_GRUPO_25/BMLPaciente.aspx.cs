@@ -14,6 +14,14 @@ namespace TPI_GRUPO_25
         {
             if (!IsPostBack)
             {
+                if (Session["nombre"] == null)
+                {
+                    Response.Redirect("InicioSesion.aspx");
+                }
+                else
+                {
+                    lblBienvenida.Text = $"Bienvenido, {Session["nombre"]}. Acá se hace la Baja, Modificación y Lectura de los médicos";
+                }
                 CargarTabla();
             }
         }

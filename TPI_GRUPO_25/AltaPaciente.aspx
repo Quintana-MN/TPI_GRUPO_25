@@ -78,8 +78,10 @@
 
 
         <div class="row justify-content-center">
+    <asp:Label runat="server" ID="lblBienvenida" Text="Bienvenido Administrador: Aquí se hace la baja, modificación y lectura de médicos" CssClass="h2 text-center d-block mt-5 mb-3 text-dark"></asp:Label>
+
             <div class="col-md-6">
-                <h4 class="text-center">Nuevo Paciente&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="Administrador" runat="server" ClientIDMode="Predictable"></asp:Label></h4>
+                <h4 class="text-center">Nuevo Paciente<asp:Label ID="Administrador" runat="server" ClientIDMode="Predictable"></asp:Label></h4>
                 <div class="col-md-6">
                     <div class="row mb-6">
                         <div class="col-md-4">

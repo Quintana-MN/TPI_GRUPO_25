@@ -85,7 +85,7 @@
 
  <div class="d-flex flex-column align-items-center mt-4">
 
-    <h2 class="text-center">Bienvenido Administrador: Estos son los turnos</h2>
+    <asp:Label runat="server" ID="lblBienvenida" Text="Bienvenido Administrador: Estos son los turnos!" CssClass="h2 text-center d-block mt-5 mb-3 text-dark"></asp:Label>
    
     <div class="d-flex align-items-center w-50 my-4">
         <asp:Label runat="server" ID="lblPaciente" Text="Paciente:" CssClass="me-3 fw-bold label-fijo" />

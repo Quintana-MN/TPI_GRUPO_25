@@ -80,8 +80,8 @@
 
     <div class="container">
         <div class="row">
+            <asp:Label runat="server" ID="lblBienvenida" Text="Bienvenido Administrador: Aquí se hace el Alta de Médicos" CssClass="h2 text-center d-block mt-5 mb-3 text-dark"></asp:Label>
             <div class="col-md-6">
-                <h4 class="text-center mb-4">Nuevo Médico</h4>
                 <div class="col-md-6">
                     <div class="row mb-6">
                         <div class="col-md-4">
@@ -268,7 +268,6 @@
             </div>
 
             <div class="col-md-6">
-                <h4 class="text-center mb-4"><asp:Label ID="Label1" runat="server" Text="{Administrador}"></asp:Label></h4>
                 <div class="col-md-6">
                     <div class="row mb-6">
                         <div class="col-md-4">

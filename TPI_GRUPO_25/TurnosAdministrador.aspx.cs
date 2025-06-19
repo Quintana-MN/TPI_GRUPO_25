@@ -11,7 +11,15 @@ namespace TPI_GRUPO_25
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+                if (Session["nombre"] == null)
+                {
+                    Response.Redirect("InicioSesion.aspx");
+                }
+                else
+                {
+                    lblBienvenida.Text = $"Bienvenido, {Session["nombre"]}. Estos son los Turnos.";
+                }
         }
     }
 }

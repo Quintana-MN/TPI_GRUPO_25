@@ -49,21 +49,23 @@ namespace TPI_GRUPO_25
 
         protected void gvMedicos_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            int legajo = Convert.ToInt32(gvMedicos.DataKeys[e.RowIndex].Value);
-            string usuarioAntiguo = gvMedicos.DataKeys[e.RowIndex].Values["Usuario"].ToString();
 
-            string nuevoUsuario = ((TextBox)gvMedicos.Rows[e.RowIndex].FindControl("txtEditUsuario")).Text;
-            string nuevaContrasenia = ((TextBox)gvMedicos.Rows[e.RowIndex].FindControl("txtEditContraseña")).Text;
+
+            int legajo = Convert.ToInt32(((Label)gvMedicos.Rows[e.RowIndex].FindControl("lblEditLegajo")).Text);
+
+            string usuario = ((TextBox)gvMedicos.Rows[e.RowIndex].FindControl("txtEditUsuario")).Text;
+            string contrasenia = ((TextBox)gvMedicos.Rows[e.RowIndex].FindControl("txtEditContraseña")).Text;
+
 
             DropDownList ddlEspecialidad = (DropDownList)gvMedicos.Rows[e.RowIndex].FindControl("ddlEditEspecialidad");
             int especialidad = Convert.ToInt32(ddlEspecialidad.SelectedValue);
 
-            string dni = ((TextBox)gvMedicos.Rows[e.RowIndex].FindControl("txtEditDNI")).Text;
+            string dni = ((Label)gvMedicos.Rows[e.RowIndex].FindControl("lblEditDni")).Text;
 
-            Medico medico = new Medico(legajo, nuevoUsuario, nuevaContrasenia, especialidad, dni);
+            Medico medico = new Medico(legajo, usuario, contrasenia, especialidad, dni);
 
             NegocioUsuario negocio = new NegocioUsuario();
-            negocio.EditarMedico(medico, usuarioAntiguo);
+            negocio.EditarMedico(medico);
 
             gvMedicos.EditIndex = -1;
             CargarGrid();

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,7 +12,7 @@ namespace DATOS
 {
     public class AccesoDatos
     {
-        private const string cadenaConexion = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=clinicaTUP;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+        private const string cadenaConexion = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=clinicaTUP;Integrated Security=True;TrustServerCertificate=True";
 
         public AccesoDatos() { }
 
@@ -25,33 +26,48 @@ namespace DATOS
             }
             catch (Exception ex)
             {
-                return null;
+                // Lanzar la excepción o loguearla
+                throw new Exception("Error al abrir conexión: " + ex.Message);
             }
         }
-
-        private SqlDataAdapter ObtenerAdaptador(String consultaSql, SqlConnection conexion)
+       
+    public SqlDataAdapter ObtenerAdaptador(string consultaSql, SqlConnection conexion)
         {
-            SqlDataAdapter adaptador;
             try
             {
-                adaptador = new SqlDataAdapter(consultaSql, conexion);
-                return adaptador;
+                return new SqlDataAdapter(consultaSql, conexion);
             }
             catch (Exception ex)
             {
-                return null;
+                throw new Exception("Error al crear adaptador: " + ex.Message);
             }
         }
-
-        public DataTable ObtenerTabla(String NombreTabla, String Sql)
+      
+    public DataTable ObtenerTabla(string nombreTabla, string sql)
         {
             DataSet dataSet = new DataSet();
-            SqlConnection Conexion = ObtenerConexion();
-            SqlDataAdapter adp = ObtenerAdaptador(Sql, Conexion);
-            adp.Fill(dataSet, NombreTabla);
-            Conexion.Close();
-            return dataSet.Tables[NombreTabla];
+
+            using (SqlConnection conexion = ObtenerConexion())
+            {
+                if (conexion == null)
+                    throw new Exception("No se pudo establecer la conexión a la base de datos.");
+
+                using (SqlDataAdapter adp = ObtenerAdaptador(sql, conexion))
+                {
+                    if (adp == null)
+                        throw new Exception("No se pudo crear el adaptador de datos.");
+
+                    adp.Fill(dataSet, nombreTabla);
+                }
+            }
+
+            if (!dataSet.Tables.Contains(nombreTabla))
+                throw new Exception($"No se encontró la tabla {nombreTabla} en el dataset.");
+
+            return dataSet.Tables[nombreTabla];
         }
+
+       
 
         public int EjecutarProcedimientoAlmacenado(SqlCommand Comando, String NombreSP)
         {
@@ -103,53 +119,27 @@ namespace DATOS
                 comando.ExecuteNonQuery();
             }
         }
-        public bool EdicionMedico(Medico medico, string usuarioAntiguo)
-        {
-            using (SqlConnection conexion = ObtenerConexion())
-            using (SqlCommand comando = new SqlCommand("SP_EditarMedicoUsuario", conexion))
-            {
-                comando.CommandType = CommandType.StoredProcedure;
-
-                SqlParameter parametro;
-
-                parametro = comando.Parameters.Add("@usuarioAntiguo", SqlDbType.Char, 30);
-                parametro.Value = usuarioAntiguo;
-
-                parametro = comando.Parameters.Add("@nuevoUsuario", SqlDbType.Char, 30);
-                parametro.Value = medico.usuario_M;
-
-                parametro = comando.Parameters.Add("@nuevaContrasenia", SqlDbType.VarChar, 100);
-                parametro.Value = medico.contrasenia_M;
-
-                parametro = comando.Parameters.Add("@dni_M", SqlDbType.NChar, 9);
-                parametro.Value = medico.dni_M;
-
-                parametro = comando.Parameters.Add("@codEspecialidad_M", SqlDbType.Int);
-                parametro.Value = medico.especialidad_M;
-
-                int filasAfectadas = comando.ExecuteNonQuery();
-
-                return filasAfectadas > 0;
-            }
-        }
 
 
-        private void ArmarParametrosLibros(ref SqlCommand Comando, Medico medico)
+        private void ArmarParametrosMedico(ref SqlCommand Comando, Medico medico)
         {
             SqlParameter SqlParametros = new SqlParameter();
             SqlParametros = Comando.Parameters.Add("@legajo_M", SqlDbType.Int);
             SqlParametros.Value = medico.legajo_M;
             SqlParametros = Comando.Parameters.Add("@usuario_M", SqlDbType.Char, 30);
             SqlParametros.Value = medico.usuario_M;
-            SqlParametros = Comando.Parameters.Add("@especialidad_M", SqlDbType.VarChar, 50);
+            SqlParametros = Comando.Parameters.Add("@especialidad_M", SqlDbType.Int);
             SqlParametros.Value = medico.especialidad_M;
             SqlParametros = Comando.Parameters.Add("@dni_M", SqlDbType.NChar, 9);
             SqlParametros.Value = medico.dni_M;
+            SqlParametros = Comando.Parameters.Add("@contrasenia", SqlDbType.Char,30);
+            SqlParametros.Value = medico.contrasenia_M;
         }
+
         public bool ActualizarMedico(Medico medico)
         {
             SqlCommand sqlCommand = new SqlCommand();
-            ArmarParametrosLibros(ref sqlCommand, medico);
+            ArmarParametrosMedico(ref sqlCommand, medico);
             AccesoDatos accesoDatos = new AccesoDatos();
             int FilasInsertadas = accesoDatos.EjecutarProcedimientoAlmacenado(sqlCommand, "SP_EditarMedico");
             if (FilasInsertadas == 1)

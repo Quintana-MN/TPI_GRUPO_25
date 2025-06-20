@@ -26,10 +26,10 @@ public class NegocioUsuario
         AccesoDatos datos = new AccesoDatos();
         datos.BajaLogicaMedico(legajo);
     }
-    public void EditarMedico(Medico medico, string usuarioAntiguo)
+    public void EditarMedico(Medico medico)
     {
         AccesoDatos datos = new AccesoDatos();
-        datos.EdicionMedico(medico, usuarioAntiguo);
+        datos.ActualizarMedico(medico);
     }
     public DataTable ValidarLogin(string usuario, string contrasenia)
     {

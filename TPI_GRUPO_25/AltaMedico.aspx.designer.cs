@@ -123,13 +123,13 @@ namespace TPI_GRUPO_25
         protected global::System.Web.UI.WebControls.Label lblSexo;
 
         /// <summary>
-        /// Control DropDownList3.
+        /// Control ddlSexo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList3;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSexo;
 
         /// <summary>
         /// Control lblNacionalidad.
@@ -141,13 +141,13 @@ namespace TPI_GRUPO_25
         protected global::System.Web.UI.WebControls.Label lblNacionalidad;
 
         /// <summary>
-        /// Control txtNaciolidad.
+        /// Control txtNacionalidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNaciolidad;
+        protected global::System.Web.UI.WebControls.TextBox txtNacionalidad;
 
         /// <summary>
         /// Control RequiredFieldValidator4.
@@ -159,13 +159,13 @@ namespace TPI_GRUPO_25
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
 
         /// <summary>
-        /// Control lblFechaNacimietno.
+        /// Control lblFechaNacimiento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFechaNacimietno;
+        protected global::System.Web.UI.WebControls.Label lblFechaNacimiento;
 
         /// <summary>
         /// Control txtFechaNacimiento.
@@ -303,13 +303,13 @@ namespace TPI_GRUPO_25
         protected global::System.Web.UI.WebControls.Label lblTelefono;
 
         /// <summary>
-        /// Control txtTelefo.
+        /// Control txtTelefono.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTelefo;
+        protected global::System.Web.UI.WebControls.TextBox txtTelefono;
 
         /// <summary>
         /// Control RequiredFieldValidator10.
@@ -348,24 +348,6 @@ namespace TPI_GRUPO_25
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator11;
 
         /// <summary>
-        /// Control lblDia.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDia;
-
-        /// <summary>
-        /// Control DDLDia.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLDia;
-
-        /// <summary>
         /// Control lblHorario.
         /// </summary>
         /// <remarks>
@@ -375,13 +357,13 @@ namespace TPI_GRUPO_25
         protected global::System.Web.UI.WebControls.Label lblHorario;
 
         /// <summary>
-        /// Control DDLHorario.
+        /// Control ddlHorario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLHorario;
+        protected global::System.Web.UI.WebControls.DropDownList ddlHorario;
 
         /// <summary>
         /// Control lblEspecialidad.
@@ -393,13 +375,13 @@ namespace TPI_GRUPO_25
         protected global::System.Web.UI.WebControls.Label lblEspecialidad;
 
         /// <summary>
-        /// Control DDLEspecialidad.
+        /// Control ddlEspecialidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLEspecialidad;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEspecialidad;
 
         /// <summary>
         /// Control lblUsuario.
@@ -438,13 +420,13 @@ namespace TPI_GRUPO_25
         protected global::System.Web.UI.WebControls.Label lblContraseña;
 
         /// <summary>
-        /// Control txtContraceña.
+        /// Control txtContraseña.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContraceña;
+        protected global::System.Web.UI.WebControls.TextBox txtContraseña;
 
         /// <summary>
         /// Control RequiredFieldValidator13.
@@ -456,12 +438,21 @@ namespace TPI_GRUPO_25
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator13;
 
         /// <summary>
-        /// Control Button1.
+        /// Control btnAltaMedico.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btnAltaMedico;
+
+        /// <summary>
+        /// Control lblMedicoCreado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMedicoCreado;
     }
 }

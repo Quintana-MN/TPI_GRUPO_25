@@ -31,10 +31,22 @@ public class NegocioUsuario
         AccesoDatos datos = new AccesoDatos();
         datos.ActualizarMedico(medico);
     }
+
+    public void AgregarMedico(MedicoCompleto medico)
+    {
+        AccesoDatos datos = new AccesoDatos();
+        datos.AltaMedico(medico);
+    }
     public DataTable ValidarLogin(string usuario, string contrasenia)
     {
         AccesoDatos datos = new AccesoDatos();
         return datos.ObtenerUsuario(usuario, contrasenia);
+    }
+
+    public DataTable ObtenerEspecialidad()
+    {
+        AccesoDatos datos = new AccesoDatos();
+        return datos.ObtenerEspecialidades();
     }
 }
 

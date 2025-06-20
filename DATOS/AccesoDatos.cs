@@ -67,8 +67,6 @@ namespace DATOS
             return dataSet.Tables[nombreTabla];
         }
 
-       
-
         public int EjecutarProcedimientoAlmacenado(SqlCommand Comando, String NombreSP)
         {
             int FilasCambiadas;
@@ -151,6 +149,49 @@ namespace DATOS
                 return false;
             }
         }
+
+        public DataTable ObtenerEspecialidades()
+        {
+            using (SqlConnection conexion = ObtenerConexion())
+            {
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT codEspecialidad_E, nombre_E FROM ESPECIALIDADES", conexion);
+                DataTable tabla = new DataTable();
+                sqlDataAdapter.Fill(tabla);
+                return tabla;
+            }
+        }
+
+        public void AltaMedico(MedicoCompleto medico)
+        {
+            using (SqlConnection conexion = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SP_AltaMedico", conexion);
+                comando.CommandType = CommandType.StoredProcedure;
+
+                comando.Parameters.AddWithValue("@dni_P", medico.GetPersona().getDni());
+                comando.Parameters.AddWithValue("@nombre_P", medico.GetPersona().getNombre());
+                comando.Parameters.AddWithValue("@apellido_P", medico.GetPersona().getApellido());
+                comando.Parameters.AddWithValue("@sexo_P", medico.GetPersona().getSexo());
+                comando.Parameters.AddWithValue("@nacionalidad_P", medico.GetPersona().getNacionalidad());
+                comando.Parameters.AddWithValue("@fechaNac_P", medico.GetPersona().getFechaNacimiento());
+                comando.Parameters.AddWithValue("@direccion_P", medico.GetPersona().getDireccion());
+                comando.Parameters.AddWithValue("@email_P", medico.GetPersona().getEmail());
+                comando.Parameters.AddWithValue("@telefono_P", medico.GetPersona().getTelefono());
+                comando.Parameters.AddWithValue("@idLocalidad_P", medico.GetPersona().getIdLocalidad());
+                comando.Parameters.AddWithValue("@idProvincia_P", medico.GetPersona().getIdProvincia());
+
+                comando.Parameters.AddWithValue("@usuario_U", medico.GetUsuario().getNombreUsuario());
+                comando.Parameters.AddWithValue("@contrasenia_U", medico.GetUsuario().getContraseniaUsuario());
+
+                comando.Parameters.AddWithValue("@legajo_M", medico.GetMedico().GetLegajo_M());
+                comando.Parameters.AddWithValue("@codEspecialidad_M", medico.GetMedico().GetEspecialidad_M());
+                comando.Parameters.AddWithValue("@horario_M", medico.GetMedico().getHorario_M());
+
+                comando.ExecuteNonQuery();
+            }
+        }
+
+
 
         public DataTable ValidarLogin(string usuario, string contrasenia)
         {

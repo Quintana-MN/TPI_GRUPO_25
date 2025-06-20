@@ -138,10 +138,9 @@
                             <asp:Label ID="lblSexo" runat="server" Text="Sexo:" CssClass="form-label"></asp:Label>
                         </div>
                         <div class="col-md-8">
-                            <asp:DropDownList ID="DropDownList3" runat="server">
-                                <asp:ListItem Value="0">--Seleccionar--</asp:ListItem>
-                                <asp:ListItem Value="1">Hombre</asp:ListItem>
-                                <asp:ListItem Value="2">Mujer</asp:ListItem>
+                            <asp:DropDownList ID="ddlSexo" runat="server">
+                                <asp:ListItem Value="0">Hombre</asp:ListItem>
+                                <asp:ListItem Value="1">Mujer</asp:ListItem>
                             </asp:DropDownList>
                         </div>
                     </div>
@@ -151,13 +150,13 @@
                             <asp:Label ID="lblNacionalidad" runat="server" Text="Nacionalidad:" CssClass="form-label"></asp:Label>
                         </div>
                         <div class="col-md-8">
-                            <asp:TextBox ID="txtNaciolidad" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox ID="txtNacionalidad" runat="server" CssClass="form-control"></asp:TextBox>
                             <asp:RequiredFieldValidator
                                 ID="RequiredFieldValidator4"
                                 runat="server"
                                 ErrorMessage="Ingrese nacionalidad"
                                 ForeColor="Red"
-                                ControlToValidate="txtNaciolidad"
+                                ControlToValidate="txtNacionalidad"
                                 Display="Dynamic"
                                 ValidationGroup="grupo1"></asp:RequiredFieldValidator>
                         </div>
@@ -165,7 +164,7 @@
                     <br />
                     <div class="row mb-6">
                         <div class="col-md-4">
-                            <asp:Label ID="lblFechaNacimietno" runat="server" Text="Fecha de Nacimiento:" CssClass="form-label"></asp:Label>
+                            <asp:Label ID="lblFechaNacimiento" runat="server" Text="Fecha de Nacimiento:" CssClass="form-label"></asp:Label>
                         </div>
                         <div class="col-md-8">
                             <asp:TextBox ID="txtFechaNacimiento" runat="server" CssClass="form-control"></asp:TextBox>
@@ -253,13 +252,13 @@
                             <asp:Label ID="lblTelefono" runat="server" Text="Telefono:" CssClass="form-label"></asp:Label>
                         </div>
                         <div class="col-md-8">
-                            <asp:TextBox ID="txtTelefo" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-control"></asp:TextBox>
                             <asp:RequiredFieldValidator
                                 ID="RequiredFieldValidator10"
                                 runat="server"
                                 ErrorMessage="Ingrese Telefono"
                                 ForeColor="Red"
-                                ControlToValidate="txtTelefo"
+                                ControlToValidate="txtTelefono"
                                 Display="Dynamic"
                                 ValidationGroup="grupo1"></asp:RequiredFieldValidator>
                         </div>
@@ -286,25 +285,18 @@
                         </div>
                     </div>
                     <br />
-                    <div class="row mb-6">
-                        <div class="col-md-4">
-                            <asp:Label ID="lblDia" runat="server" Text="Dia:" CssClass="form-label"></asp:Label>
-                        </div>
-                        <div class="col-md-8">
-                            <asp:DropDownList ID="DDLDia" runat="server">
-                                <asp:ListItem Value="0">--Seleccionar--</asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
                     </div>
-                    <br />
                     <div class="row mb-6">
                         <div class="col-md-4">
                             <asp:Label ID="lblHorario" runat="server" Text="Horario Atencion:" CssClass="form-label"></asp:Label>
                         </div>
                         <div class="col-md-8">
-                            <asp:DropDownList ID="DDLHorario" runat="server">
-                                <asp:ListItem Value="0">--Seleccionar--</asp:ListItem>
-                            </asp:DropDownList>
+                            <asp:DropDownList ID="ddlHorario" runat="server">
+    <asp:ListItem Value="0">--Seleccionar--</asp:ListItem>
+    <asp:ListItem Value="Lunes a Viernes 8-12">Lunes a Viernes 8-12</asp:ListItem>
+    <asp:ListItem Value="Tarde 14-18">Tarde 14-18</asp:ListItem>
+    <asp:ListItem Value="Sábados 9-13">Sábados 9-13</asp:ListItem>
+</asp:DropDownList>
                         </div>
                     </div>
                     <br />
@@ -313,7 +305,7 @@
                             <asp:Label ID="lblEspecialidad" runat="server" Text="Especialidad:" CssClass="form-label"></asp:Label>
                         </div>
                         <div class="col-md-8">
-                            <asp:DropDownList ID="DDLEspecialidad" runat="server">
+                            <asp:DropDownList ID="ddlEspecialidad" runat="server">
                                 <asp:ListItem Value="0">--Seleccionar--</asp:ListItem>
                             </asp:DropDownList>
                         </div>
@@ -341,22 +333,22 @@
                             <asp:Label ID="lblContraseña" runat="server" Text="Contraseña:" CssClass="form-label"></asp:Label>
                         </div>
                         <div class="col-md-8">
-                            <asp:TextBox ID="txtContraceña" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox ID="txtContraseña" runat="server" CssClass="form-control"></asp:TextBox>
                             <asp:RequiredFieldValidator
                                 ID="RequiredFieldValidator13"
                                 runat="server"
                                 ErrorMessage="Ingrese Contraseña"
                                 ForeColor="Red"
-                                ControlToValidate="txtContraceña"
+                                ControlToValidate="txtContraseña"
                                 Display="Dynamic"
                                 ValidationGroup="grupo1"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <br />
                     <br />
-                    <asp:Button ID="Button1" runat="server" Text="Enviar" style="background-color: #653208; width:100px;" CssClass="form-control"  ValidationGroup="grupo1"/>
+                    <asp:Button ID="btnAltaMedico" runat="server" Text="Enviar" style="background-color: #653208; width:100px;" CssClass="form-control"  ValidationGroup="grupo1" OnClick="btnAltaMedico_Click"/>
                 </div>
-            </div>
+            <asp:Label runat="server" ID="lblMedicoCreado"></asp:Label>
         </div>
     </div>
 </asp:Content>

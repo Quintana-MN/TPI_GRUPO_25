@@ -77,199 +77,91 @@
     </div>
 
 
-        <div class="row justify-content-center">
-    <asp:Label runat="server" ID="lblBienvenida" Text="Bienvenido Administrador: Aquí se hace la baja, modificación y lectura de médicos" CssClass="h2 text-center d-block mt-5 mb-3 text-dark"></asp:Label>
-
-            <div class="col-md-6">
-                <h4 class="text-center">Nuevo Paciente<asp:Label ID="Administrador" runat="server" ClientIDMode="Predictable"></asp:Label></h4>
-                <div class="col-md-6">
-                    <div class="row mb-6">
-                        <div class="col-md-4">
-                            <asp:Label ID="lblDNI" runat="server" Text="DNI:" CssClass="form-label"></asp:Label>
-                        </div>
-                        <div class="col-md-8">
-                            <asp:TextBox ID="txtDNI" runat="server" CssClass="form-control"></asp:TextBox>
-                            <asp:RequiredFieldValidator
-                                ID="RequiredFieldValidator1"
-                                runat="server"
-                                ErrorMessage="Ingrese DNI"
-                                ForeColor="Red"
-                                ControlToValidate="txtDNI"
-                                Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
-                        </div>
-                    </div>
-                    <br />
-                    <div class="row mb-6">
-                        <div class="col-md-4">
-                            <asp:Label ID="lblNombre" runat="server" Text="Nombre:" CssClass="form-label"></asp:Label>
-                        </div>
-                        <div class="col-md-8">
-                            <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control"></asp:TextBox>
-                            <asp:RequiredFieldValidator
-                                ID="RequiredFieldValidator2"
-                                runat="server"
-                                ErrorMessage="Ingrese Nombre"
-                                ForeColor="Red"
-                                ControlToValidate="txtNombre"
-                                Display="Dynamic"
-                                ValidationGroup="grupo1"></asp:RequiredFieldValidator>
-                        </div>
-                    </div>
-                    <br />
-                    <div class="row mb-6">
-                        <div class="col-md-4">
-                            <asp:Label ID="lblApellido" runat="server" Text="Apellido:" CssClass="form-label"></asp:Label>
-                        </div>
-                        <div class="col-md-8">
-                            <asp:TextBox ID="txtApellido" runat="server" CssClass="form-control"></asp:TextBox>
-                            <asp:RequiredFieldValidator
-                                ID="RequiredFieldValidator3"
-                                runat="server"
-                                ErrorMessage="Ingrese Apellido"
-                                ForeColor="Red"
-                                ControlToValidate="txtApellido"
-                                Display="Dynamic"
-                                ValidationGroup="grupo1"></asp:RequiredFieldValidator>
-                        </div>
-                    </div>
-                    <br />
-                    <div class="row mb-6">
-                        <div class="col-md-4">
-                            <asp:Label ID="lblSexo" runat="server" Text="Sexo:" CssClass="form-label"></asp:Label>
-                        </div>
-                        <div class="col-md-8">
-                            <asp:DropDownList ID="DropDownList3" runat="server">
-                                <asp:ListItem Value="0">--Seleccionar--</asp:ListItem>
-                                <asp:ListItem Value="1">Hombre</asp:ListItem>
-                                <asp:ListItem Value="2">Mujer</asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
-                    </div>
-                    <br />
-                    <div class="row mb-6">
-                        <div class="col-md-4">
-                            <asp:Label ID="lblNacionalidad" runat="server" Text="Nacionalidad:" CssClass="form-label"></asp:Label>
-                        </div>
-                        <div class="col-md-8">
-                            <asp:TextBox ID="txtNaciolidad" runat="server" CssClass="form-control"></asp:TextBox>
-                            <asp:RequiredFieldValidator
-                                ID="RequiredFieldValidator4"
-                                runat="server"
-                                ErrorMessage="Ingrese nacionalidad"
-                                ForeColor="Red"
-                                ControlToValidate="txtNaciolidad"
-                                Display="Dynamic"
-                                ValidationGroup="grupo1"></asp:RequiredFieldValidator>
-                        </div>
-                    </div>
-                    <br />
-                    <div class="row mb-6">
-                        <div class="col-md-4">
-                            <asp:Label ID="lblFechaNacimietno" runat="server" Text="Fecha de Nacimiento:" CssClass="form-label"></asp:Label>
-                        </div>
-                        <div class="col-md-8">
-                            <asp:TextBox ID="txtFechaNacimiento" runat="server" CssClass="form-control"></asp:TextBox>
-                            <asp:RequiredFieldValidator
-                                ID="RequiredFieldValidator5"
-                                runat="server"
-                                ErrorMessage="Ingrese Fecha de Nacimiento"
-                                ForeColor="Red"
-                                ControlToValidate="txtFechaNacimiento"
-                                Display="Dynamic"
-                                ValidationGroup="grupo1"></asp:RequiredFieldValidator>
-                        </div>
-                    </div>
-                    <br />
-                    <div class="row mb-6">
-                        <div class="col-md-4">
-                            <asp:Label ID="lblDirecion" runat="server" Text="Dirección:" CssClass="form-label"></asp:Label>
-                        </div>
-                        <div class="col-md-8">
-                            <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control"></asp:TextBox>
-                            <asp:RequiredFieldValidator
-                                ID="RequiredFieldValidator6"
-                                runat="server"
-                                ErrorMessage="Ingrese Dirección"
-                                ForeColor="Red"
-                                ControlToValidate="txtDireccion"
-                                Display="Dynamic"
-                                ValidationGroup="grupo1"></asp:RequiredFieldValidator>
-                        </div>
-                    </div>
-                    <br />
-                    <div class="row mb-6">
-                        <div class="col-md-4">
-                            <asp:Label ID="lblLocalidad" runat="server" Text="Localidad:" CssClass="form-label"></asp:Label>
-                        </div>
-                        <div class="col-md-8">
-                            <asp:TextBox ID="txtLocalidad" runat="server" CssClass="form-control"></asp:TextBox>
-                            <asp:RequiredFieldValidator
-                                ID="RequiredFieldValidator7"
-                                runat="server"
-                                ErrorMessage="Ingrese Localidad"
-                                ForeColor="Red"
-                                ControlToValidate="txtLocalidad"
-                                Display="Dynamic"
-                                ValidationGroup="grupo1"></asp:RequiredFieldValidator>
-                        </div>
-                    </div>
-                    <br />
-                    <div class="row mb-6">
-                        <div class="col-md-4">
-                            <asp:Label ID="lblProvincia" runat="server" Text="Provincia:" CssClass="form-label"></asp:Label>
-                        </div>
-                        <div class="col-md-8">
-                            <asp:TextBox ID="txtProvincia" runat="server" CssClass="form-control"></asp:TextBox>
-                            <asp:RequiredFieldValidator
-                                ID="RequiredFieldValidator8"
-                                runat="server"
-                                ErrorMessage="Ingrese Provincia"
-                                ForeColor="Red"
-                                ControlToValidate="txtProvincia"
-                                Display="Dynamic"
-                                ValidationGroup="grupo1"></asp:RequiredFieldValidator>
-                        </div>
-                    </div>
-                    <br />
-                    <div class="row mb-6">
-                        <div class="col-md-4">
-                            <asp:Label ID="lblCorreo" runat="server" Text="Correo Electronico:" CssClass="form-label"></asp:Label>
-                        </div>
-                        <div class="col-md-8">
-                            <asp:TextBox ID="txtCorreo" runat="server" CssClass="form-control"></asp:TextBox>
-                            <asp:RequiredFieldValidator
-                                ID="RequiredFieldValidator9"
-                                runat="server"
-                                ErrorMessage="Ingrese Correo Electronico"
-                                ForeColor="Red"
-                                ControlToValidate="txtCorreo"
-                                Display="Dynamic"
-                                ValidationGroup="grupo1"></asp:RequiredFieldValidator>
-                        </div>
-                    </div>
-                    <br />
-                    <div class="row mb-6">
-                        <div class="col-md-4">
-                            <asp:Label ID="lblTelefono" runat="server" Text="Telefono:" CssClass="form-label"></asp:Label>
-                        </div>
-                        <div class="col-md-8">
-                            <asp:TextBox ID="txtTelefo" runat="server" CssClass="form-control"></asp:TextBox>
-                            <asp:RequiredFieldValidator
-                                ID="RequiredFieldValidator10"
-                                runat="server"
-                                ErrorMessage="Ingrese Telefono"
-                                ForeColor="Red"
-                                ControlToValidate="txtTelefo"
-                                Display="Dynamic"
-                                ValidationGroup="grupo1"></asp:RequiredFieldValidator>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <div class="row justify-content-center">
-        <div class="col-md-1">
-            <asp:Button ID="Button1" runat="server" Text="Button" CssClass="form-control" ValidationGroup="grupo1" />
-        </div>
+        <!-- Fila 1: DNI y Nombre -->
+<div class="px-4">
+<div class="row mb-3">
+        <asp:Label runat="server" ID="lblBienvenida" CssClass="text-center h3 fw-bold py-4"></asp:Label>
+    <div class="col-md-6">
+        <asp:Label ID="lblDNI" runat="server" Text="DNI:" CssClass="form-label fw-bold"></asp:Label>
+        <asp:TextBox ID="txtDNI" runat="server" CssClass="form-control" placeholder="Ingrese DNI..."></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Ingrese DNI" ForeColor="Red" ControlToValidate="txtDNI" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
     </div>
+    <div class="col-md-6">
+        <asp:Label ID="lblNombre" runat="server" Text="Nombre:" CssClass="form-label fw-bold"></asp:Label>
+        <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" placeholder="Ingrese Nombre..."></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Ingrese Nombre" ForeColor="Red" ControlToValidate="txtNombre" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+    </div>
+</div>
+
+<!-- Fila 2: Apellido y Sexo -->
+<div class="row mb-3 ">
+    <div class="col-md-6">
+        <asp:Label ID="lblApellido" runat="server" Text="Apellido:" CssClass="form-label fw-bold"></asp:Label>
+        <asp:TextBox ID="txtApellido" runat="server" CssClass="form-control" placeholder="Ingrese Apellido..."></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Ingrese Apellido" ForeColor="Red" ControlToValidate="txtApellido" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+    </div>
+    <div class="col-md-6">
+        <asp:Label ID="lblSexo" runat="server" Text="Sexo:" CssClass="form-label fw-bold"></asp:Label>
+        <asp:DropDownList ID="DropDownList3" runat="server" CssClass="form-control">
+            <asp:ListItem Value="0">--Seleccionar--</asp:ListItem>
+            <asp:ListItem Value="1">Hombre</asp:ListItem>
+            <asp:ListItem Value="2">Mujer</asp:ListItem>
+        </asp:DropDownList>
+    </div>
+</div>
+    <!-- Fila 3: Nacionalidad y Fecha de Nacimiento -->
+<div class="row mb-3 ">
+    <div class="col-md-6">
+        <asp:Label ID="lblNacionalidad" runat="server" Text="Nacionalidad:" CssClass="form-label fw-bold"></asp:Label>
+        <asp:TextBox ID="txtNacionalidad" runat="server" CssClass="form-control" placeholder="Ingrese Nacionalidad..."></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Ingrese nacionalidad" ForeColor="Red" ControlToValidate="txtNacionalidad" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+    </div>
+    <div class="col-md-6">
+        <asp:Label ID="lblFechaNacimiento" runat="server" Text="Fecha de Nacimiento:" CssClass="form-label fw-bold"></asp:Label>
+        <asp:TextBox ID="txtFechaNacimiento" runat="server" CssClass="form-control" placeholder="Ingrese Fecha de Nacimiento..."></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Ingrese Fecha de Nacimiento" ForeColor="Red" ControlToValidate="txtFechaNacimiento" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+    </div>
+</div>
+
+<!-- Fila 4: Dirección y Localidad -->
+<div class="row mb-3 ">
+    <div class="col-md-6">
+        <asp:Label ID="lblDireccion" runat="server" Text="Dirección:" CssClass="form-label "></asp:Label>
+        <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control" placeholder="Ingrese Dirección..."></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Ingrese Dirección" ForeColor="Red" ControlToValidate="txtDireccion" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+    </div>
+        <div class="col-md-6">
+        <asp:Label ID="Label1" runat="server" Text="Provincia:" CssClass="form-label fw-bold"></asp:Label>
+        <asp:TextBox ID="txtProvincia" runat="server" CssClass="form-control" placeholder="Ingrese Provincia..."></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Ingrese Provincia" ForeColor="Red" ControlToValidate="txtProvincia" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+    </div>
+</div>
+
+                   <!-- Fila 5: Provincia y Correo Electrónico -->
+<div class="row mb-3 ">
+    <div class="col-md-6">
+        <asp:Label ID="lblLocalidad" runat="server" Text="Localidad:" CssClass="form-label fw-bold"></asp:Label>
+        <asp:TextBox ID="txtLocalidad" runat="server" CssClass="form-control" placeholder="Ingrese Localidad..."></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="Ingrese Localidad" ForeColor="Red" ControlToValidate="txtLocalidad" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+    </div>
+    <div class="col-md-6">
+        <asp:Label ID="lblCorreo" runat="server" Text="Correo Electrónico:" CssClass="form-label fw-bold"></asp:Label>
+        <asp:TextBox ID="txtCorreo" runat="server" CssClass="form-control" placeholder="Ingrese Correo Electrónico..."></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="Ingrese Correo Electrónico" ForeColor="Red" ControlToValidate="txtCorreo" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+    </div>
+</div>
+
+<!-- Fila 6: Teléfono y Botón -->
+<div class="row mb-4 ">
+    <div class="col-md-6">
+        <asp:Label ID="lblTelefono" runat="server" Text="Teléfono:" CssClass="form-label fw-bold"></asp:Label>
+        <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-control" placeholder="Ingrese Teléfono..."></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="Ingrese Teléfono" ForeColor="Red" ControlToValidate="txtTelefono" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+    </div>
+    <div class="col-md-6 d-flex align-items-end">
+        <asp:Button ID="Button1" runat="server" Text="Guardar" CssClass="btn btn-primary w-100 boton-personalizado" ValidationGroup="grupo1" />
+    </div>
+</div>
+    </div>
+
 </asp:Content>

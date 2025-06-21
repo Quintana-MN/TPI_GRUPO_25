@@ -34,7 +34,7 @@ namespace TPI_GRUPO_25
             ddlEspecialidad.DataTextField = "nombre_E";
             ddlEspecialidad.DataValueField = "codEspecialidad_E";
             ddlEspecialidad.DataBind();
-            ddlEspecialidad.Items.Insert(0, new ListItem("-- Seleccione --", "0"));
+            ddlEspecialidad.Items.Insert(0, new ListItem("--Seleccionar--", "0"));
         }
         protected void CargarProvincias()
         {
@@ -43,7 +43,7 @@ namespace TPI_GRUPO_25
             ddlProvincia.DataTextField = "nombre_Prov";
             ddlProvincia.DataValueField = "idProvincia_Prov";
             ddlProvincia.DataBind();
-            ddlProvincia.Items.Insert(0, new ListItem("--Seleccionar provincia--", "0"));
+            ddlProvincia.Items.Insert(0, new ListItem("--Seleccionar--", "0"));
         }
 
 
@@ -104,7 +104,7 @@ namespace TPI_GRUPO_25
             NegocioUsuario negocio = new NegocioUsuario();
             negocio.AgregarMedico(MedicoCompleto);
 
-            lblMedicoCreado.Text = "Medico creado!";
+            lblMedicoCreado.Text = "¡Medico creado!";
 
         }
 

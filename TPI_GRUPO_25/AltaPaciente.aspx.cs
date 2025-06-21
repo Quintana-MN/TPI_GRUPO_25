@@ -18,7 +18,7 @@ namespace TPI_GRUPO_25
             }
             else
             {
-                lblBienvenida.Text = $"Bienvenido, {Session["nombre"]}. Acá se hace la Baja, Modificación y Lectura de los médicos";
+                lblBienvenida.Text = $"Bienvenido, {Session["nombre"]}. Acá se hace el Alta de los Pacientes.";
             }
         }
     }

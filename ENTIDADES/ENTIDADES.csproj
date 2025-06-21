@@ -43,8 +43,12 @@
   <ItemGroup>
     <Compile Include="Medico.cs" />
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <Compile Include="MedicoCompleto.cs" />
     <Compile Include="Persona.cs" />
+=======
+    <Compile Include="PacienteUpdate.cs" />
+>>>>>>> Stashed changes
 =======
     <Compile Include="PacienteUpdate.cs" />
 >>>>>>> Stashed changes

@@ -161,6 +161,7 @@ namespace DATOS
         }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         public DataTable ObtenerEspecialidades()
         {
             using (SqlConnection conexion = ObtenerConexion())
@@ -226,6 +227,8 @@ namespace DATOS
             }
         }
 =======
+=======
+>>>>>>> Stashed changes
         private void ArmarParametrosPacienteUpdate(ref SqlCommand Comando, PacienteUpdate pacienteUpdate)
         {
             SqlParameter SqlParametros = new SqlParameter();
@@ -255,6 +258,9 @@ namespace DATOS
         }
 
       
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 

@@ -41,24 +41,19 @@ public class NegocioUsuario
         AccesoDatos datos = new AccesoDatos();
         datos.ActualizarMedico(medico);
     }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 
     public void AgregarMedico(MedicoCompleto medico)
     {
         AccesoDatos datos = new AccesoDatos();
         datos.AltaMedico(medico);
-=======
-=======
->>>>>>> Stashed changes
+
+    }
+
     public void EditarPaciente(PacienteUpdate pacienteUpdate)
     {
         AccesoDatos datos = new AccesoDatos();
         datos.ActualizarPaciente(pacienteUpdate);
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
     }
     public DataTable ValidarLogin(string usuario, string contrasenia)
     {

@@ -44,6 +44,22 @@ namespace DATOS
             return tabla;
         }
 
+        public DataTable getTablaPaciente()
+        {
+            DataTable tabla = dataset.ObtenerTabla("PACIENTE", @"
+    SELECT 
+        P.id_Paciente AS [ID_Paciente],
+        P.dni_Pac AS [DNI],
+        P.id_turno_Pac AS [ID_Turno],
+        PR.nombre_P AS [Nombre],
+        PR.email_P AS [Email]
+    FROM PACIENTE P
+    INNER JOIN PERSONA PR ON P.dni_Pac = PR.dni_P
+    WHERE P.estado_Pac = 1");
+
+            return tabla;
+        }
+
 
     }
 }

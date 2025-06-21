@@ -42,8 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Medico.cs" />
+<<<<<<< Updated upstream
     <Compile Include="MedicoCompleto.cs" />
     <Compile Include="Persona.cs" />
+=======
+    <Compile Include="PacienteUpdate.cs" />
+>>>>>>> Stashed changes
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>

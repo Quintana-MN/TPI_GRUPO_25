@@ -117,6 +117,16 @@ namespace DATOS
                 comando.ExecuteNonQuery();
             }
         }
+        public void BajaLogicaPaciente(int idPaciente)
+        {
+            using (SqlConnection conexion = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SP_BajaPaciente", conexion);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@id_Paciente", idPaciente);
+                comando.ExecuteNonQuery();
+            }
+        }
 
 
         private void ArmarParametrosMedico(ref SqlCommand Comando, Medico medico)
@@ -150,6 +160,7 @@ namespace DATOS
             }
         }
 
+<<<<<<< Updated upstream
         public DataTable ObtenerEspecialidades()
         {
             using (SqlConnection conexion = ObtenerConexion())
@@ -214,6 +225,37 @@ namespace DATOS
                 comando.ExecuteNonQuery();
             }
         }
+=======
+        private void ArmarParametrosPacienteUpdate(ref SqlCommand Comando, PacienteUpdate pacienteUpdate)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+            SqlParametros = Comando.Parameters.Add("@nombre_paciente", SqlDbType.VarChar, 50);
+            SqlParametros.Value = pacienteUpdate.nombre;
+            SqlParametros = Comando.Parameters.Add("@email_paciente", SqlDbType.VarChar, 50);
+            SqlParametros.Value = pacienteUpdate.email;
+            SqlParametros = Comando.Parameters.Add("@dni_paciente", SqlDbType.NChar, 9);
+            SqlParametros.Value = pacienteUpdate.dni;
+
+        }
+
+        public bool ActualizarPaciente(PacienteUpdate pacienteUpdate)
+        {
+            SqlCommand sqlCommand = new SqlCommand();
+            ArmarParametrosPacienteUpdate(ref sqlCommand, pacienteUpdate);
+            AccesoDatos accesoDatos = new AccesoDatos();
+            int FilasInsertadas = accesoDatos.EjecutarProcedimientoAlmacenado(sqlCommand, "SP_EditarPaciente");
+            if (FilasInsertadas == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+      
+>>>>>>> Stashed changes
 
 
 

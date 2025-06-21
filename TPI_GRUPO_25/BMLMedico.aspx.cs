@@ -23,11 +23,11 @@ namespace TPI_GRUPO_25
                 {
                     lblBienvenida.Text = $"Bienvenido, {Session["nombre"]}. Acá se hace la Baja, Modificación y Lectura de los médicos";
                 }
-                CargarGrid();
+                CargarGridMedico();
             }
         }
 
-        private void CargarGrid()
+        private void CargarGridMedico()
         {
             NegocioUsuario negocio = new NegocioUsuario();
             DataTable dt = negocio.getMedicos();
@@ -43,7 +43,7 @@ namespace TPI_GRUPO_25
                 NegocioUsuario negocio = new NegocioUsuario();
                 negocio.BajaMedico(legajo);
 
-                CargarGrid();
+                CargarGridMedico();
             }
         }
 
@@ -68,19 +68,19 @@ namespace TPI_GRUPO_25
             negocio.EditarMedico(medico);
 
             gvMedicos.EditIndex = -1;
-            CargarGrid();
+            CargarGridMedico();
         }
 
         protected void gvMedicos_RowEditing(object sender, GridViewEditEventArgs e)
         {
             gvMedicos.EditIndex = e.NewEditIndex;
-            CargarGrid();
+            CargarGridMedico();
         }
 
         protected void gvMedicos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             gvMedicos.EditIndex = -1;
-            CargarGrid();
+            CargarGridMedico();
         }
 
 

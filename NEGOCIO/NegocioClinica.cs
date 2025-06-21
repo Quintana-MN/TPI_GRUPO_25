@@ -21,21 +21,38 @@ public class NegocioUsuario
         DATOS.DaoUsuario dao = new DATOS.DaoUsuario();
         return dao.getTablaMedicos();
     }
+    public DataTable getPacientes()
+    {
+        DATOS.DaoUsuario dao = new DATOS.DaoUsuario();
+        return dao.getTablaPaciente();
+    }
     public void BajaMedico(int legajo)
     {
         AccesoDatos datos = new AccesoDatos();
         datos.BajaLogicaMedico(legajo);
+    }
+    public void BajaPaciente(int idPaciente)
+    {
+        AccesoDatos datos = new AccesoDatos();
+        datos.BajaLogicaPaciente(idPaciente);
     }
     public void EditarMedico(Medico medico)
     {
         AccesoDatos datos = new AccesoDatos();
         datos.ActualizarMedico(medico);
     }
+<<<<<<< Updated upstream
 
     public void AgregarMedico(MedicoCompleto medico)
     {
         AccesoDatos datos = new AccesoDatos();
         datos.AltaMedico(medico);
+=======
+    public void EditarPaciente(PacienteUpdate pacienteUpdate)
+    {
+        AccesoDatos datos = new AccesoDatos();
+        datos.ActualizarPaciente(pacienteUpdate);
+>>>>>>> Stashed changes
     }
     public DataTable ValidarLogin(string usuario, string contrasenia)
     {

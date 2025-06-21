@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ENTIDADES;
 
 namespace TPI_GRUPO_25
 {
@@ -22,29 +24,56 @@ namespace TPI_GRUPO_25
                 {
                     lblBienvenida.Text = $"Bienvenido, {Session["nombre"]}. Acá se hace la Baja, Modificación y Lectura de los médicos";
                 }
-                CargarTabla();
+                CargarGridPaciente();
             }
         }
-
-        private void CargarTabla()
+        private void CargarGridPaciente()
         {
-            DataTable tabla = new DataTable();
-            tabla.Columns.Add("DNI");
-            tabla.Columns.Add("Nombre");
-            tabla.Columns.Add("Apellido");
-            tabla.Columns.Add("FechaNacimiento");
-            tabla.Columns.Add("Direccion");
-            tabla.Columns.Add("Localidad");
-            tabla.Columns.Add("CorreoElectronico");
-
-            // Carga 30 filas vacías simuladas
-            for (int i = 0; i < 30; i++)
-            {
-                tabla.Rows.Add("", "", "", "", "", "", "");
-            }
-
-            gvPacientes.DataSource = tabla;
+            NegocioUsuario negocio = new NegocioUsuario();
+            DataTable dt = negocio.getPacientes();
+            gvPacientes.DataSource = dt;
             gvPacientes.DataBind();
+        }
+        
+        protected void gvPaciente_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < gvPacientes.DataKeys.Count)
+            {
+                int idPaciente = Convert.ToInt32(gvPacientes.DataKeys[e.RowIndex].Value);
+
+                NegocioUsuario negocio = new NegocioUsuario();
+                negocio.BajaPaciente(idPaciente);
+
+                CargarGridPaciente();
+            }
+        }
+        protected void gvPaciente_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            string nombrePaciente = ((TextBox)gvPacientes.Rows[e.RowIndex].FindControl("txtEditTempNombre")).Text;
+            string emailPaciente= ((TextBox)gvPacientes.Rows[e.RowIndex].FindControl("txtEditCorreo")).Text;
+
+            string dniPaciente= ((Label)gvPacientes.Rows[e.RowIndex].FindControl("lblEditDniPaciente")).Text;
+
+
+            PacienteUpdate pacienteUp = new PacienteUpdate(nombrePaciente, emailPaciente, dniPaciente);
+
+            NegocioUsuario negocio = new NegocioUsuario();
+            negocio.EditarPaciente(pacienteUp);
+
+            gvPacientes.EditIndex = -1;
+            CargarGridPaciente();
+        }
+
+        protected void gvPaciente_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            gvPacientes.EditIndex = e.NewEditIndex;
+            CargarGridPaciente();
+        }
+
+        protected void gvPaciente_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            gvPacientes.EditIndex = -1;
+            CargarGridPaciente();
         }
     }
 }

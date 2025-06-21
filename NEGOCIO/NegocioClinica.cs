@@ -48,5 +48,17 @@ public class NegocioUsuario
         AccesoDatos datos = new AccesoDatos();
         return datos.ObtenerEspecialidades();
     }
+    public DataTable ObtenerProvincias()
+    {
+        AccesoDatos datos = new AccesoDatos();
+        return datos.ObtenerProvincias();
+    }
+
+    public DataTable ObtenerLocalidadesPorProvincia(int idProvincia)
+    {
+        AccesoDatos datos = new AccesoDatos();
+        return datos.ObtenerLocalidadesPorProvincia(idProvincia);
+    }
+
 }
 

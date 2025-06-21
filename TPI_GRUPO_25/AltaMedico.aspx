@@ -195,40 +195,39 @@
                                 ValidationGroup="grupo1"></asp:RequiredFieldValidator>
                         </div>
                     </div>
+
                     <br />
-                    <div class="row mb-6">
-                        <div class="col-md-4">
-                            <asp:Label ID="lblLocalidad" runat="server" Text="Localidad:" CssClass="form-label"></asp:Label>
-                        </div>
-                        <div class="col-md-8">
-                            <asp:TextBox ID="txtLocalidad" runat="server" CssClass="form-control"></asp:TextBox>
-                            <asp:RequiredFieldValidator
-                                ID="RequiredFieldValidator7"
-                                runat="server"
-                                ErrorMessage="Ingrese Localidad"
-                                ForeColor="Red"
-                                ControlToValidate="txtLocalidad"
-                                Display="Dynamic"
-                                ValidationGroup="grupo1"></asp:RequiredFieldValidator>
-                        </div>
-                    </div>
+                  <div class="row mb-4">
+    <div class="col-md-6">
+        <asp:Label ID="lblProvincia" runat="server" Text="Provincia:" CssClass="form-label"></asp:Label>
+    </div>
+    <div class="col-md-8">
+        <asp:DropDownList 
+            ID="ddlProvincia" 
+            runat="server" 
+            CssClass="form-control" 
+            AutoPostBack="true" 
+            OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged">
+            <asp:ListItem Value="0">--Seleccionar--</asp:ListItem>
+        </asp:DropDownList>
+    </div>
+</div>
                     <br />
-                    <div class="row mb-6">
-                        <div class="col-md-4">
-                            <asp:Label ID="lblProvincia" runat="server" Text="Provincia:" CssClass="form-label"></asp:Label>
-                        </div>
-                        <div class="col-md-8">
-                            <asp:TextBox ID="txtProvincia" runat="server" CssClass="form-control"></asp:TextBox>
-                            <asp:RequiredFieldValidator
-                                ID="RequiredFieldValidator8"
-                                runat="server"
-                                ErrorMessage="Ingrese Provincia"
-                                ForeColor="Red"
-                                ControlToValidate="txtProvincia"
-                                Display="Dynamic"
-                                ValidationGroup="grupo1"></asp:RequiredFieldValidator>
-                        </div>
-                    </div>
+                    <div class="row mb-3">
+    <div class="col-md-4">
+        <asp:Label ID="lblLocalidad" runat="server" Text="Localidad:" CssClass="form-label"></asp:Label>
+    </div>
+    <div class="col-md-8">
+        <asp:DropDownList 
+            ID="ddlLocalidad" 
+            runat="server" 
+            CssClass="form-control"
+            AutoPostBack="false">
+            <asp:ListItem Value="0">--Seleccionar--</asp:ListItem>
+        </asp:DropDownList>
+    </div>
+</div>
+
                     <br />
                     <div class="row mb-6">
                         <div class="col-md-4">

@@ -161,6 +161,30 @@ namespace DATOS
             }
         }
 
+        public DataTable ObtenerProvincias()
+        {
+            using (SqlConnection conexion = ObtenerConexion())
+            {
+                SqlDataAdapter da = new SqlDataAdapter("SELECT idProvincia_Prov, nombre_Prov FROM PROVINCIAS", conexion);
+                DataTable tabla = new DataTable();
+                da.Fill(tabla);
+                return tabla;
+            }
+        }
+        public DataTable ObtenerLocalidadesPorProvincia(int idProvincia)
+        {
+            using (SqlConnection conexion = ObtenerConexion())
+            {
+                SqlDataAdapter da = new SqlDataAdapter("SELECT idLocalidad_L, nombre_L FROM LOCALIDADES WHERE idProvincia_L = @idProvincia_L", conexion);
+                da.SelectCommand.Parameters.AddWithValue("@idProvincia_L", idProvincia);
+                DataTable tabla = new DataTable();
+                da.Fill(tabla);
+                return tabla;
+            }
+        }
+
+
+
         public void AltaMedico(MedicoCompleto medico)
         {
             using (SqlConnection conexion = ObtenerConexion())

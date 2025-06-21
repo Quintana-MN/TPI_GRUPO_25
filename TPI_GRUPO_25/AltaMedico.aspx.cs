@@ -23,6 +23,7 @@ namespace TPI_GRUPO_25
                 {
                     lblBienvenida.Text = $"Bienvenido, {Session["nombre"]}. Acá se hace la Alta de los médicos";
                     CargarEspecialidades();
+                    CargarProvincias();
                 }
             }
         }
@@ -33,10 +34,36 @@ namespace TPI_GRUPO_25
             ddlEspecialidad.DataTextField = "nombre_E";
             ddlEspecialidad.DataValueField = "codEspecialidad_E";
             ddlEspecialidad.DataBind();
-
             ddlEspecialidad.Items.Insert(0, new ListItem("-- Seleccione --", "0"));
         }
+        protected void CargarProvincias()
+        {
+            NegocioUsuario negocio = new NegocioUsuario();
+            ddlProvincia.DataSource = negocio.ObtenerProvincias();
+            ddlProvincia.DataTextField = "nombre_Prov";
+            ddlProvincia.DataValueField = "idProvincia_Prov";
+            ddlProvincia.DataBind();
+            ddlProvincia.Items.Insert(0, new ListItem("--Seleccionar provincia--", "0"));
+        }
 
+
+        protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int idProvincia = Convert.ToInt32(ddlProvincia.SelectedValue);
+            if (idProvincia > 0)
+                CargarLocalidades(idProvincia);
+            else
+                ddlLocalidad.Items.Clear();
+        }
+        protected void CargarLocalidades(int idProvincia)
+        {
+            NegocioUsuario negocio = new NegocioUsuario();
+            ddlLocalidad.DataSource = negocio.ObtenerLocalidadesPorProvincia(idProvincia);
+            ddlLocalidad.DataTextField = "nombre_L";
+            ddlLocalidad.DataValueField = "idLocalidad_L";
+            ddlLocalidad.DataBind();
+            ddlLocalidad.Items.Insert(0, new ListItem("--Seleccionar--", "0"));
+        }
 
         protected void btnAltaMedico_Click(object sender, EventArgs e)
         {
@@ -53,8 +80,8 @@ namespace TPI_GRUPO_25
             persona.setDireccion(txtDireccion.Text);
             persona.setEmail(txtCorreo.Text);
             persona.setTelefono(txtTelefono.Text);
-            persona.setIdLocalidad(Convert.ToInt32(txtLocalidad.Text));
-            persona.setIdProvincia(Convert.ToInt32(txtProvincia.Text));
+            persona.setIdProvincia(Convert.ToInt32(ddlProvincia.SelectedValue));
+            persona.setIdLocalidad(Convert.ToInt32(ddlLocalidad.SelectedValue));
             MedicoCompleto.SetPersona(persona);
 
             // Usuario

@@ -102,7 +102,7 @@
     </div>
     <div class="col-md-6">
         <asp:Label ID="lblSexo" runat="server" Text="Sexo:" CssClass="form-label fw-bold"></asp:Label>
-        <asp:DropDownList ID="DropDownList3" runat="server" CssClass="form-control">
+        <asp:DropDownList ID="ddlSexo" runat="server" CssClass="form-control">
             <asp:ListItem Value="0">--Seleccionar--</asp:ListItem>
             <asp:ListItem Value="1">Hombre</asp:ListItem>
             <asp:ListItem Value="2">Mujer</asp:ListItem>
@@ -141,7 +141,7 @@
 <div class="row mb-3 ">
     <div class="col-md-6">
         <asp:Label ID="lblLocalidad" runat="server" Text="Localidad:" CssClass="form-label fw-bold"></asp:Label>
-        <asp:TextBox ID="txtLocalidad" runat="server" CssClass="form-control" placeholder="Ingrese Localidad..."></asp:TextBox>
+        <asp:TextBox ID="" runat="server" CssClass="form-control" placeholder="Ingrese Localidad..."></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="Ingrese Localidad" ForeColor="Red" ControlToValidate="txtLocalidad" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
     </div>
     <div class="col-md-6">
@@ -159,7 +159,7 @@
         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="Ingrese Teléfono" ForeColor="Red" ControlToValidate="txtTelefono" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
     </div>
     <div class="col-md-6 d-flex align-items-end">
-        <asp:Button ID="Button1" runat="server" Text="Guardar" CssClass="btn btn-primary w-100 boton-personalizado" ValidationGroup="grupo1" />
+        <asp:Button ID="btnAgregarPaciente" runat="server" Text="Guardar" CssClass="btn btn-primary w-100 boton-personalizado" ValidationGroup="grupo1" OnClick="btnAgregarPaciente_Click" />
     </div>
 </div>
     </div>

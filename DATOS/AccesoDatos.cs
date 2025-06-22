@@ -208,7 +208,7 @@ namespace DATOS
                 comando.Parameters.AddWithValue("@apellido_P", medico.GetPersona().getApellido());
                 comando.Parameters.AddWithValue("@sexo_P", medico.GetPersona().getSexo());
                 comando.Parameters.AddWithValue("@nacionalidad_P", medico.GetPersona().getNacionalidad());
-                comando.Parameters.AddWithValue("@fechaNac_P", medico.GetPersona().getFechaNacimiento());
+                comando.Parameters.AddWithValue("@fechaNac_P", DateTime.Parse(medico.GetPersona().getFechaNacimiento()));
                 comando.Parameters.AddWithValue("@direccion_P", medico.GetPersona().getDireccion());
                 comando.Parameters.AddWithValue("@email_P", medico.GetPersona().getEmail());
                 comando.Parameters.AddWithValue("@telefono_P", medico.GetPersona().getTelefono());
@@ -225,6 +225,35 @@ namespace DATOS
                 comando.ExecuteNonQuery();
             }
         }
+        public void AltaPaciente(PacienteCompleto paciente)
+        {
+            using (SqlConnection conexion = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SP_AltaMedico", conexion);
+                comando.CommandType = CommandType.StoredProcedure;
+
+                comando.Parameters.AddWithValue("@dni_Pac", paciente.GetPersona().getDni());
+                comando.Parameters.AddWithValue("@nombre_Pac", paciente.GetPersona().getNombre());
+                comando.Parameters.AddWithValue("@apellido_Pac", paciente.GetPersona().getApellido());
+                comando.Parameters.AddWithValue("@sexo_Pac", paciente.GetPersona().getSexo());
+                comando.Parameters.AddWithValue("@nacionalidad_Pac", paciente.GetPersona().getNacionalidad());
+                comando.Parameters.AddWithValue("@fechaNac_Pac", DateTime.Parse(paciente.GetPersona().getFechaNacimiento()));
+                comando.Parameters.AddWithValue("@direccion_Pac", paciente.GetPersona().getDireccion());
+                comando.Parameters.AddWithValue("@email_Pac", paciente.GetPersona().getEmail());
+                comando.Parameters.AddWithValue("@telefono_Pac", paciente.GetPersona().getTelefono());
+                comando.Parameters.AddWithValue("@idLocalidad_Pac", paciente.GetPersona().getIdLocalidad());
+                comando.Parameters.AddWithValue("@idProvincia_Pac", paciente.GetPersona().getIdProvincia());
+
+                comando.Parameters.AddWithValue("@idTurno_Pac", paciente.GetIdTurno());
+                comando.Parameters.AddWithValue("@idPaciente_Pac", paciente.GetIdPaciente());
+                
+
+                comando.ExecuteNonQuery();
+            }
+        }
+
+
+
 
         private void ArmarParametrosPacienteUpdate(ref SqlCommand Comando, PacienteUpdate pacienteUpdate)
         {

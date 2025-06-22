@@ -80,6 +80,7 @@
     <br />
 <div class="container">
     <div class="row">
+        <asp:Label CssClass="fw-bold h3" runat="server" ID="lblMedicoCreado"></asp:Label>
         <asp:Label runat="server" ID="lblBienvenida" Text="Bienvenido Administrador: Aquí se hace el Alta de Médicos" CssClass="h2 text-center d-block py-4 text-dark"></asp:Label>
 
         <!-- Fila 1: DNI y Nombre -->
@@ -216,7 +217,6 @@
     <div class="col-md-12 text-center">
         <asp:Button ID="btnAltaMedico" runat="server" Text="Enviar" CssClass="btn btn-primary boton-personalizado" ValidationGroup="grupo1" OnClick="btnAltaMedico_Click" />
         <br /><br />
-        <asp:Label runat="server" ID="lblMedicoCreado"></asp:Label>
     </div>
 </div>
 

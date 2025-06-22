@@ -49,6 +49,12 @@ public class NegocioUsuario
 
     }
 
+    public void AgregarPaciente(PacienteCompleto paciente)
+    {
+        AccesoDatos datos = new AccesoDatos();
+        datos.AltaPaciente(paciente);
+    }
+
     public void EditarPaciente(PacienteUpdate pacienteUpdate)
     {
         AccesoDatos datos = new AccesoDatos();

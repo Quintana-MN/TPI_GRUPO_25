@@ -77,10 +77,24 @@
     </div>
 
 
-        <!-- Fila 1: DNI y Nombre -->
+        <!-- Fila 1: ID Paciente y ID Turno -->
 <div class="px-4">
+    <div class="row mb-3">
+    <asp:Label runat="server" ID="lblPacienteAgregado" CssClass="text-center h3 fw-bold py-4"></asp:Label>
+    <asp:Label runat="server" ID="lblBienvenida" CssClass="text-center h3 fw-bold py-4"></asp:Label>
+    <div class="col-md-6">
+        <asp:Label ID="lblIDPaciente" runat="server" Text="ID Paciente:" CssClass="form-label fw-bold"></asp:Label>
+        <asp:TextBox ID="txtIdPaciente" runat="server" CssClass="form-control" placeholder="Ingrese ID Paciente..."></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="Ingrese del ID de Paciente" ForeColor="Red" ControlToValidate="txtDNI" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+    </div>
+    <div class="col-md-6">
+        <asp:Label ID="lblIDTurno" runat="server" Text="ID Turno:" CssClass="form-label fw-bold"></asp:Label>
+        <asp:TextBox ID="txtIdTurno" runat="server" CssClass="form-control" placeholder="Ingrese ID Turno..."></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="Ingrese el ID de Turno" ForeColor="Red" ControlToValidate="txtNombre" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+    </div>
+</div>
+
 <div class="row mb-3">
-        <asp:Label runat="server" ID="lblBienvenida" CssClass="text-center h3 fw-bold py-4"></asp:Label>
     <div class="col-md-6">
         <asp:Label ID="lblDNI" runat="server" Text="DNI:" CssClass="form-label fw-bold"></asp:Label>
         <asp:TextBox ID="txtDNI" runat="server" CssClass="form-control" placeholder="Ingrese DNI..."></asp:TextBox>
@@ -123,7 +137,7 @@
     </div>
 </div>
 
-<!-- Fila 4: Dirección y Localidad -->
+<!-- Fila 4: Dirección y Provincia -->
 <div class="row mb-3 ">
     <div class="col-md-6">
         <asp:Label ID="lblDireccion" runat="server" Text="Dirección:" CssClass="form-label "></asp:Label>
@@ -131,18 +145,16 @@
         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Ingrese Dirección" ForeColor="Red" ControlToValidate="txtDireccion" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
     </div>
         <div class="col-md-6">
-        <asp:Label ID="Label1" runat="server" Text="Provincia:" CssClass="form-label fw-bold"></asp:Label>
-        <asp:TextBox ID="txtProvincia" runat="server" CssClass="form-control" placeholder="Ingrese Provincia..."></asp:TextBox>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Ingrese Provincia" ForeColor="Red" ControlToValidate="txtProvincia" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+        <asp:Label ID="lblDdlProvincia" runat="server" Text="Provincia:" CssClass="form-label fw-bold"></asp:Label>
+        <asp:DropDownList ID="ddlProvincia" runat="server" CssClass="form-control" placeholder="Ingrese Provincia..." OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
     </div>
 </div>
 
-                   <!-- Fila 5: Provincia y Correo Electrónico -->
+                   <!-- Fila 5: Localidad y Correo Electrónico -->
 <div class="row mb-3 ">
     <div class="col-md-6">
         <asp:Label ID="lblLocalidad" runat="server" Text="Localidad:" CssClass="form-label fw-bold"></asp:Label>
-        <asp:TextBox ID="" runat="server" CssClass="form-control" placeholder="Ingrese Localidad..."></asp:TextBox>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="Ingrese Localidad" ForeColor="Red" ControlToValidate="txtLocalidad" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+        <asp:DropDownList ID="ddlLocalidad" runat="server" CssClass="form-control" placeholder="Ingrese Localidad..."></asp:DropDownList>
     </div>
     <div class="col-md-6">
         <asp:Label ID="lblCorreo" runat="server" Text="Correo Electrónico:" CssClass="form-label fw-bold"></asp:Label>

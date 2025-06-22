@@ -20,9 +20,35 @@ namespace TPI_GRUPO_25
             else
             {
                 lblBienvenida.Text = $"Bienvenido, {Session["nombre"]}. Acá se hace el Alta de los Pacientes.";
+                CargarProvincias();
             }
         }
-
+        protected void CargarProvincias()
+        {
+            NegocioUsuario negocio = new NegocioUsuario();
+            ddlProvincia.DataSource = negocio.ObtenerProvincias();
+            ddlProvincia.DataTextField = "nombre_Prov";
+            ddlProvincia.DataValueField = "idProvincia_Prov";
+            ddlProvincia.DataBind();
+            ddlProvincia.Items.Insert(0, new ListItem("--Seleccionar--", "0"));
+        }
+        protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int idProvincia = Convert.ToInt32(ddlProvincia.SelectedValue);
+            if (idProvincia > 0)
+                CargarLocalidades(idProvincia);
+            else
+                ddlLocalidad.Items.Clear();
+        }
+        protected void CargarLocalidades(int idProvincia)
+        {
+            NegocioUsuario negocio = new NegocioUsuario();
+            ddlLocalidad.DataSource = negocio.ObtenerLocalidadesPorProvincia(idProvincia);
+            ddlLocalidad.DataTextField = "nombre_L";
+            ddlLocalidad.DataValueField = "idLocalidad_L";
+            ddlLocalidad.DataBind();
+            ddlLocalidad.Items.Insert(0, new ListItem("--Seleccionar--", "0"));
+        }
         protected void btnAgregarPaciente_Click(object sender, EventArgs e)
         {
             PacienteCompleto pacienteCompleto = new PacienteCompleto();
@@ -43,14 +69,14 @@ namespace TPI_GRUPO_25
             pacienteCompleto.SetPersona(persona);
 
             // IDs (puede que los generes o los tomes del form)
-            pacienteCompleto.SetIdPaciente(txtIdPaciente.Text); // Este campo lo tendrías que tener en tu form
-            pacienteCompleto.SetIdTurno(txtIdTurno.Text);       // Este también (o puede ser nulo si se asigna después)
+            pacienteCompleto.SetIdPaciente(Convert.ToInt32(txtIdPaciente.Text)); // Este campo lo tendrías que tener en tu form
+            pacienteCompleto.SetIdTurno(Convert.ToInt32(txtIdTurno.Text));       // Este también (o puede ser nulo si se asigna después)
 
             // Lógica de negocio (ajustá al nombre real de tu clase)
             NegocioUsuario negocio = new NegocioUsuario();
             negocio.AgregarPaciente(pacienteCompleto);
 
-            lblPacienteCreado.Text = "¡Paciente creado!";
+            lblPacienteAgregado.Text = "¡Paciente creado!";
         }
     }
 }

@@ -17,7 +17,7 @@ namespace ENTIDADES
 
         public PacienteCompleto()
         {
-        
+
         }
         public PacienteCompleto(Persona persona, int idPaciente, int idTurno)
         {

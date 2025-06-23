@@ -52,7 +52,7 @@
               <asp:Label class="nav-link mb-15" ID="usuarioAd" runat="server" Text="Usuario: Médico"></asp:Label>
             </li>
         <li class="nav-item">
-         <a class="nav-link"  href="InicioSesion.aspx">Cerrar sesion</a>
+<a class="nav-link btn btn-primary"  href="InicioSesion.aspx">Cerrar Sesión</a>
         </li>
       </ul>
     </div>

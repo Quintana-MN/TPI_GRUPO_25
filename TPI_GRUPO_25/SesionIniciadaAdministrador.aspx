@@ -45,7 +45,7 @@
     <div class="bg-naranja-suave w-100" >
         <nav class="navbar navbar-expand-xl" CssClass="navbar" style="background-color: #653208;">
   <div class="container-fluid" >
-    <a class="navbar-brand">Clínica TUP</a>
+    <a class="navbar-brand" href="SesionIniciadaAdministrador.aspx">Clínica TUP</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDark" aria-controls="navbarDark" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -73,7 +73,7 @@
               <asp:Label class="nav-link mb-15" ID="usuarioAd" runat="server" Text="Usuario: Admin"></asp:Label>
             </li>
         <li class="nav-item">
-<a class="nav-link" href="InicioSesion.aspx">Cerrar Sesión</a>
+<a class="nav-link btn btn-primary"  href="InicioSesion.aspx">Cerrar Sesión</a>
 
         </li>
       </ul>

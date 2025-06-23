@@ -45,8 +45,6 @@ namespace TPI_GRUPO_25
             ddlProvincia.DataBind();
             ddlProvincia.Items.Insert(0, new ListItem("--Seleccionar--", "0"));
         }
-
-
         protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
         {
             int idProvincia = Convert.ToInt32(ddlProvincia.SelectedValue);
@@ -64,7 +62,6 @@ namespace TPI_GRUPO_25
             ddlLocalidad.DataBind();
             ddlLocalidad.Items.Insert(0, new ListItem("--Seleccionar--", "0"));
         }
-
         protected void btnAltaMedico_Click(object sender, EventArgs e)
         {
             MedicoCompleto MedicoCompleto = new MedicoCompleto();
@@ -74,9 +71,9 @@ namespace TPI_GRUPO_25
             persona.setDni(txtDNI.Text);
             persona.setNombre(txtNombre.Text);
             persona.setApellido(txtApellido.Text);
-            persona.setSexo(Convert.ToInt32(ddlSexo.SelectedValue)); // "0" = Hombre, "1" = Mujer
+            persona.setSexo(Convert.ToInt32(ddlSexo.SelectedValue));
             persona.setNacionalidad(txtNacionalidad.Text);
-            persona.setFechaNacimiento(txtFechaNacimiento.Text); // o .Value.ToString("yyyy-MM-dd") si usás DateTimePicker
+            persona.setFechaNacimiento(txtFechaNacimiento.Text);
             persona.setDireccion(txtDireccion.Text);
             persona.setEmail(txtCorreo.Text);
             persona.setTelefono(txtTelefono.Text);
@@ -105,8 +102,6 @@ namespace TPI_GRUPO_25
             negocio.AgregarMedico(MedicoCompleto);
 
             lblMedicoCreado.Text = "¡Medico creado!";
-
         }
-
     }
 }

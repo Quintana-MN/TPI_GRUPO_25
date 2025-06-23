@@ -59,8 +59,8 @@
   </div>
 </nav>
         </div>
-        <div class="px-4">
-            <asp:Label runat="server" ID="lblBienvenida" class="my-4 text-center">¡Bienvenido a la Clínica TUP {Médico}, Estos son los Turnos!</asp:Label>
+        <div class="px-4 pt-4">
+            <asp:Label runat="server" ID="lblBienvenida" CssClass="fw-bold h3 mt-4">¡Bienvenido a la Clínica TUP {Médico}, Estos son los Turnos!</asp:Label>
             <div class="d-flex justify-content-center">
             <asp:Label CssClass="d-flex align-items-center h5" runat="server" Text="Buscar:"></asp:Label>
             <asp:TextBox runat="server" ID="txtBuscar" CssClass="form-control w-25 mx-2" />

@@ -46,7 +46,6 @@ public class NegocioUsuario
     {
         AccesoDatos datos = new AccesoDatos();
         datos.AltaMedico(medico);
-
     }
 
     public void AgregarPaciente(PacienteCompleto paciente)

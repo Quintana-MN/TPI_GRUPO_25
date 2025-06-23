@@ -193,9 +193,6 @@ namespace DATOS
                 return tabla;
             }
         }
-
-
-
         public void AltaMedico(MedicoCompleto medico)
         {
             using (SqlConnection conexion = ObtenerConexion())

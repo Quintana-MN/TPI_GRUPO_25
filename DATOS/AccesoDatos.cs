@@ -279,9 +279,20 @@ namespace DATOS
                 return false;
             }
         }
+        public void ActualizarTurno(int idTurno, bool estado, string observacion)
+        {
+            using (SqlConnection conexion = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SP_ActualizarTurno", conexion);
+                comando.CommandType = CommandType.StoredProcedure;
 
-      
+                comando.Parameters.AddWithValue("@idTurno", idTurno);
+                comando.Parameters.AddWithValue("@estado", estado);
+                comando.Parameters.AddWithValue("@observacion", observacion);
 
+                comando.ExecuteNonQuery();
+            }
+        }
 
         public DataTable ValidarLogin(string usuario, string contrasenia)
         {

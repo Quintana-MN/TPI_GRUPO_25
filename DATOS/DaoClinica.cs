@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -47,19 +48,32 @@ namespace DATOS
         public DataTable getTablaPaciente()
         {
             DataTable tabla = dataset.ObtenerTabla("PACIENTE", @"
-    SELECT 
+        SELECT 
         P.id_Paciente AS [ID_Paciente],
         P.dni_Pac AS [DNI],
         P.id_turno_Pac AS [ID_Turno],
         PR.nombre_P AS [Nombre],
         PR.email_P AS [Email]
-    FROM PACIENTE P
-    INNER JOIN PERSONA PR ON P.dni_Pac = PR.dni_P
-    WHERE P.estado_Pac = 1");
+        FROM PACIENTE P
+        INNER JOIN PERSONA PR ON P.dni_Pac = PR.dni_P
+        WHERE P.estado_Pac = 1");
 
             return tabla;
         }
+        public DataTable getTurnos()
+        {
+            DataTable tabla = dataset.ObtenerTabla("TURNOS", @"
+        SELECT
+    TURNOS.id_turno_T AS [Turno],
+    PERSONA.nombre_P AS [Paciente],
+    CASE WHEN PACIENTE.estado_Pac = 1 THEN 'Presente' ELSE 'Ausente' END AS [Estado],
+    TURNOS.observacion_T AS [Observacion]
+    FROM TURNOS
+    INNER JOIN PACIENTE ON TURNOS.id_Paciente = PACIENTE.id_Paciente
+    INNER JOIN PERSONA ON PACIENTE.dni_Pac = PERSONA.dni_P");
 
+        return tabla;
+        }
 
     }
 }

@@ -12,11 +12,9 @@ namespace TPI_GRUPO_25
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                CargarTabla();
                 if (!IsPostBack)
                 {
+                cargarTurnos();
                     if (Session["nombre"] == null)
                     {
                         Response.Redirect("InicioSesion.aspx");
@@ -26,24 +24,46 @@ namespace TPI_GRUPO_25
                         lblBienvenida.Text = $"Bienvenido, {Session["nombre"]}";
                     }
                 }
-            }
         }
-
-        private void CargarTabla()
+        protected void gvTurnosMedico_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            DataTable tabla = new DataTable();
-            tabla.Columns.Add("Turno");
-            tabla.Columns.Add("Paciente");
-            tabla.Columns.Add("Estado");
-            tabla.Columns.Add("Observación");
-
-            // Carga 30 filas vacías simuladas
-            for (int i = 0; i < 30; i++)
-            {
-                tabla.Rows.Add("", "", "");
-            }
-            //gvTurnos.DataSource = tabla;
-            //gvTurnos.DataBind();
+            gvTurnosMedico.EditIndex = e.NewEditIndex;
+            cargarTurnos();
         }
+
+        protected void gvTurnosMedico_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            gvTurnosMedico.EditIndex = -1;
+            cargarTurnos();
+        }
+
+        protected void gvTurnosMedico_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            int idTurno = Convert.ToInt32(gvTurnosMedico.DataKeys[e.RowIndex].Value);
+            GridViewRow row = gvTurnosMedico.Rows[e.RowIndex];
+
+            DropDownList ddlEstado = (DropDownList)row.FindControl("ddlEditEstado");
+            TextBox txtObservacion = (TextBox)row.FindControl("txtEditObservacion");
+
+            string estadoTexto = ddlEstado.SelectedItem.Text;
+            string observacion = txtObservacion.Text;
+
+            NegocioUsuario negocio = new NegocioUsuario();
+            negocio.ActualizarTurno(idTurno, estadoTexto, observacion);
+
+            // Salir del modo edición
+            gvTurnosMedico.EditIndex = -1;
+            cargarTurnos();
+        }
+
+
+        private void cargarTurnos()
+        {
+            NegocioUsuario negocioTurno = new NegocioUsuario();
+            DataTable tabla = negocioTurno.ObtenerTurnosPorPaciente();
+            gvTurnosMedico.DataSource = tabla;
+            gvTurnosMedico.DataBind();
+        }
+
     }
 }

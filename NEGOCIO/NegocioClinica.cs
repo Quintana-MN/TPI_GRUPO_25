@@ -76,12 +76,23 @@ public class NegocioUsuario
         AccesoDatos datos = new AccesoDatos();
         return datos.ObtenerProvincias();
     }
-
     public DataTable ObtenerLocalidadesPorProvincia(int idProvincia)
     {
         AccesoDatos datos = new AccesoDatos();
         return datos.ObtenerLocalidadesPorProvincia(idProvincia);
     }
+    public DataTable ObtenerTurnosPorPaciente()
+    {
+        DaoUsuario dao = new DaoUsuario();
+        return dao.getTurnos();
+    }
+    public void ActualizarTurno(int idTurno, string estadoTexto, string observacion)
+    {
+        bool estado = estadoTexto == "Presente";
+        AccesoDatos datos = new AccesoDatos();
+        datos.ActualizarTurno(idTurno, estado, observacion);
+    }
+
 
 }
 

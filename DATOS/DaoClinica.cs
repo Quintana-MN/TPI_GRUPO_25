@@ -74,6 +74,26 @@ namespace DATOS
 
         return tabla;
         }
+        public DataTable BuscarTurnosPorNombre(string nombrePaciente)
+        {
+            string consulta = @"
+        SELECT
+            T.id_turno_T AS Turno,
+            P.nombre_P AS Paciente,
+            CASE WHEN Pac.estado_Pac = 1 THEN 'Presente' ELSE 'Ausente' END AS Estado,
+            T.observacion_T AS Observacion
+        FROM TURNOS T
+        INNER JOIN PACIENTE Pac ON T.id_Paciente = Pac.id_Paciente
+        INNER JOIN PERSONA P ON Pac.dni_Pac = P.dni_P
+        WHERE P.nombre_P LIKE @nombrePaciente
+    ";
+
+            SqlCommand comando = new SqlCommand(consulta);
+            comando.Parameters.AddWithValue("@nombrePaciente", "%" + nombrePaciente + "%");
+
+            AccesoDatos accesoDatos = new AccesoDatos();
+            return accesoDatos.ObtenerTablaConParametros(comando, "Turnos");
+        }
 
     }
 }

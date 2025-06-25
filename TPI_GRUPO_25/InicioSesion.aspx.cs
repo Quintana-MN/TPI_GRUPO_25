@@ -20,6 +20,7 @@ namespace TPI_GRUPO_25
         {
             string usuario = txtUsuario.Text.Trim();
             string contrasenia = txtClave.Text.Trim();
+            Medico medico = new Medico();
 
             NegocioUsuario negocio = new NegocioUsuario();
             DataTable dt = negocio.ValidarLogin(usuario, contrasenia);
@@ -27,7 +28,9 @@ namespace TPI_GRUPO_25
             if (dt.Rows.Count > 0)
             {
                 int tipoUsuario = Convert.ToInt32(dt.Rows[0]["tipoUsuario_U"]);
+                int legajoMedico = negocio.ObtenerLegajoPorUsuario(usuario);
 
+                Session["legajo"] = legajoMedico;
                 Session["usuario"] = usuario;
                 Session["nombre"] = dt.Rows[0]["usuario_U"].ToString();
                 Session["tipoUsuario"] = tipoUsuario;

@@ -86,12 +86,29 @@ public class NegocioUsuario
         DaoUsuario dao = new DaoUsuario();
         return dao.getTurnos();
     }
-    public void ActualizarTurno(int idTurno, string estadoTexto, string observacion)
+    public DataTable ObtenerTurnosPorMedico(int legajo)
     {
-        bool estado = estadoTexto == "Presente";
+        AccesoDatos datos = new AccesoDatos();
+        return datos.GetTurnosPorMedico(legajo);
+    }
+    public int ObtenerLegajoPorUsuario(string usuario)
+    {
+        DATOS.AccesoDatos datos = new DATOS.AccesoDatos();
+        return datos.ObtenerLegajoPorUsuario(usuario);
+    }
+
+    public void ActualizarTurno(int idTurno, bool estado, string observacion)
+    {
         AccesoDatos datos = new AccesoDatos();
         datos.ActualizarTurno(idTurno, estado, observacion);
     }
+    public DataTable BuscarTurnosXNombre(int legajo, string nombrePaciente)
+    {
+        AccesoDatos accesoDatos = new AccesoDatos();
+        return accesoDatos.BuscarTurnosPorNombre(legajo, nombrePaciente);
+    }
+
+
 
 
 }

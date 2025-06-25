@@ -293,6 +293,74 @@ namespace DATOS
                 comando.ExecuteNonQuery();
             }
         }
+        public DataTable GetTurnosPorMedico(int legajo)
+        {
+            using (SqlConnection conexion = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SP_GetTurnosPorMedico", conexion);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@legajo_M", legajo);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(comando);
+                DataTable tabla = new DataTable();
+                adapter.Fill(tabla);
+                return tabla;
+            }
+        }
+        public int ObtenerLegajoPorUsuario(string usuario)
+        {
+            int legajo = 0;
+            string query = "SELECT legajo_M FROM MEDICO WHERE usuario_M = @usuario";
+
+            using (SqlConnection conexion = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=clinicaTUP;Integrated Security=True;TrustServerCertificate=True"))
+            {
+                conexion.Open();
+                using (SqlCommand cmd = new SqlCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@usuario", usuario);
+                    object result = cmd.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        legajo = Convert.ToInt32(result);
+                    }
+                }
+            }
+            return legajo;
+        }
+        public DataTable ObtenerTablaConParametros(SqlCommand comando, string nombreTabla)
+        {
+            DataSet dataSet = new DataSet();
+
+            using (SqlConnection conexion = ObtenerConexion())
+            {
+                comando.Connection = conexion;
+                using (SqlDataAdapter adp = new SqlDataAdapter(comando))
+                {
+                    adp.Fill(dataSet, nombreTabla);
+                }
+            }
+
+            return dataSet.Tables[nombreTabla];
+        }
+        public DataTable BuscarTurnosPorNombre(int legajo, string nombrePaciente)
+        {
+            using (SqlConnection conexion = ObtenerConexion())
+            {
+                using (SqlCommand comando = new SqlCommand("SP_BuscarTurnosPorNombre", conexion))
+                {
+                    comando.CommandType = CommandType.StoredProcedure;
+                    comando.Parameters.AddWithValue("@legajo_M", legajo);
+                    comando.Parameters.AddWithValue("@nombrePaciente", nombrePaciente ?? "");
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(comando);
+                    DataTable tabla = new DataTable();
+                    adapter.Fill(tabla);
+                    return tabla;
+                }
+            }
+        }
+
+
 
         public DataTable ValidarLogin(string usuario, string contrasenia)
         {

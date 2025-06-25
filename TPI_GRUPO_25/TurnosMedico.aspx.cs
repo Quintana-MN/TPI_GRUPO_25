@@ -45,24 +45,45 @@ namespace TPI_GRUPO_25
             DropDownList ddlEstado = (DropDownList)row.FindControl("ddlEditEstado");
             TextBox txtObservacion = (TextBox)row.FindControl("txtEditObservacion");
 
-            string estadoTexto = ddlEstado.SelectedItem.Text;
+            bool estado = ddlEstado.SelectedValue == "1";
             string observacion = txtObservacion.Text;
 
             NegocioUsuario negocio = new NegocioUsuario();
-            negocio.ActualizarTurno(idTurno, estadoTexto, observacion);
+            negocio.ActualizarTurno(idTurno, estado, observacion);
 
-            // Salir del modo edición
             gvTurnosMedico.EditIndex = -1;
             cargarTurnos();
         }
+        protected void btnFiltrarTurnos_Click(object sender, EventArgs e)
+        {
+            string nombreBuscar = txtBuscar.Text.Trim();
+            int legajoMedico = Convert.ToInt32(Session["legajo"]); // o como tengas guardado el legajo
+
+            NegocioUsuario negocio = new NegocioUsuario();
+            DataTable dt = negocio.BuscarTurnosXNombre(legajoMedico, nombreBuscar);
+
+            gvTurnosMedico.DataSource = dt;
+            gvTurnosMedico.DataBind();
+
+            lblMensaje.Text = dt.Rows.Count == 0 ? "No se encontraron turnos con ese nombre." : "";
+        }
+
+
 
 
         private void cargarTurnos()
         {
-            NegocioUsuario negocioTurno = new NegocioUsuario();
-            DataTable tabla = negocioTurno.ObtenerTurnosPorPaciente();
-            gvTurnosMedico.DataSource = tabla;
-            gvTurnosMedico.DataBind();
+            if (Session["legajo"] != null)
+            {
+                int legajo = Convert.ToInt32(Session["legajo"]);
+
+                NegocioUsuario negocio = new NegocioUsuario();
+
+                DataTable tabla = negocio.ObtenerTurnosPorMedico(legajo);
+                gvTurnosMedico.DataSource = tabla;
+                gvTurnosMedico.DataBind();
+
+            }
         }
 
     }

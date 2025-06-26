@@ -87,37 +87,49 @@
 
     <asp:Label runat="server" ID="lblBienvenida" Text="Bienvenido Administrador: Estos son los turnos!" CssClass="h2 text-center d-block mt-5 mb-3 text-dark"></asp:Label>
    
+
+     <div class="d-flex align-items-center w-50 mb-4">
+    <asp:Label runat="server" ID="lblTurno" Text="Id Turno:" CssClass="me-3 fw-bold label-fijo" />
+    <asp:TextBox runat="server" ID="txtIdTurno" CssClass="form-control w-100" />
+</div>
+
+
     <div class="d-flex align-items-center w-50 my-4">
         <asp:Label runat="server" ID="lblPaciente" Text="Paciente:" CssClass="me-3 fw-bold label-fijo" />
         <asp:DropDownList runat="server" ID="ddlPaciente" CssClass="form-select w-100" />
     </div>
 
- 
+    
+      <div class="d-flex align-items-center w-50 mb-4">
+     <asp:Label runat="server" ID="lblEspecialidad" Text="Especialidad:" CssClass="me-3 fw-bold label-fijo" />
+     <asp:DropDownList runat="server" ID="ddlEspecialidad" CssClass="form-select w-100" AutoPostBack="true" OnSelectedIndexChanged="ddlEspecialidad_SelectedIndexChanged" />
+ </div>
+
+ <div class="d-flex align-items-center w-50 mb-5">
+     <asp:Label runat="server" ID="Label1" Text="Médico:" CssClass="me-3 fw-bold label-fijo" />
+     <asp:DropDownList runat="server" ID="ddlMedico" CssClass="form-select w-100" />
+ </div>
+
+
     <div class="d-flex align-items-center w-50 mb-4">
-        <asp:Label runat="server" ID="lblDia" Text="Día:" CssClass="me-3 fw-bold label-fijo" />
-        <asp:TextBox runat="server" ID="txtDia" CssClass="form-control w-100" />
+        <asp:Label runat="server" ID="lblDia" Text="Fecha:" CssClass="me-3 fw-bold label-fijo" />
+        <asp:TextBox runat="server" ID="txtFecha" CssClass="form-control w-100" />
     </div>
+
 
 
     <div class="d-flex align-items-center w-50 mb-4">
         <asp:Label runat="server" ID="lblHora" Text="Hora:" CssClass="me-3 fw-bold label-fijo" />
         <asp:TextBox runat="server" ID="txtHora" CssClass="form-control w-100" />
+        <asp:Label ID="lblErrorTurno" runat="server" Text="Label"></asp:Label>
     </div>
 
 
-    <div class="d-flex align-items-center w-50 mb-4">
-        <asp:Label runat="server" ID="lblEspecialidad" Text="Especialidad:" CssClass="me-3 fw-bold label-fijo" />
-        <asp:DropDownList runat="server" ID="ddlEspecialidad" CssClass="form-select w-100" />
-    </div>
-
-    <div class="d-flex align-items-center w-50 mb-5">
-        <asp:Label runat="server" ID="Label1" Text="Médico:" CssClass="me-3 fw-bold label-fijo" />
-        <asp:DropDownList runat="server" ID="DropDownList1" CssClass="form-select w-100" />
-    </div>
+   
 
 
     <div class="d-flex justify-content-end">
-        <asp:Button runat="server" ID="btnGuardarTurno" Text="Guardar Turno" CssClass="btn boton-personalizado" />
+        <asp:Button runat="server" ID="BtnGuardarTurno" Text="Guardar Turno" CssClass="btn boton-personalizado" OnClick="BtnGuardarTurno_Click" />
     </div>
 </div>
 </asp:Content>

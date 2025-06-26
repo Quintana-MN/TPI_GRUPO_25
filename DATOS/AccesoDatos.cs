@@ -193,6 +193,49 @@ namespace DATOS
                 return tabla;
             }
         }
+        public DataTable ObtenerPacientesAcceso()
+        {
+            using (SqlConnection conexion = ObtenerConexion())
+            {
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT id_Paciente FROM PACIENTE", conexion);
+                DataTable tabla = new DataTable();
+                sqlDataAdapter.Fill(tabla);
+                return tabla;
+            }
+        }
+        public DataTable ObtenerMedicosPorEspecialidadAcceso(int codEspecialidad)
+        {
+            using (SqlConnection conexion = ObtenerConexion())
+            {
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT PERSONA.nombre_P , MEDICO.legajo_M FROM MEDICO INNER JOIN PERSONA ON MEDICO.dni_M = PERSONA.dni_P WHERE MEDICO.codEspecialidad_M = @codEspecialidad", conexion);
+                sqlDataAdapter.SelectCommand.Parameters.AddWithValue("@codEspecialidad", codEspecialidad);
+                DataTable tabla = new DataTable();
+                sqlDataAdapter.Fill(tabla);
+                return tabla;
+            }
+        }
+        public bool VerificarHorario(string fecha, int horario, int legajo)
+        {
+            using (SqlConnection conexion = ObtenerConexion())
+            {
+                string consulta = @"SELECT COUNT(*) 
+                      FROM TURNOS 
+                      WHERE fecha_T = @fecha 
+                        AND horario_T = @horario 
+                        AND legajo_T = @legajo";
+
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                comando.Parameters.AddWithValue("@fecha", DateTime.Parse(fecha));
+                comando.Parameters.AddWithValue("@horario", horario);
+                comando.Parameters.AddWithValue("@legajo", legajo);
+
+
+                int cantidad = (int)comando.ExecuteScalar();
+
+                return cantidad > 0; // true = ya existe ese turno
+            }
+        }
         public void AltaMedico(MedicoCompleto medico)
         {
             using (SqlConnection conexion = ObtenerConexion())
@@ -217,7 +260,6 @@ namespace DATOS
 
                 comando.Parameters.AddWithValue("@legajo_M", medico.GetMedico().GetLegajo_M());
                 comando.Parameters.AddWithValue("@codEspecialidad_M", medico.GetMedico().GetEspecialidad_M());
-                comando.Parameters.AddWithValue("@horario_M", medico.GetMedico().getHorario_M());
 
                 comando.ExecuteNonQuery();
             }
@@ -241,16 +283,12 @@ namespace DATOS
                 comando.Parameters.AddWithValue("@idLocalidad_Pac", paciente.GetPersona().getIdLocalidad());
                 comando.Parameters.AddWithValue("@idProvincia_Pac", paciente.GetPersona().getIdProvincia());
 
-                comando.Parameters.AddWithValue("@idTurno_Pac", paciente.GetIdTurno());
                 comando.Parameters.AddWithValue("@idPaciente_Pac", paciente.GetIdPaciente());
                 
 
                 comando.ExecuteNonQuery();
             }
         }
-
-
-
 
         private void ArmarParametrosPacienteUpdate(ref SqlCommand Comando, PacienteUpdate pacienteUpdate)
         {
@@ -277,6 +315,22 @@ namespace DATOS
             else
             {
                 return false;
+            }
+        }
+        public void AltaTurno(Turno turno)
+        {
+            using (SqlConnection conexion = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SP_AltaTurno", conexion);
+                comando.CommandType = CommandType.StoredProcedure;
+
+                comando.Parameters.AddWithValue("@id_Turno_T", turno.GetIdTurno());
+                comando.Parameters.AddWithValue("@id_Paciente_T", turno.GetIdPaciente());
+                comando.Parameters.AddWithValue("@fecha_T", DateTime.Parse(turno.GetFecha()).Date);
+                comando.Parameters.AddWithValue("@horario_T", turno.GetHorario());
+                comando.Parameters.AddWithValue("@legajo_T", turno.GetLegajo());
+
+                comando.ExecuteNonQuery();
             }
         }
         public void ActualizarTurno(int idTurno, bool estado, string observacion)
@@ -327,6 +381,7 @@ namespace DATOS
             }
             return legajo;
         }
+
         public DataTable ObtenerTablaConParametros(SqlCommand comando, string nombreTabla)
         {
             DataSet dataSet = new DataSet();
@@ -359,8 +414,6 @@ namespace DATOS
                 }
             }
         }
-
-
 
         public DataTable ValidarLogin(string usuario, string contrasenia)
         {

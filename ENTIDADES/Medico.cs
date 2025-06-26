@@ -13,7 +13,6 @@ namespace ENTIDADES
         public int especialidad_M;
         public String dni_M;
         public String contrasenia_M;
-        public String horario_M;
 
         public Medico() { }
         public Medico(int legajo_m, string usuario_m, string contrasenia_m, int especialidad_m, string dni_m)
@@ -66,15 +65,5 @@ namespace ENTIDADES
         }
         public string GetContrasenia_M() { return contrasenia_M; }
         public void SetContrasenia_M(string contrasenia_m) { contrasenia_M = contrasenia_m; }
-
-        public String getHorario_M()
-        {
-            return horario_M;
-        }
-
-        public void setHorario_M(String Horario_M)
-        {
-            horario_M = Horario_M;
-        }
     }
 }

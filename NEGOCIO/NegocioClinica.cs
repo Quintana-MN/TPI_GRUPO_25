@@ -107,9 +107,30 @@ public class NegocioUsuario
         AccesoDatos accesoDatos = new AccesoDatos();
         return accesoDatos.BuscarTurnosPorNombre(legajo, nombrePaciente);
     }
+    public DataTable ObtenerPacientes()
+    {
+        AccesoDatos datos = new AccesoDatos();
+        return datos.ObtenerPacientesAcceso();
+    }
+    public DataTable ObtenerMedicos(int especialidad)
+    {
+        AccesoDatos datos = new AccesoDatos();
+        return datos.ObtenerMedicosPorEspecialidadAcceso(especialidad);
+    }
 
-
-
-
+    public bool VerificacionHorarios(string fecha, int horario, int legajo)
+    {
+        AccesoDatos datos = new AccesoDatos();
+        if (datos.VerificarHorario(fecha, horario, legajo))
+        {
+            return true;
+        }
+        else { return false; }
+    }
+    public void AgregarTurno(Turno turno)
+    {
+        AccesoDatos datos = new AccesoDatos();
+        datos.AltaTurno(turno);
+    }
 }
 

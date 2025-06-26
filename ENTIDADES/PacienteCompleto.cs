@@ -11,7 +11,6 @@ namespace ENTIDADES
         // Atributos
         private Persona Persona;
         public int IdPaciente;
-        public int IdTurno;
 
         // Constructor
 
@@ -19,11 +18,10 @@ namespace ENTIDADES
         {
 
         }
-        public PacienteCompleto(Persona persona, int idPaciente, int idTurno)
+        public PacienteCompleto(Persona persona, int idPaciente)
         {
             Persona = persona;
             IdPaciente = idPaciente;
-            IdTurno = idTurno;
         }
 
         // Getters y Setters
@@ -45,16 +43,6 @@ namespace ENTIDADES
         public void SetIdPaciente(int idPaciente)
         {
             IdPaciente = idPaciente;
-        }
-
-        public int GetIdTurno()
-        {
-            return IdTurno;
-        }
-
-        public void SetIdTurno(int idTurno)
-        {
-            IdTurno = idTurno;
         }
     }
 }

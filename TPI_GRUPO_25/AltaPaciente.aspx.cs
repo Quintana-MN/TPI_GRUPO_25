@@ -70,7 +70,6 @@ namespace TPI_GRUPO_25
 
             // IDs (puede que los generes o los tomes del form)
             pacienteCompleto.SetIdPaciente(Convert.ToInt32(txtIdPaciente.Text)); // Este campo lo tendrías que tener en tu form
-            pacienteCompleto.SetIdTurno(Convert.ToInt32(txtIdTurno.Text));       // Este también (o puede ser nulo si se asigna después)
 
             // Lógica de negocio (ajustá al nombre real de tu clase)
             NegocioUsuario negocio = new NegocioUsuario();

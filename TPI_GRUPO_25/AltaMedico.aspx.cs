@@ -95,7 +95,6 @@ namespace TPI_GRUPO_25
             medico.SetContrasenia_M(txtContraseña.Text);
             medico.SetEspecialidad_M(Convert.ToInt32(ddlEspecialidad.SelectedValue));
             medico.SetDni_M(txtDNI.Text);
-            medico.setHorario_M(ddlHorario.SelectedItem.ToString());
             MedicoCompleto.SetMedico(medico);
 
             NegocioUsuario negocio = new NegocioUsuario();

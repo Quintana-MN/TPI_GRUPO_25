@@ -85,7 +85,7 @@
 
  <div class="d-flex flex-column align-items-center mt-4">
 
-    <asp:Label runat="server" ID="lblBienvenida" Text="Bienvenido Administrador: Estos son los turnos!" CssClass="h2 text-center d-block mt-5 mb-3 text-dark"></asp:Label>
+    <asp:Label runat="server" ID="lblBienvenida" Text="Bienvenido Administrador: Estos son los turnos!" CssClass="h2 text-center d-block mb-4 text-dark"></asp:Label>
    
 
      <div class="d-flex align-items-center w-50 mb-4">
@@ -121,10 +121,9 @@
     <div class="d-flex align-items-center w-50 mb-4">
         <asp:Label runat="server" ID="lblHora" Text="Hora:" CssClass="me-3 fw-bold label-fijo" />
         <asp:TextBox runat="server" ID="txtHora" CssClass="form-control w-100" />
-        <asp:Label ID="lblErrorTurno" runat="server" Text="Label"></asp:Label>
     </div>
 
-
+     <div><asp:Label ID="lblErrorTurno" CssClass="h4 fw-bold" runat="server"></asp:Label></div>
    
 
 

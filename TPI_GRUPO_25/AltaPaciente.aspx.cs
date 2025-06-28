@@ -51,31 +51,58 @@ namespace TPI_GRUPO_25
         }
         protected void btnAgregarPaciente_Click(object sender, EventArgs e)
         {
-            PacienteCompleto pacienteCompleto = new PacienteCompleto();
-
-            // Persona
-            Persona persona = new Persona();
-            persona.setDni(txtDNI.Text);
-            persona.setNombre(txtNombre.Text);
-            persona.setApellido(txtApellido.Text);
-            persona.setSexo(Convert.ToInt32(ddlSexo.SelectedValue)); // "0" = Hombre, "1" = Mujer
-            persona.setNacionalidad(txtNacionalidad.Text);
-            persona.setFechaNacimiento(txtFechaNacimiento.Text); // Asegurate que sea una fecha válida
-            persona.setDireccion(txtDireccion.Text);
-            persona.setEmail(txtCorreo.Text);
-            persona.setTelefono(txtTelefono.Text);
-            persona.setIdProvincia(Convert.ToInt32(ddlProvincia.SelectedValue));
-            persona.setIdLocalidad(Convert.ToInt32(ddlLocalidad.SelectedValue));
-            pacienteCompleto.SetPersona(persona);
-
-            // IDs (puede que los generes o los tomes del form)
-            pacienteCompleto.SetIdPaciente(Convert.ToInt32(txtIdPaciente.Text)); // Este campo lo tendrías que tener en tu form
-
-            // Lógica de negocio (ajustá al nombre real de tu clase)
             NegocioUsuario negocio = new NegocioUsuario();
-            negocio.AgregarPaciente(pacienteCompleto);
 
-            lblPacienteAgregado.Text = "¡Paciente creado!";
+            bool IDPacienteExistente=negocio.verificarIDPaciente(Convert.ToInt32(txtIdPaciente.Text));
+            bool DNIExistente=negocio.verificarDNI(txtDNI.Text);
+
+            if (DNIExistente)
+            {
+                lblDNIExistentee.Text = "Ya existe ese DNI,ingrese otro";
+            }
+            else
+            {
+                lblDNIExistentee.Text = "";
+            }
+            if (IDPacienteExistente)
+            {
+                lblIDPacienteExistente.Text = "Ya existe ese ID de Paciente, ingrese otro";
+            }
+            else
+            {
+                lblIDPacienteExistente.Text = "";
+            }
+
+            if (!IDPacienteExistente && !DNIExistente)
+            {
+
+                PacienteCompleto pacienteCompleto = new PacienteCompleto();
+
+                // Persona
+                Persona persona = new Persona();
+                persona.setDni(txtDNI.Text);
+                persona.setNombre(txtNombre.Text);
+                persona.setApellido(txtApellido.Text);
+                persona.setSexo(Convert.ToInt32(ddlSexo.SelectedValue)); // "0" = Hombre, "1" = Mujer
+                persona.setNacionalidad(txtNacionalidad.Text);
+                persona.setFechaNacimiento(txtFechaNacimiento.Text); // Asegurate que sea una fecha válida
+                persona.setDireccion(txtDireccion.Text);
+                persona.setEmail(txtCorreo.Text);
+                persona.setTelefono(txtTelefono.Text);
+                persona.setIdProvincia(Convert.ToInt32(ddlProvincia.SelectedValue));
+                persona.setIdLocalidad(Convert.ToInt32(ddlLocalidad.SelectedValue));
+                pacienteCompleto.SetPersona(persona);
+
+                // IDs (puede que los generes o los tomes del form)
+                pacienteCompleto.SetIdPaciente(Convert.ToInt32(txtIdPaciente.Text)); // Este campo lo tendrías que tener en tu form
+
+                // Lógica de negocio (ajustá al nombre real de tu clase)
+
+                negocio.AgregarPaciente(pacienteCompleto);
+
+                lblPacienteAgregado.Text = "¡Paciente creado!";
+
+            }
         }
     }
 }

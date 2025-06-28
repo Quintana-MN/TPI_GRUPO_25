@@ -51,6 +51,15 @@ namespace TPI_GRUPO_25
         protected global::System.Web.UI.WebControls.TextBox txtIdTurno;
 
         /// <summary>
+        /// Control lblIDTurnoExistente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIDTurnoExistente;
+
+        /// <summary>
         /// Control lblPaciente.
         /// </summary>
         /// <remarks>

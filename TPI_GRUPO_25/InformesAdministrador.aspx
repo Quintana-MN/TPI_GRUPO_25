@@ -117,12 +117,12 @@
         </div>
         <div style="padding: 50px 30px; font-size: larger; font-weight: bold;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
-                <asp:Label ID="lblPresentes3" runat="server" Text="Presentes:" ForeColor="Black"></asp:Label>
+                <asp:Label ID="lblPresentes" runat="server" Text="Presentes:" ForeColor="Black"></asp:Label>
                 <asp:Label ID="lblPorcentajePresentes" runat="server" Text="70%" ForeColor="Black"></asp:Label>
                 <span style="font-size: 50px;">&#10004;</span>
             </div>
             <div style="display: flex; justify-content: space-between; align-items: center;">
-                <asp:Label ID="lblAusentes3" runat="server" Text="Ausentes:" ForeColor="Black"></asp:Label>
+                <asp:Label ID="lblAusentes" runat="server" Text="Ausentes:" ForeColor="Black"></asp:Label>
                 <asp:Label ID="lblPorcentajeAusentes" runat="server" Text="30%" ForeColor="Black"></asp:Label>
                 <span style="color:red; font-size: 50px;">❌</span>
             </div>

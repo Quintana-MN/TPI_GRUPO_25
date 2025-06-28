@@ -69,28 +69,15 @@
             
             <div class="text-center"><asp:Label CssClass="h3 ml-6" runat="server" ID="lblMensaje"></asp:Label></div>
             <div class="d-flex justify-content-center align-items-center py-4">
-            <div class="divFiltrar px-2 col-sm-2">
+            <div class="divFiltrar px-2 col-sm-2 py-4">
                 <asp:Label CssClass="h4" runat="server" Text="Filtrar por:"></asp:Label>
-                <div class="divEspecialidad py-4">
-                <asp:Label CssClass="h4" runat="server" Text="Especialidad:"></asp:Label>
-                <div>
-                <asp:CheckBox runat="server"/>
-                <asp:Label CssClass="" runat="server" Text="Cardiología"></asp:Label>
-                </div>
-                <div>
-                <asp:CheckBox runat="server"/>
-                <asp:Label runat="server" Text="Pedriatría"></asp:Label>
-                </div>
-                </div>
             <div>
                 <asp:Label CssClass="h4" runat="server" Text="Turno:"></asp:Label>
-                <div class="">
-                <asp:CheckBox runat="server"/>
-                <asp:Label CssClass="" runat="server" Text="Mañana"></asp:Label>
+                <div class="py-2">
+                <asp:CheckBox ID="chkMañana" runat="server" Text="Turno Mañana" AutoPostBack="true" OnCheckedChanged="chkMañana_CheckedChanged" />
                 </div>
                 <div>
-                <asp:CheckBox runat="server"/>
-                <asp:Label runat="server" Text="Tarde"></asp:Label>
+                <asp:CheckBox ID="chkTarde" runat="server" Text="Turno Tarde" AutoPostBack="true" OnCheckedChanged="chkTarde_CheckedChanged" />
                 </div>
             </div>
             </div>
@@ -126,17 +113,17 @@
         </asp:TemplateField>
 
         <asp:TemplateField HeaderText="Estado">
-            <EditItemTemplate>
-<asp:DropDownList ID="ddlEditEstado" runat="server">
-    <asp:ListItem Text="Presente" Value="1" />
-    <asp:ListItem Text="Ausente" Value="0" />
-</asp:DropDownList>
+    <EditItemTemplate>
+        <asp:DropDownList ID="ddlEditEstado" runat="server">
+            <asp:ListItem Text="Presente" Value="0" />
+            <asp:ListItem Text="Ausente" Value="1" />
+        </asp:DropDownList>
+    </EditItemTemplate>
+    <ItemTemplate>
+        <%# Eval("Estado") %>
+    </ItemTemplate>
+</asp:TemplateField>
 
-            </EditItemTemplate>
-            <ItemTemplate>
-                <asp:Label ID="lblEstado" runat="server" Text='<%# Bind("Estado") %>'></asp:Label>
-            </ItemTemplate>
-        </asp:TemplateField>
 
         <asp:TemplateField HeaderText="Observación">
             <EditItemTemplate>

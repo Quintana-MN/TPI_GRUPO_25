@@ -51,7 +51,6 @@ namespace DATOS
         SELECT 
         P.id_Paciente AS [ID_Paciente],
         P.dni_Pac AS [DNI],
-        P.id_turno_Pac AS [ID_Turno],
         PR.nombre_P AS [Nombre],
         PR.email_P AS [Email]
         FROM PACIENTE P
@@ -94,6 +93,27 @@ namespace DATOS
             AccesoDatos accesoDatos = new AccesoDatos();
             return accesoDatos.ObtenerTablaConParametros(comando, "Turnos");
         }
+        public DataTable BuscarTurnosXNombre(string nombrePaciente)
+        {
+            string consulta = @"
+        SELECT
+            T.id_turno_T AS Turno,
+            P.nombre_P AS Paciente,
+            CASE WHEN T.asistencia_T = 1 THEN 'Presente' ELSE 'Ausente' END AS Estado,
+            T.observacion_T AS Observacion
+        FROM TURNOS T
+        INNER JOIN PACIENTE Pac ON T.id_Paciente = Pac.id_Paciente
+        INNER JOIN PERSONA P ON Pac.dni_Pac = P.dni_P
+        WHERE P.nombre_P LIKE @nombrePaciente
+    ";
+
+            SqlCommand comando = new SqlCommand(consulta);
+            comando.Parameters.AddWithValue("@nombrePaciente", "%" + nombrePaciente + "%");
+
+            AccesoDatos accesoDatos = new AccesoDatos();
+            return accesoDatos.ObtenerTablaConParametros(comando, "Turnos");
+        }
+
 
     }
 }

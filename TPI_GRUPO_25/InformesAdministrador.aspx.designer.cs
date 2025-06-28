@@ -69,13 +69,13 @@ namespace TPI_GRUPO_25
         protected global::System.Web.UI.WebControls.Label lblTituloAsistencias;
 
         /// <summary>
-        /// Control lblPresentes3.
+        /// Control lblPresentes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPresentes3;
+        protected global::System.Web.UI.WebControls.Label lblPresentes;
 
         /// <summary>
         /// Control lblPorcentajePresentes.
@@ -87,13 +87,13 @@ namespace TPI_GRUPO_25
         protected global::System.Web.UI.WebControls.Label lblPorcentajePresentes;
 
         /// <summary>
-        /// Control lblAusentes3.
+        /// Control lblAusentes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAusentes3;
+        protected global::System.Web.UI.WebControls.Label lblAusentes;
 
         /// <summary>
         /// Control lblPorcentajeAusentes.

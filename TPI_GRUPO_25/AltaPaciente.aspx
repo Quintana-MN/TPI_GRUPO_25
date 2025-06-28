@@ -86,12 +86,9 @@
         <asp:Label ID="lblIDPaciente" runat="server" Text="ID Paciente:" CssClass="form-label fw-bold"></asp:Label>
         <asp:TextBox ID="txtIdPaciente" runat="server" CssClass="form-control" placeholder="Ingrese ID Paciente..."></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="Ingrese del ID de Paciente" ForeColor="Red" ControlToValidate="txtDNI" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+        <asp:Label ID="lblIDPacienteExistente" runat="server"></asp:Label>
     </div>
-    <div class="col-md-6">
-        <asp:Label ID="lblIDTurno" runat="server" Text="ID Turno:" CssClass="form-label fw-bold"></asp:Label>
-        <asp:TextBox ID="txtIdTurno" runat="server" CssClass="form-control" placeholder="Ingrese ID Turno..."></asp:TextBox>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="Ingrese el ID de Turno" ForeColor="Red" ControlToValidate="txtNombre" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
-    </div>
+    
 </div>
 
 <div class="row mb-3">
@@ -99,6 +96,7 @@
         <asp:Label ID="lblDNI" runat="server" Text="DNI:" CssClass="form-label fw-bold"></asp:Label>
         <asp:TextBox ID="txtDNI" runat="server" CssClass="form-control" placeholder="Ingrese DNI..."></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Ingrese DNI" ForeColor="Red" ControlToValidate="txtDNI" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+        <asp:Label ID="lblDNIExistentee" runat="server"></asp:Label>
     </div>
     <div class="col-md-6">
         <asp:Label ID="lblNombre" runat="server" Text="Nombre:" CssClass="form-label fw-bold"></asp:Label>

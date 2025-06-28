@@ -203,6 +203,7 @@ namespace DATOS
                 return tabla;
             }
         }
+
         public DataTable ObtenerMedicosPorEspecialidadAcceso(int codEspecialidad)
         {
             using (SqlConnection conexion = ObtenerConexion())
@@ -236,6 +237,180 @@ namespace DATOS
                 return cantidad > 0; // true = ya existe ese turno
             }
         }
+        public bool VerificarDNIExistente(string dni)
+        {
+            using (SqlConnection conexion = ObtenerConexion())
+            {
+                string consulta = @"SELECT COUNT(*) 
+                      FROM PERSONA 
+                      WHERE dni_P = @dni";
+                        
+
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                comando.Parameters.AddWithValue("@dni", dni);
+
+
+                int cantidad = (int)comando.ExecuteScalar();
+
+                return cantidad > 0; // true = ya existe la persona
+            }
+        }
+        public bool VerificarUsuarioExistente(string usuario)
+        {
+            using (SqlConnection conexion = ObtenerConexion())
+            {
+                string consulta = @"SELECT COUNT(*) 
+                      FROM USUARIO 
+                      WHERE usuario_U = @usuario";
+
+
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                comando.Parameters.AddWithValue("@usuario", usuario);
+
+
+                int cantidad = (int)comando.ExecuteScalar();
+
+                return cantidad > 0; // true = ya existe la persona
+            }
+        }
+        public bool VerificarLegajoExistente(int legajo)
+        {
+            using (SqlConnection conexion = ObtenerConexion())
+            {
+                string consulta = @"SELECT COUNT(*) 
+                      FROM MEDICO 
+                      WHERE legajo_M = @legajo";
+
+
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                comando.Parameters.AddWithValue("@legajo", legajo);
+
+
+                int cantidad = (int)comando.ExecuteScalar();
+
+                return cantidad > 0; // true = ya existe la persona
+            }
+        }
+
+        public bool VerificarIDPacienteExistente(int idPaciente)
+        {
+            using (SqlConnection conexion = ObtenerConexion())
+            {
+                string consulta = @"SELECT COUNT(*) 
+                      FROM PACIENTE 
+                      WHERE id_Paciente = @idPaciente";
+
+
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                comando.Parameters.AddWithValue("@idPaciente", idPaciente);
+
+
+                int cantidad = (int)comando.ExecuteScalar();
+
+                return cantidad > 0; // true = ya existe la persona
+            }
+        }
+        public bool VerificarIDTurnoExistente(int idTurno)
+        {
+            using (SqlConnection conexion = ObtenerConexion())
+            {
+                string consulta = @"SELECT COUNT(*) 
+                      FROM TURNOS 
+                      WHERE id_Turno_T = @idTurno";
+
+
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                comando.Parameters.AddWithValue("@idTurno", idTurno);
+
+
+                int cantidad = (int)comando.ExecuteScalar();
+
+                return cantidad > 0; // true = ya existe la persona
+            }
+        }
+        public int InformePresente(string fechaI, string fechaF)
+        {
+            using (SqlConnection conexion = ObtenerConexion())
+            {
+                string consulta = @"SELECT COUNT(*) 
+                            FROM TURNOS 
+                            WHERE fecha_T BETWEEN @fechaI AND @fechaF
+                              AND asistencia_T = 1";
+
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                comando.Parameters.AddWithValue("@fechaI", DateTime.Parse(fechaI));
+                comando.Parameters.AddWithValue("@fechaF", DateTime.Parse(fechaF));
+
+                int cantidad = (int)comando.ExecuteScalar();
+
+                return cantidad; 
+            }
+        }
+        public int InformeAusente(string fechaI, string fechaF)
+        {
+            using (SqlConnection conexion = ObtenerConexion())
+            {
+                string consulta = @"SELECT COUNT(*) 
+                            FROM TURNOS 
+                            WHERE fecha_T BETWEEN @fechaI AND @fechaF
+                              AND asistencia_T = 0";
+
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                comando.Parameters.AddWithValue("@fechaI", DateTime.Parse(fechaI));
+                comando.Parameters.AddWithValue("@fechaF", DateTime.Parse(fechaF));
+
+                int cantidad = (int)comando.ExecuteScalar();
+
+                return cantidad;
+            }
+        }
+        public int InformeCardiologia(string fechaI, string fechaF)
+        {
+            using (SqlConnection conexion = ObtenerConexion())
+            {
+                string consulta = @"SELECT COUNT(*) 
+                            FROM TURNOS 
+                            INNER JOIN MEDICO ON TURNOS.legajo_T = MEDICO.legajo_M
+                            WHERE codEspecialidad_M = 3
+                              AND fecha_T BETWEEN @fechaI AND @fechaF";
+
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                comando.Parameters.AddWithValue("@fechaI", DateTime.Parse(fechaI));
+                comando.Parameters.AddWithValue("@fechaF", DateTime.Parse(fechaF));
+
+               
+
+                int cantidad = (int)comando.ExecuteScalar();
+
+                return cantidad;
+            }
+        }
+
+        public int InformePediatría(string fechaI, string fechaF)
+        {
+            using (SqlConnection conexion = ObtenerConexion())
+            {
+                string consulta = @"SELECT COUNT(*) 
+                            FROM TURNOS 
+                            INNER JOIN MEDICO ON TURNOS.legajo_T = MEDICO.legajo_M
+                            WHERE codEspecialidad_M = 2
+                              AND fecha_T BETWEEN @fechaI AND @fechaF";
+
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                comando.Parameters.AddWithValue("@fechaI", DateTime.Parse(fechaI));
+                comando.Parameters.AddWithValue("@fechaF", DateTime.Parse(fechaF));
+
+          
+
+                int cantidad = (int)comando.ExecuteScalar();
+
+                return cantidad;
+            }
+        }
+
+
+
+
         public void AltaMedico(MedicoCompleto medico)
         {
             using (SqlConnection conexion = ObtenerConexion())
@@ -248,7 +423,7 @@ namespace DATOS
                 comando.Parameters.AddWithValue("@apellido_P", medico.GetPersona().getApellido());
                 comando.Parameters.AddWithValue("@sexo_P", medico.GetPersona().getSexo());
                 comando.Parameters.AddWithValue("@nacionalidad_P", medico.GetPersona().getNacionalidad());
-                comando.Parameters.AddWithValue("@fechaNac_P", medico.GetPersona().getFechaNacimiento());
+                comando.Parameters.AddWithValue("@fechaNac_P", DateTime.Parse(medico.GetPersona().getFechaNacimiento()));
                 comando.Parameters.AddWithValue("@direccion_P", medico.GetPersona().getDireccion());
                 comando.Parameters.AddWithValue("@email_P", medico.GetPersona().getEmail());
                 comando.Parameters.AddWithValue("@telefono_P", medico.GetPersona().getTelefono());
@@ -333,7 +508,7 @@ namespace DATOS
                 comando.ExecuteNonQuery();
             }
         }
-        public void ActualizarTurno(int idTurno, bool estado, string observacion)
+        public void ActualizarTurno(int idTurno, int estado, string observacion)
         {
             using (SqlConnection conexion = ObtenerConexion())
             {
@@ -397,6 +572,7 @@ namespace DATOS
 
             return dataSet.Tables[nombreTabla];
         }
+        
         public DataTable BuscarTurnosPorNombre(int legajo, string nombrePaciente)
         {
             using (SqlConnection conexion = ObtenerConexion())
@@ -413,6 +589,35 @@ namespace DATOS
                     return tabla;
                 }
             }
+        }
+        public DataTable BuscarTurnosConFiltro(int legajo, string nombrePaciente, bool filtroManana, bool filtroTarde)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(cadenaConexion))
+                {
+                    using (SqlCommand cmd = new SqlCommand("SP_BuscarTurnosFiltrados", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@legajo", legajo);
+                        cmd.Parameters.AddWithValue("@nombrePaciente", nombrePaciente ?? "");
+                        cmd.Parameters.AddWithValue("@filtroMañana", filtroManana ? 1 : 0);
+                        cmd.Parameters.AddWithValue("@filtroTarde", filtroTarde ? 1 : 0);
+
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        da.Fill(dt);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
+                throw;
+            }
+
+            return dt;
         }
 
         public DataTable ValidarLogin(string usuario, string contrasenia)

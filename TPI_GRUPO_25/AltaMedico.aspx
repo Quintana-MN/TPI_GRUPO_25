@@ -89,6 +89,7 @@
                 <asp:Label ID="lblDNI" runat="server" Text="DNI:" CssClass="form-label fw-bold"></asp:Label>
                 <asp:TextBox ID="txtDNI" runat="server" CssClass="form-control" placeholder="Ingrese DNI..."></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Ingrese DNI" ForeColor="Red" ControlToValidate="txtDNI" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+                <asp:Label ID="lblDNIExistente" runat="server"></asp:Label>
             </div>
             <div class="col-md-6">
                 <asp:Label ID="lblNombre" runat="server" Text="Nombre:" CssClass="form-label fw-bold"></asp:Label>
@@ -176,6 +177,7 @@
         <asp:Label ID="lblLegajo" runat="server" Text="Legajo:" CssClass="form-label fw-bold"></asp:Label>
         <asp:TextBox ID="txtLegajo" runat="server" CssClass="form-control" placeholder="Ingrese Legajo..."></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="Ingrese Legajo" ForeColor="Red" ControlToValidate="txtLegajo" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+        <asp:Label ID="lblLegajoExistente" runat="server"></asp:Label>
     </div>
 </div>
 
@@ -204,6 +206,7 @@
         <asp:Label ID="lblUsuario" runat="server" Text="Usuario:" CssClass="form-label fw-bold"></asp:Label>
         <asp:TextBox ID="txtUsuario" runat="server" CssClass="form-control" placeholder="Ingrese Usuario..."></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="Ingrese Usuario" ForeColor="Red" ControlToValidate="txtUsuario" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+        <asp:Label ID="lblUsuarioExistente" runat="server"></asp:Label>
     </div>
     <div class="col-md-6">
         <asp:Label ID="lblContraseña" runat="server" Text="Contraseña:" CssClass="form-label fw-bold"></asp:Label>

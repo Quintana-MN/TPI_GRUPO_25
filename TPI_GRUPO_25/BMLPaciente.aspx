@@ -92,11 +92,6 @@
                 <asp:Label ID="lblItCorreo" runat="server" Text='<%# Bind("Email") %>'></asp:Label>
             </ItemTemplate>
         </asp:TemplateField>
-        <asp:TemplateField HeaderText="ID Turno">
-            <ItemTemplate>
-                <asp:Label ID="lblItIdTurno" runat="server" Text='<%# Bind("ID_Turno") %>'></asp:Label>
-            </ItemTemplate>
-        </asp:TemplateField>
         <asp:TemplateField HeaderText="ID Paciente">
             <ItemTemplate>
                 <asp:Label ID="lblItIdPaciente" runat="server" Text='<%# Bind("ID_Paciente") %>'></asp:Label>

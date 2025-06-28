@@ -64,43 +64,79 @@ namespace TPI_GRUPO_25
         }
         protected void btnAltaMedico_Click(object sender, EventArgs e)
         {
-            MedicoCompleto MedicoCompleto = new MedicoCompleto();
-
-            // Persona
-            Persona persona = new Persona();
-            persona.setDni(txtDNI.Text);
-            persona.setNombre(txtNombre.Text);
-            persona.setApellido(txtApellido.Text);
-            persona.setSexo(Convert.ToInt32(ddlSexo.SelectedValue));
-            persona.setNacionalidad(txtNacionalidad.Text);
-            persona.setFechaNacimiento(txtFechaNacimiento.Text);
-            persona.setDireccion(txtDireccion.Text);
-            persona.setEmail(txtCorreo.Text);
-            persona.setTelefono(txtTelefono.Text);
-            persona.setIdProvincia(Convert.ToInt32(ddlProvincia.SelectedValue));
-            persona.setIdLocalidad(Convert.ToInt32(ddlLocalidad.SelectedValue));
-            MedicoCompleto.SetPersona(persona);
-
-            // Usuario
-            Usuario usuario = new Usuario();
-            usuario.setNombreUsuario(txtUsuario.Text);
-            usuario.setContraseniaUsuario(txtContraseña.Text);
-            usuario.setTipoUsuario(true);
-            MedicoCompleto.SetUsuario(usuario);
-
-            // Médico
-            Medico medico = new Medico();
-            medico.SetLegajo_M(Convert.ToInt32(txtLegajo.Text));
-            medico.SetUsuario_M(txtUsuario.Text);
-            medico.SetContrasenia_M(txtContraseña.Text);
-            medico.SetEspecialidad_M(Convert.ToInt32(ddlEspecialidad.SelectedValue));
-            medico.SetDni_M(txtDNI.Text);
-            MedicoCompleto.SetMedico(medico);
-
             NegocioUsuario negocio = new NegocioUsuario();
-            negocio.AgregarMedico(MedicoCompleto);
 
-            lblMedicoCreado.Text = "¡Medico creado!";
+            bool dniExistente = negocio.verificarDNI(txtDNI.Text);
+            bool legajoExistente = negocio.verificarLegajo(Convert.ToInt32(txtLegajo.Text));
+            bool usuarioExistente= negocio.verificarUsuario(txtUsuario.Text);
+
+
+            if (dniExistente)
+            {
+                lblDNIExistente.Text = "Ya existe ese DNI,ingrese otro";
+            }
+            else
+            {
+                lblDNIExistente.Text = "";
+            }
+            if (legajoExistente)
+            {
+                lblLegajoExistente.Text = "Ya existe ese legajo, ingrese otro";
+            }
+            else
+            {
+                lblLegajoExistente.Text = "";
+            }
+            if (usuarioExistente)
+            {
+                lblUsuarioExistente.Text = "Ya existe ese usuario, ingrese otro";
+            }
+            else
+            {
+                lblUsuarioExistente.Text = "";
+            }
+
+            if (!dniExistente && !legajoExistente && !usuarioExistente)
+            {
+                MedicoCompleto MedicoCompleto = new MedicoCompleto();
+
+                // Persona
+                Persona persona = new Persona();
+                persona.setDni(txtDNI.Text);
+                persona.setNombre(txtNombre.Text);
+                persona.setApellido(txtApellido.Text);
+                persona.setSexo(Convert.ToInt32(ddlSexo.SelectedValue));
+                persona.setNacionalidad(txtNacionalidad.Text);
+                persona.setFechaNacimiento(txtFechaNacimiento.Text);
+                persona.setDireccion(txtDireccion.Text);
+                persona.setEmail(txtCorreo.Text);
+                persona.setTelefono(txtTelefono.Text);
+                persona.setIdProvincia(Convert.ToInt32(ddlProvincia.SelectedValue));
+                persona.setIdLocalidad(Convert.ToInt32(ddlLocalidad.SelectedValue));
+                MedicoCompleto.SetPersona(persona);
+
+                // Usuario
+                Usuario usuario = new Usuario();
+                usuario.setNombreUsuario(txtUsuario.Text);
+                usuario.setContraseniaUsuario(txtContraseña.Text);
+                usuario.setTipoUsuario(true);
+                MedicoCompleto.SetUsuario(usuario);
+
+                // Médico
+                Medico medico = new Medico();
+                medico.SetLegajo_M(Convert.ToInt32(txtLegajo.Text));
+                medico.SetUsuario_M(txtUsuario.Text);
+                medico.SetContrasenia_M(txtContraseña.Text);
+                medico.SetEspecialidad_M(Convert.ToInt32(ddlEspecialidad.SelectedValue));
+                medico.SetDni_M(txtDNI.Text);
+                MedicoCompleto.SetMedico(medico);
+
+
+                negocio.AgregarMedico(MedicoCompleto);
+
+                lblMedicoCreado.Text = "¡Medico creado!";
+            }
+
         }
     }
 }

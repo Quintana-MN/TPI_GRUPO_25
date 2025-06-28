@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,41 @@ public class NegocioUsuario
     {
         AccesoDatos datos = new AccesoDatos();
         datos.BajaLogicaMedico(legajo);
+    }
+
+    public int InformesPresenteNegocio(string fechaI, string fechaF)
+    {
+        AccesoDatos datos= new AccesoDatos();
+
+        int presentes = datos.InformePresente(fechaI, fechaF);
+
+
+        return presentes;
+    }
+    public int InformesAusenteNegocio(string fechaI, string fechaF)
+    {
+        AccesoDatos datos = new AccesoDatos();
+
+
+        int ausentes = datos.InformeAusente(fechaI, fechaF);
+
+        return ausentes;
+    }
+
+    public int InformeCardiologiaNegocio(string fechaI,string fechaF)
+    {
+        AccesoDatos datos = new AccesoDatos();
+        int informeCardio = datos.InformeCardiologia(fechaI,fechaF);
+
+        return informeCardio;
+    }
+
+    public int InformePediatriaNegocio(string fechaI, string fechaF)
+    {
+        AccesoDatos datos = new AccesoDatos();
+        int informePediatria = datos.InformePediatría(fechaI, fechaF);
+
+        return informePediatria;
     }
     public void BajaPaciente(int idPaciente)
     {
@@ -97,11 +133,12 @@ public class NegocioUsuario
         return datos.ObtenerLegajoPorUsuario(usuario);
     }
 
-    public void ActualizarTurno(int idTurno, bool estado, string observacion)
+    public void ActualizarTurno(int idTurno, int estado, string observacion)
     {
         AccesoDatos datos = new AccesoDatos();
         datos.ActualizarTurno(idTurno, estado, observacion);
     }
+
     public DataTable BuscarTurnosXNombre(int legajo, string nombrePaciente)
     {
         AccesoDatos accesoDatos = new AccesoDatos();
@@ -132,5 +169,45 @@ public class NegocioUsuario
         AccesoDatos datos = new AccesoDatos();
         datos.AltaTurno(turno);
     }
+
+    public DataTable ObtenerTurnosXFiltro(int legajo, string nombrePaciente, bool filtroMañana, bool filtroTarde)
+    {
+        AccesoDatos datos = new AccesoDatos();
+        return datos.BuscarTurnosConFiltro(legajo, nombrePaciente, filtroMañana, filtroTarde);
+    }
+    //VERIFICACIONES
+
+    public bool verificarDNI(string dni)
+    {
+        AccesoDatos datos= new AccesoDatos();
+        bool dniExistente=datos.VerificarDNIExistente(dni);
+
+        return dniExistente;
+    }
+    public bool verificarUsuario(string usuario)
+    {
+        AccesoDatos datos = new AccesoDatos();
+        return datos.VerificarUsuarioExistente(usuario);
+    }
+
+    public bool verificarLegajo(int legajo)
+    {
+        AccesoDatos datos = new AccesoDatos();
+        return datos.VerificarLegajoExistente(legajo);
+    }
+
+    public bool verificarIDPaciente(int idPaciente)
+    {
+        AccesoDatos datos = new AccesoDatos();
+        return datos.VerificarIDPacienteExistente(idPaciente);
+    }
+
+    public bool verificarIDTurno(int idTurno)
+    {
+        AccesoDatos datos = new AccesoDatos();
+        return datos.VerificarIDTurnoExistente(idTurno);
+    }
+
+
 }
 

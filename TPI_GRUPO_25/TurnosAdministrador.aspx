@@ -91,6 +91,7 @@
      <div class="d-flex align-items-center w-50 mb-4">
     <asp:Label runat="server" ID="lblTurno" Text="Id Turno:" CssClass="me-3 fw-bold label-fijo" />
     <asp:TextBox runat="server" ID="txtIdTurno" CssClass="form-control w-100" />
+         <asp:Label ID="lblIDTurnoExistente" runat="server"></asp:Label>
 </div>
 
 

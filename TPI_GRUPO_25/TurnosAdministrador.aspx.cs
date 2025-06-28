@@ -59,27 +59,36 @@ namespace TPI_GRUPO_25
         protected void BtnGuardarTurno_Click(object sender, EventArgs e)
         {
             NegocioUsuario negocio = new NegocioUsuario();
-
+            bool IDTurnoExistente = negocio.verificarIDTurno(Convert.ToInt32(txtIdTurno.Text));
             bool verificacion = negocio.VerificacionHorarios(txtFecha.Text, Convert.ToInt32(txtHora.Text), Convert.ToInt32(ddlMedico.SelectedValue));
-            if (!verificacion)
+
+            if (IDTurnoExistente)
             {
-                Turno turno = new Turno();
-
-                turno.SetIdTurno(Convert.ToInt32(txtIdTurno.Text));
-                turno.SetIdPaciente(Convert.ToInt32(ddlPaciente.SelectedValue));
-                turno.SetFecha(txtFecha.Text);
-                turno.SetHorario(Convert.ToInt32(txtHora.Text));
-                turno.SetLegajo(Convert.ToInt32(ddlMedico.SelectedValue));
-
-                negocio.AgregarTurno(turno);
-
-                lblErrorTurno.Text = "Agrego exitosamente";
+                lblIDTurnoExistente.Text = "Ese ID de Turno ya existe, ingrese otro";
             }
             else
             {
+                lblIDTurnoExistente.Text = "";
+                if (!verificacion)
+                {
+                    Turno turno = new Turno();
+
+                    turno.SetIdTurno(Convert.ToInt32(txtIdTurno.Text));
+                    turno.SetIdPaciente(Convert.ToInt32(ddlPaciente.SelectedValue));
+                    turno.SetFecha(txtFecha.Text);
+                    turno.SetHorario(Convert.ToInt32(txtHora.Text));
+                    turno.SetLegajo(Convert.ToInt32(ddlMedico.SelectedValue));
+
+                    negocio.AgregarTurno(turno);
+
+                    lblErrorTurno.Text = "Agrego exitosamente";
+                }
+                else
+                {
 
 
-                lblErrorTurno.Text = "Ya tiene asignado ese horario";
+                    lblErrorTurno.Text = "Ya tiene asignado ese horario";
+                }
             }
         }
 

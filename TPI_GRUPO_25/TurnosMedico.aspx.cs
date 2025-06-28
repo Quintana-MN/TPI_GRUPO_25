@@ -12,18 +12,18 @@ namespace TPI_GRUPO_25
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-                if (!IsPostBack)
-                {
+            if (!IsPostBack)
+            {
                 cargarTurnos();
-                    if (Session["nombre"] == null)
-                    {
-                        Response.Redirect("InicioSesion.aspx");
-                    }
-                    else
-                    {
-                        lblBienvenida.Text = $"Bienvenido, {Session["nombre"]}";
-                    }
+                if (Session["nombre"] == null)
+                {
+                    Response.Redirect("InicioSesion.aspx");
                 }
+                else
+                {
+                    lblBienvenida.Text = $"Bienvenido, {Session["nombre"]}";
+                }
+            }
         }
         protected void gvTurnosMedico_RowEditing(object sender, GridViewEditEventArgs e)
         {
@@ -45,7 +45,7 @@ namespace TPI_GRUPO_25
             DropDownList ddlEstado = (DropDownList)row.FindControl("ddlEditEstado");
             TextBox txtObservacion = (TextBox)row.FindControl("txtEditObservacion");
 
-            bool estado = ddlEstado.SelectedValue == "1";
+            int estado = Convert.ToInt32(ddlEstado.SelectedValue);
             string observacion = txtObservacion.Text;
 
             NegocioUsuario negocio = new NegocioUsuario();
@@ -54,22 +54,47 @@ namespace TPI_GRUPO_25
             gvTurnosMedico.EditIndex = -1;
             cargarTurnos();
         }
-        protected void btnFiltrarTurnos_Click(object sender, EventArgs e)
+
+        private void AplicarFiltro()
         {
             string nombreBuscar = txtBuscar.Text.Trim();
-            int legajoMedico = Convert.ToInt32(Session["legajo"]); // o como tengas guardado el legajo
+            int legajo = Convert.ToInt32(Session["legajo"]);
+
+            bool filtroMañana = chkMañana.Checked;
+            bool filtroTarde = chkTarde.Checked;
 
             NegocioUsuario negocio = new NegocioUsuario();
-            DataTable dt = negocio.BuscarTurnosXNombre(legajoMedico, nombreBuscar);
+            DataTable dt = negocio.ObtenerTurnosXFiltro(legajo, nombreBuscar, filtroMañana, filtroTarde);
+
+            lblMensaje.Text = dt.Rows.Count == 0 ? "No se encontraron turnos con esos filtros." : "";
 
             gvTurnosMedico.DataSource = dt;
             gvTurnosMedico.DataBind();
-
-            lblMensaje.Text = dt.Rows.Count == 0 ? "No se encontraron turnos con ese nombre." : "";
         }
 
+        protected void btnFiltrarTurnos_Click(object sender, EventArgs e)
+        {
+            AplicarFiltro();
+        }
+        protected void chkMañana_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkMañana.Checked)
+                chkTarde.Checked = false;
+            else
+                chkTarde.Checked = false; // Opcional, para que no queden ambos desmarcados (si querés)
 
+            AplicarFiltro();
+        }
 
+        protected void chkTarde_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkTarde.Checked)
+                chkMañana.Checked = false;
+            else
+                chkMañana.Checked = false; // Opcional
+
+            AplicarFiltro();
+        }
 
         private void cargarTurnos()
         {

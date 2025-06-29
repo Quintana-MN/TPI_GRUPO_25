@@ -24,7 +24,6 @@
         justify-content: center ;
         align-items: center;
         gap: 10px;
-        margin-top: 120px;
         flex-wrap: wrap;
     }
 
@@ -93,10 +92,10 @@
  </div>
 
 
-<asp:Label runat="server" ID="lblBienvenida" Text="!Bienvenido Administrador, estos son los informes!" CssClass="h2 text-center d-block mt-5 mb-3 text-dark"></asp:Label>
+<asp:Label runat="server" ID="lblBienvenida" Text="!Bienvenido Administrador, estos son los informes!" CssClass="h2 text-center d-block mt-5 text-dark"></asp:Label>
 
-<div style="margin-top: 100px; text-align: center; padding: 20px; width: fit-content;  margin-right: auto;">
-     <div class ="filtros-fecha">
+<div style="margin-bottom: 20px">
+     <div class="filtros-fecha py-4">
          <label><strong>Desde</strong></label>
          <input type="date" name="fechaD" id="Desde" runat="server" class="form-control" style="width: 150px; background-color: #F2E0C9;"  />
           <br /><br />

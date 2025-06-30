@@ -25,6 +25,8 @@ namespace TPI_GRUPO_25
 
                 CargarPacientes();
                 CargarEspecialidades();
+                ddlMedico.Items.Clear();
+                ddlMedico.Items.Insert(0, new ListItem("--Seleccionar--", "0"));
             }
         }
 

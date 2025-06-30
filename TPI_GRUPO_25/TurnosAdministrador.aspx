@@ -92,29 +92,35 @@
     <asp:Label runat="server" ID="lblTurno" Text="Id Turno:" CssClass="me-3 fw-bold label-fijo" />
     <asp:TextBox runat="server" ID="txtIdTurno" CssClass="form-control w-100" />
          <asp:Label ID="lblIDTurnoExistente" runat="server"></asp:Label>
+         <asp:RequiredFieldValidator ID="RFVIDTurno" runat="server" Font-Bold="True" ForeColor="Red" ControlToValidate="txtIdTurno">Hay que agregar un ID Turno</asp:RequiredFieldValidator>
+
 </div>
 
 
     <div class="d-flex align-items-center w-50 my-4">
         <asp:Label runat="server" ID="lblPaciente" Text="Paciente:" CssClass="me-3 fw-bold label-fijo" />
         <asp:DropDownList runat="server" ID="ddlPaciente" CssClass="form-select w-100" />
+        <asp:RequiredFieldValidator ID="RFVddlPaciente" runat="server" Font-Bold="True" ForeColor="Red" ControlToValidate="ddlPaciente" InitialValue="0">Debes seleccionar un paciente</asp:RequiredFieldValidator>
     </div>
 
     
       <div class="d-flex align-items-center w-50 mb-4">
      <asp:Label runat="server" ID="lblEspecialidad" Text="Especialidad:" CssClass="me-3 fw-bold label-fijo" />
      <asp:DropDownList runat="server" ID="ddlEspecialidad" CssClass="form-select w-100" AutoPostBack="true" OnSelectedIndexChanged="ddlEspecialidad_SelectedIndexChanged" />
+          <asp:RequiredFieldValidator ID="RFVddlEspecialidad" runat="server" Font-Bold="True" ForeColor="Red" ControlToValidate="ddlEspecialidad" InitialValue="0">Debes seleccionar una especialidad</asp:RequiredFieldValidator>
  </div>
 
  <div class="d-flex align-items-center w-50 mb-5">
      <asp:Label runat="server" ID="Label1" Text="Médico:" CssClass="me-3 fw-bold label-fijo" />
      <asp:DropDownList runat="server" ID="ddlMedico" CssClass="form-select w-100" />
+     <asp:RequiredFieldValidator ID="RFVddlMedico" runat="server" Font-Bold="True" ForeColor="Red" ControlToValidate="ddlMedico" InitialValue="0">Debes seleccionar un medico</asp:RequiredFieldValidator>
  </div>
 
 
     <div class="d-flex align-items-center w-50 mb-4">
         <asp:Label runat="server" ID="lblDia" Text="Fecha:" CssClass="me-3 fw-bold label-fijo" />
         <asp:TextBox runat="server" ID="txtFecha" CssClass="form-control w-100" />
+        <asp:RequiredFieldValidator ID="RFVdia" runat="server" Font-Bold="True" ForeColor="Red" ControlToValidate="txtFecha">Debes ingresar un dia</asp:RequiredFieldValidator>
     </div>
 
 
@@ -122,6 +128,7 @@
     <div class="d-flex align-items-center w-50 mb-4">
         <asp:Label runat="server" ID="lblHora" Text="Hora:" CssClass="me-3 fw-bold label-fijo" />
         <asp:TextBox runat="server" ID="txtHora" CssClass="form-control w-100" />
+        <asp:RequiredFieldValidator ID="RFVHora" runat="server" Font-Bold="True" ForeColor="Red" ControlToValidate="txtHora">Debes ingresar una hora</asp:RequiredFieldValidator>
     </div>
 
      <div><asp:Label ID="lblErrorTurno" CssClass="h4 fw-bold" runat="server"></asp:Label></div>

@@ -94,10 +94,13 @@
     BorderWidth="1px"
     CellPadding="3"
     CellSpacing="2"
+    PageSize="5"
+    PagerStyle-HorizontalAlign="Center"
+    PagerStyle-Font-Size="Large"
     HorizontalAlign="Center"
     OnRowEditing="gvTurnosMedico_RowEditing"
     OnRowCancelingEdit="gvTurnosMedico_RowCancelingEdit"
-    OnRowUpdating="gvTurnosMedico_RowUpdating">
+    OnRowUpdating="gvTurnosMedico_RowUpdating" OnPageIndexChanging="gvTurnosMedico_PageIndexChanging">
 
     <Columns>
         <asp:TemplateField HeaderText="Turno">

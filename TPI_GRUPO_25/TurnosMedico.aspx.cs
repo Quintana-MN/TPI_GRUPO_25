@@ -111,5 +111,10 @@ namespace TPI_GRUPO_25
             }
         }
 
+        protected void gvTurnosMedico_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvTurnosMedico.PageIndex = e.NewPageIndex;
+            cargarTurnos();
+        }
     }
 }

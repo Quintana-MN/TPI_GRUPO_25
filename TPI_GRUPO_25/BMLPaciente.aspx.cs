@@ -75,5 +75,11 @@ namespace TPI_GRUPO_25
             gvPacientes.EditIndex = -1;
             CargarGridPaciente();
         }
+
+        protected void gvPacientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvPacientes.PageIndex = e.NewPageIndex;
+            CargarGridPaciente();
+        }
     }
 }

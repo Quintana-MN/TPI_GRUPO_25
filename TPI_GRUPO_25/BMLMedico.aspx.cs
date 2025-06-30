@@ -82,6 +82,10 @@ namespace TPI_GRUPO_25
             CargarGridMedico();
         }
 
-
+        protected void gvMedicos_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvMedicos.PageIndex = e.NewPageIndex;
+            CargarGridMedico();
+        }
     }
 }

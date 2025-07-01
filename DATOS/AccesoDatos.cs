@@ -539,12 +539,12 @@ namespace DATOS
         public int ObtenerLegajoPorUsuario(string usuario)
         {
             int legajo = 0;
-            string query = "SELECT legajo_M FROM MEDICO WHERE usuario_M = @usuario";
+            string consulta = "SELECT legajo_M FROM MEDICO WHERE usuario_M = @usuario";
 
-            using (SqlConnection conexion = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=clinicaTUP;Integrated Security=True;TrustServerCertificate=True"))
+            using (SqlConnection conexion = ObtenerConexion())
             {
                 conexion.Open();
-                using (SqlCommand cmd = new SqlCommand(query, conexion))
+                using (SqlCommand cmd = new SqlCommand(consulta, conexion))
                 {
                     cmd.Parameters.AddWithValue("@usuario", usuario);
                     object result = cmd.ExecuteScalar();

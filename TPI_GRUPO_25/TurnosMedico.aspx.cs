@@ -25,17 +25,6 @@ namespace TPI_GRUPO_25
                 }
             }
         }
-        protected void gvTurnosMedico_RowEditing(object sender, GridViewEditEventArgs e)
-        {
-            gvTurnosMedico.EditIndex = e.NewEditIndex;
-            cargarTurnos();
-        }
-
-        protected void gvTurnosMedico_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-        {
-            gvTurnosMedico.EditIndex = -1;
-            cargarTurnos();
-        }
 
         protected void gvTurnosMedico_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
@@ -51,10 +40,20 @@ namespace TPI_GRUPO_25
             NegocioUsuario negocio = new NegocioUsuario();
             negocio.ActualizarTurno(idTurno, estado, observacion);
 
+            //Cierra el modo de edición
             gvTurnosMedico.EditIndex = -1;
             cargarTurnos();
         }
-
+        protected void gvTurnosMedico_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            gvTurnosMedico.EditIndex = e.NewEditIndex;
+            cargarTurnos();
+        }
+        protected void gvTurnosMedico_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            gvTurnosMedico.EditIndex = -1;
+            cargarTurnos();
+        }
         private void AplicarFiltro()
         {
             string nombreBuscar = txtBuscar.Text.Trim();
@@ -91,7 +90,7 @@ namespace TPI_GRUPO_25
             if (chkTarde.Checked)
                 chkMañana.Checked = false;
             else
-                chkMañana.Checked = false; // Opcional
+                chkMañana.Checked = false;
 
             AplicarFiltro();
         }
@@ -107,7 +106,6 @@ namespace TPI_GRUPO_25
                 DataTable tabla = negocio.ObtenerTurnosPorMedico(legajo);
                 gvTurnosMedico.DataSource = tabla;
                 gvTurnosMedico.DataBind();
-
             }
         }
 

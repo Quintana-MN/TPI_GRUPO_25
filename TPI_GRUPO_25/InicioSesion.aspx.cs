@@ -14,25 +14,27 @@ namespace TPI_GRUPO_25
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             string usuario = txtUsuario.Text.Trim();
             string contrasenia = txtClave.Text.Trim();
+
             Medico medico = new Medico();
 
             NegocioUsuario negocio = new NegocioUsuario();
-            DataTable dt = negocio.ValidarLogin(usuario, contrasenia);
+            DataTable table = negocio.ValidarLogin(usuario, contrasenia);
 
-            if (dt.Rows.Count > 0)
+            if (table.Rows.Count > 0)
             {
-                int tipoUsuario = Convert.ToInt32(dt.Rows[0]["tipoUsuario_U"]);
+                int tipoUsuario = Convert.ToInt32(table.Rows[0]["tipoUsuario_U"]);
                 int legajoMedico = negocio.ObtenerLegajoPorUsuario(usuario);
 
                 Session["legajo"] = legajoMedico;
                 Session["usuario"] = usuario;
-                Session["nombre"] = dt.Rows[0]["usuario_U"].ToString();
+                Session["nombre"] = table.Rows[0]["usuario_U"].ToString();
                 Session["tipoUsuario"] = tipoUsuario;
 
                 if (tipoUsuario == 0)

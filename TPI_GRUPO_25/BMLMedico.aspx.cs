@@ -2,9 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
 
 namespace TPI_GRUPO_25
 {
@@ -48,7 +51,6 @@ namespace TPI_GRUPO_25
 
         protected void gvMedicos_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-
 
             int legajo = Convert.ToInt32(((Label)gvMedicos.Rows[e.RowIndex].FindControl("lblEditLegajo")).Text);
 

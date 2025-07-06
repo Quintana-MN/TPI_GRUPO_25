@@ -77,15 +77,26 @@
     </div>
 
 
-        <!-- Fila 1: ID Paciente y ID Turno -->
-<div class="px-4">
-    <div class="row mb-3">
+        <!-- Fila 1: ID Paciente -->
+<div class="px-4 ">
+    <div class="row mb-3 justify-content-center">
     <asp:Label runat="server" ID="lblPacienteAgregado" CssClass="text-center h3 fw-bold py-4"></asp:Label>
     <asp:Label runat="server" ID="lblBienvenida" CssClass="text-center h3 fw-bold py-4"></asp:Label>
     <div class="col-md-6">
         <asp:Label ID="lblIDPaciente" runat="server" Text="ID Paciente:" CssClass="form-label fw-bold"></asp:Label>
         <asp:TextBox ID="txtIdPaciente" runat="server" CssClass="form-control" placeholder="Ingrese ID Paciente..."></asp:TextBox>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="Ingrese del ID de Paciente" ForeColor="Red" ControlToValidate="txtDNI" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="Ingrese del ID de Paciente" ForeColor="Red" ControlToValidate="txtIdPaciente" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+        <asp:RegularExpressionValidator 
+    ID="regexSoloNumeros" 
+    runat="server" 
+    ControlToValidate="txtIdPaciente"
+    ValidationGroup="grupo1"
+    ErrorMessage="Ingrese solo números"
+    ForeColor="Red"
+    Display="Dynamic"
+    SetFocusOnError="true"
+    ValidationExpression="^\d+$" />
+
         <asp:Label ID="lblIDPacienteExistente" runat="server"></asp:Label>
     </div>
     
@@ -96,12 +107,32 @@
         <asp:Label ID="lblDNI" runat="server" Text="DNI:" CssClass="form-label fw-bold"></asp:Label>
         <asp:TextBox ID="txtDNI" runat="server" CssClass="form-control" placeholder="Ingrese DNI..."></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Ingrese DNI" ForeColor="Red" ControlToValidate="txtDNI" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator 
+ID="regexSoloNumeros2" 
+runat="server" 
+ControlToValidate="txtDNI"
+ValidationGroup="grupo1"
+ErrorMessage="Ingrese solo números"
+ForeColor="Red"
+Display="Dynamic"
+SetFocusOnError="true"
+ValidationExpression="^\d+$" />
         <asp:Label ID="lblDNIExistentee" runat="server"></asp:Label>
     </div>
     <div class="col-md-6">
         <asp:Label ID="lblNombre" runat="server" Text="Nombre:" CssClass="form-label fw-bold"></asp:Label>
         <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" placeholder="Ingrese Nombre..."></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Ingrese Nombre" ForeColor="Red" ControlToValidate="txtNombre" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+        <asp:RegularExpressionValidator 
+    ID="regexNombre" 
+    runat="server" 
+    ControlToValidate="txtNombre"
+    ValidationGroup="grupo1"
+    ErrorMessage="Ingrese solo letras (sin números ni símbolos)"
+    ForeColor="Red"
+    Display="Dynamic"
+    SetFocusOnError="true"
+    ValidationExpression="^[a-zA-ZÁÉÍÓÚáéíóúÑñ\s]+$" />
     </div>
 </div>
 
@@ -111,6 +142,16 @@
         <asp:Label ID="lblApellido" runat="server" Text="Apellido:" CssClass="form-label fw-bold"></asp:Label>
         <asp:TextBox ID="txtApellido" runat="server" CssClass="form-control" placeholder="Ingrese Apellido..."></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Ingrese Apellido" ForeColor="Red" ControlToValidate="txtApellido" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator 
+ID="RegularExpressionValidator2" 
+runat="server" 
+ControlToValidate="txtApellido"
+ValidationGroup="grupo1"
+ErrorMessage="Ingrese solo letras (sin números ni símbolos)"
+ForeColor="Red"
+Display="Dynamic"
+SetFocusOnError="true"
+ValidationExpression="^[a-zA-ZÁÉÍÓÚáéíóúÑñ\s]+$" />
     </div>
     <div class="col-md-6">
         <asp:Label ID="lblSexo" runat="server" Text="Sexo:" CssClass="form-label fw-bold"></asp:Label>
@@ -127,18 +168,38 @@
         <asp:Label ID="lblNacionalidad" runat="server" Text="Nacionalidad:" CssClass="form-label fw-bold"></asp:Label>
         <asp:TextBox ID="txtNacionalidad" runat="server" CssClass="form-control" placeholder="Ingrese Nacionalidad..."></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Ingrese nacionalidad" ForeColor="Red" ControlToValidate="txtNacionalidad" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator 
+ID="RegularExpressionValidator3" 
+runat="server" 
+ControlToValidate="txtNacionalidad"
+ValidationGroup="grupo1"
+ErrorMessage="Ingrese solo letras (sin números ni símbolos)"
+ForeColor="Red"
+Display="Dynamic"
+SetFocusOnError="true"
+ValidationExpression="^[a-zA-ZÁÉÍÓÚáéíóúÑñ\s]+$" />
     </div>
     <div class="col-md-6">
         <asp:Label ID="lblFechaNacimiento" runat="server" Text="Fecha de Nacimiento:" CssClass="form-label fw-bold"></asp:Label>
         <asp:TextBox ID="txtFechaNacimiento" runat="server" CssClass="form-control" placeholder="Ingrese Fecha de Nacimiento..."></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Ingrese Fecha de Nacimiento" ForeColor="Red" ControlToValidate="txtFechaNacimiento" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator 
+    ID="regexFechaNacimiento" 
+    runat="server" 
+    ControlToValidate="txtFechaNacimiento"
+    ValidationGroup="grupo1"
+    ErrorMessage="Ingrese una fecha válida en formato dd/mm/aaaa"
+    ForeColor="Red"
+    Display="Dynamic"
+    SetFocusOnError="true"
+    ValidationExpression="^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\d{4}$" />
     </div>
 </div>
 
 <!-- Fila 4: Dirección y Provincia -->
 <div class="row mb-3 ">
     <div class="col-md-6">
-        <asp:Label ID="lblDireccion" runat="server" Text="Dirección:" CssClass="form-label "></asp:Label>
+        <asp:Label ID="lblDireccion" runat="server" Text="Dirección:" CssClass="form-label fw-bold"></asp:Label>
         <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control" placeholder="Ingrese Dirección..."></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Ingrese Dirección" ForeColor="Red" ControlToValidate="txtDireccion" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
     </div>
@@ -158,6 +219,17 @@
         <asp:Label ID="lblCorreo" runat="server" Text="Correo Electrónico:" CssClass="form-label fw-bold"></asp:Label>
         <asp:TextBox ID="txtCorreo" runat="server" CssClass="form-control" placeholder="Ingrese Correo Electrónico..."></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="Ingrese Correo Electrónico" ForeColor="Red" ControlToValidate="txtCorreo" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+        <asp:RegularExpressionValidator 
+    ID="regexCorreo" 
+    runat="server" 
+    ControlToValidate="txtCorreo"
+    ValidationGroup="grupo1"
+    ErrorMessage="Ingrese un correo electrónico válido"
+    ForeColor="Red"
+    Display="Dynamic"
+    SetFocusOnError="true"
+    ValidationExpression="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" />
+
     </div>
 </div>
 
@@ -167,11 +239,20 @@
         <asp:Label ID="lblTelefono" runat="server" Text="Teléfono:" CssClass="form-label fw-bold"></asp:Label>
         <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-control" placeholder="Ingrese Teléfono..."></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="Ingrese Teléfono" ForeColor="Red" ControlToValidate="txtTelefono" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator 
+ID="regexSoloNumeros3" 
+runat="server" 
+ControlToValidate="txtTelefono"
+ValidationGroup="grupo1"
+ErrorMessage="Ingrese solo números"
+ForeColor="Red"
+Display="Dynamic"
+SetFocusOnError="true"
+ValidationExpression="^\d+$" />
     </div>
     <div class="col-md-6 d-flex align-items-end">
         <asp:Button ID="btnAgregarPaciente" runat="server" Text="Guardar" CssClass="btn btn-primary w-100 boton-personalizado" ValidationGroup="grupo1" OnClick="btnAgregarPaciente_Click" />
     </div>
 </div>
-    </div>
 
 </asp:Content>

@@ -91,6 +91,15 @@
      <div class="d-flex align-items-center w-50 mb-2">
     <asp:Label runat="server" ID="lblTurno" Text="Id Turno:" CssClass="me-3 fw-bold label-fijo" />
     <asp:TextBox runat="server" ID="txtIdTurno" CssClass="form-control w-100" />
+                     <asp:RegularExpressionValidator 
+ID="regexSoloNumeros1" 
+runat="server" 
+ControlToValidate="txtIdTurno"
+ErrorMessage="Ingrese solo números"
+ForeColor="Red"
+Display="Dynamic"
+SetFocusOnError="true"
+ValidationExpression="^\d+$" />
 </div>
      <div>
          <asp:Label ID="lblIDTurnoExistente" runat="server"></asp:Label>
@@ -121,6 +130,15 @@
     <div class="d-flex align-items-center w-50 mb-4">
         <asp:Label runat="server" ID="lblDia" Text="Fecha:" CssClass="me-3 fw-bold label-fijo" />
         <asp:TextBox runat="server" ID="txtFecha" CssClass="form-control w-100" />
+                <asp:RegularExpressionValidator 
+    ID="regexFechaNacimiento" 
+    runat="server" 
+    ControlToValidate="txtFecha"
+    ErrorMessage="Ingrese una fecha válida en formato dd/mm/aaaa"
+    ForeColor="Red"
+    Display="Dynamic"
+    SetFocusOnError="true"
+    ValidationExpression="^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\d{4}$" />
     </div>
              <asp:RequiredFieldValidator ID="RFVdia" runat="server" Font-Bold="True" ForeColor="Red" ControlToValidate="txtFecha">Debes ingresar un dia</asp:RequiredFieldValidator>
 
@@ -129,6 +147,16 @@
     <div class="d-flex align-items-center w-50 my-2">
         <asp:Label runat="server" ID="lblHora" Text="Hora:" CssClass="fw-bold label-fijo me-3" />
         <asp:TextBox runat="server" ID="txtHora" CssClass="form-control w-100" />
+        <asp:RegularExpressionValidator 
+    ID="regexDosNumeros" 
+    runat="server" 
+    ControlToValidate="txtHora"
+    ErrorMessage="Ingrese un horario válido"
+    ForeColor="Red"
+    Display="Dynamic"
+    SetFocusOnError="true"
+    ValidationExpression="^\d{2}$" />
+
     </div>
 
      <div class="mb-2">

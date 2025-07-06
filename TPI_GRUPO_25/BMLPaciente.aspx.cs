@@ -1,12 +1,13 @@
-﻿using System;
+﻿using ENTIDADES;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using ENTIDADES;
 
 namespace TPI_GRUPO_25
 {
@@ -22,7 +23,7 @@ namespace TPI_GRUPO_25
                 }
                 else
                 {
-                    lblBienvenida.Text = $"Bienvenido, {Session["nombre"]}. Acá se hace la Baja, Modificación y Lectura de los médicos";
+                    lblBienvenida.Text = $"Bienvenido, {Session["nombre"]}. Acá se hace la Baja, Modificación y Lectura de los Pacientes";
                 }
                 CargarGridPaciente();
             }
@@ -42,6 +43,7 @@ namespace TPI_GRUPO_25
                 int idPaciente = Convert.ToInt32(gvPacientes.DataKeys[e.RowIndex].Value);
 
                 NegocioUsuario negocio = new NegocioUsuario();
+
                 negocio.BajaPaciente(idPaciente);
 
                 CargarGridPaciente();
@@ -53,7 +55,6 @@ namespace TPI_GRUPO_25
             string emailPaciente= ((TextBox)gvPacientes.Rows[e.RowIndex].FindControl("txtEditCorreo")).Text;
 
             string dniPaciente= ((Label)gvPacientes.Rows[e.RowIndex].FindControl("lblEditDniPaciente")).Text;
-
 
             PacienteUpdate pacienteUp = new PacienteUpdate(nombrePaciente, emailPaciente, dniPaciente);
 

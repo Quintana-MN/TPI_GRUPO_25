@@ -24,16 +24,11 @@ namespace TPI_GRUPO_25
 
         protected void btnVer_Click(object sender, EventArgs e)
         {
+            //Desde y Hasta, input type Date
             string fechaDesde = Desde.Value;
             string fechaHasta = Hasta.Value;
 
-
-
-
-
             NegocioUsuario negocio = new NegocioUsuario();
-
-            //Informe presentes
 
             int presente = negocio.InformesPresenteNegocio(fechaDesde, fechaHasta);
 
@@ -41,7 +36,7 @@ namespace TPI_GRUPO_25
 
             int total = presente + ausente;
 
-      
+            //Calcula el porcentaje de presentes y ausentes
             if (total == 0)
             {
                 lblPorcentajePresentes.Text = "0 %";
@@ -65,7 +60,7 @@ namespace TPI_GRUPO_25
 
             int totalEspecialidades = cardiologia + pediatria;
 
-
+            //Calcula el porcentaje de especialidades
             if (totalEspecialidades == 0)
             {
                 lblPorcentajeCardiologia.Text = "0 %";
@@ -80,8 +75,5 @@ namespace TPI_GRUPO_25
                 lblPorcentajePediatria.Text = (porcentajePediatria * 100).ToString("0.00") + " %";
             }
         }
-
-        
-        
-}
     }
+}

@@ -31,6 +31,7 @@ namespace DATOS
 
         public DataTable getTablaMedicos()
         {
+            // Usa una instancia de AccesoDatos para abrir la conexión.
             DataTable tabla = dataset.ObtenerTabla("MEDICO", @"
             SELECT
             USUARIO.usuario_U AS [Usuario],

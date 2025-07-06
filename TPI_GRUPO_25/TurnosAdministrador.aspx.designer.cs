@@ -51,6 +51,15 @@ namespace TPI_GRUPO_25
         protected global::System.Web.UI.WebControls.TextBox txtIdTurno;
 
         /// <summary>
+        /// Control regexSoloNumeros1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexSoloNumeros1;
+
+        /// <summary>
         /// Control lblIDTurnoExistente.
         /// </summary>
         /// <remarks>
@@ -168,6 +177,15 @@ namespace TPI_GRUPO_25
         protected global::System.Web.UI.WebControls.TextBox txtFecha;
 
         /// <summary>
+        /// Control regexFechaNacimiento.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexFechaNacimiento;
+
+        /// <summary>
         /// Control RFVdia.
         /// </summary>
         /// <remarks>
@@ -193,6 +211,15 @@ namespace TPI_GRUPO_25
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtHora;
+
+        /// <summary>
+        /// Control regexDosNumeros.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexDosNumeros;
 
         /// <summary>
         /// Control lblErrorTurno.

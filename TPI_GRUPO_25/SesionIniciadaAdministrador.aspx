@@ -83,11 +83,6 @@
 
 <asp:Label runat="server" ID="lblBienvenida" Text="Bienvenido Administrador" CssClass="h2 text-center d-block mt-5 mb-3 text-dark"></asp:Label>
 
-
-              <div class="container mt-5 pt-5  d-flex justify-content-around ">
-        <asp:Label runat="server" ID="lbl" Text="Cantidad de médicos registrados:" CssClass="h3 text-dark"></asp:Label>
-         <asp:Label runat="server" ID="Label1" Text="Cantidad de pacientes registrados:" CssClass="h3 text-dark"></asp:Label>
-    </div>
         <div class="container mt-5 pt-5 d-flex justify-content-around text-center">
 
     <div>

@@ -80,7 +80,7 @@
     <br />
 <div class="container">
     <div class="row">
-        <asp:Label CssClass="fw-bold h3" runat="server" ID="lblMedicoCreado"></asp:Label>
+        <asp:Label CssClass="fw-bold h3 text-center" runat="server" ID="lblMedicoCreado"></asp:Label>
         <asp:Label runat="server" ID="lblBienvenida" Text="Bienvenido Administrador: Aquí se hace el Alta de Médicos" CssClass="h2 text-center d-block py-4 text-dark"></asp:Label>
 
         <!-- Fila 1: DNI y Nombre -->
@@ -125,6 +125,16 @@
         <asp:Label ID="lblFechaNacimiento" runat="server" Text="Fecha de Nacimiento:" CssClass="form-label fw-bold"></asp:Label>
         <asp:TextBox ID="txtFechaNacimiento" runat="server" CssClass="form-control" placeholder="Ingrese Fecha de Nacimiento..."></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Ingrese Fecha de Nacimiento" ForeColor="Red" ControlToValidate="txtFechaNacimiento" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+        <asp:RegularExpressionValidator 
+    ID="regexFechaNacimiento" 
+    runat="server" 
+    ControlToValidate="txtFechaNacimiento"
+    ValidationGroup="grupo1"
+    ErrorMessage="Ingrese una fecha válida en formato dd/mm/aaaa"
+    ForeColor="Red"
+    Display="Dynamic"
+    SetFocusOnError="true"
+    ValidationExpression="^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\d{4}$" />
     </div>
 </div>
 
@@ -163,6 +173,16 @@
         <asp:Label ID="lblCorreo" runat="server" Text="Correo Electrónico:" CssClass="form-label fw-bold"></asp:Label>
         <asp:TextBox ID="txtCorreo" runat="server" CssClass="form-control" placeholder="Ingrese Correo Electrónico..."></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="Ingrese Correo Electrónico" ForeColor="Red" ControlToValidate="txtCorreo" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator 
+ID="regexCorreo" 
+runat="server" 
+ControlToValidate="txtCorreo"
+ValidationGroup="grupo1"
+ErrorMessage="Ingrese un correo electrónico válido"
+ForeColor="Red"
+Display="Dynamic"
+SetFocusOnError="true"
+ValidationExpression="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" />
     </div>
 </div>
 
@@ -184,30 +204,22 @@
                         <!-- Fila 7: Horario y Especialidad -->
 <div class="row mb-3">
     <div class="col-md-6">
-        <asp:Label ID="lblHorario" runat="server" Text="Horario Atención:" CssClass="form-label fw-bold"></asp:Label>
-        <asp:DropDownList ID="ddlHorario" runat="server" CssClass="form-control">
-            <asp:ListItem Value="0">--Seleccionar--</asp:ListItem>
-            <asp:ListItem Value="Lunes a Viernes 8-12">Lunes a Viernes 8-12</asp:ListItem>
-            <asp:ListItem Value="Tarde 14-18">Tarde 14-18</asp:ListItem>
-            <asp:ListItem Value="Sábados 9-13">Sábados 9-13</asp:ListItem>
-        </asp:DropDownList>
-    </div>
-    <div class="col-md-6">
         <asp:Label ID="lblEspecialidad" runat="server" Text="Especialidad:" CssClass="form-label fw-bold"></asp:Label>
         <asp:DropDownList ID="ddlEspecialidad" runat="server" CssClass="form-control">
             <asp:ListItem Value="0">--Seleccionar--</asp:ListItem>
+
         </asp:DropDownList>
     </div>
-</div>
-
-<!-- Fila 8: Usuario y Contraseña -->
-<div class="row mb-3">
-    <div class="col-md-6">
+        <div class="col-md-6">
         <asp:Label ID="lblUsuario" runat="server" Text="Usuario:" CssClass="form-label fw-bold"></asp:Label>
         <asp:TextBox ID="txtUsuario" runat="server" CssClass="form-control" placeholder="Ingrese Usuario..."></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="Ingrese Usuario" ForeColor="Red" ControlToValidate="txtUsuario" Display="Dynamic" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
         <asp:Label ID="lblUsuarioExistente" runat="server"></asp:Label>
     </div>
+</div>
+
+<!-- Fila 8: Contraseña -->
+<div class="row mb-3 justify-content-center">
     <div class="col-md-6">
         <asp:Label ID="lblContraseña" runat="server" Text="Contraseña:" CssClass="form-label fw-bold"></asp:Label>
         <asp:TextBox ID="txtContraseña" runat="server" CssClass="form-control" TextMode="Password" placeholder="Ingrese Contraseña..."></asp:TextBox>

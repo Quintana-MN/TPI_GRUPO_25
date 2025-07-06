@@ -48,7 +48,7 @@ namespace TPI_GRUPO_25
         protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
         {
             int idProvincia = Convert.ToInt32(ddlProvincia.SelectedValue);
-            if (idProvincia > 0)
+            if (idProvincia > 0) 
                 CargarLocalidades(idProvincia);
             else
                 ddlLocalidad.Items.Clear();
@@ -68,8 +68,7 @@ namespace TPI_GRUPO_25
 
             bool dniExistente = negocio.verificarDNI(txtDNI.Text);
             bool legajoExistente = negocio.verificarLegajo(Convert.ToInt32(txtLegajo.Text));
-            bool usuarioExistente= negocio.verificarUsuario(txtUsuario.Text);
-
+            bool usuarioExistente = negocio.verificarUsuario(txtUsuario.Text);
 
             if (dniExistente)
             {
@@ -136,7 +135,20 @@ namespace TPI_GRUPO_25
 
                 lblMedicoCreado.Text = "¡Medico creado!";
             }
-
+            txtDNI.Text = "";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtNacionalidad.Text = "";
+            txtFechaNacimiento.Text = "";
+            txtDireccion.Text = "";
+            txtCorreo.Text = "";
+            txtTelefono.Text = "";
+            txtLegajo.Text = "";
+            txtUsuario.Text = "";
+            txtContraseña.Text = "";
+            ddlSexo.SelectedIndex = 0;
+            ddlEspecialidad.SelectedIndex = 0;
+            ddlProvincia.SelectedIndex = 0;
         }
     }
 }

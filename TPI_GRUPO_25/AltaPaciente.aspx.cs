@@ -47,6 +47,7 @@ namespace TPI_GRUPO_25
         }
         protected void CargarLocalidades(int idProvincia)
         {
+            //Cargar
             NegocioUsuario negocio = new NegocioUsuario();
             ddlLocalidad.DataSource = negocio.ObtenerLocalidadesPorProvincia(idProvincia);
             ddlLocalidad.DataTextField = "nombre_L";
